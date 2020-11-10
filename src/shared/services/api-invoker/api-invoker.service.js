@@ -1,9 +1,9 @@
-import { reactive } from "@vue";
+import { reactive } from "vue";
 import axios from "axios";
 
 import { API } from "@/shared/constants/api.constant";
 
-export default function useApiInvoker({ baseUrl, headers } = {}) {
+export const useApiInvoker = ({ baseUrl, headers } = {}) => {
   const state = reactive({
     cancelSource: null,
   });
@@ -50,4 +50,4 @@ export default function useApiInvoker({ baseUrl, headers } = {}) {
   );
 
   return { apiInvoker };
-}
+};
