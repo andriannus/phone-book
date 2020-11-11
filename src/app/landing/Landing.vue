@@ -188,7 +188,7 @@ export default {
           const sortedUsers = sortUsers(colorfuledUsers);
           const options = {
             limit: 10,
-            page,
+            page: parseInt(page),
             total: results.length,
           };
 
