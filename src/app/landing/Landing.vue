@@ -23,6 +23,7 @@ import { useRoute, useRouter } from "vue-router";
 import { QUERY_PARAMS } from "./shared/constants/landing.constant";
 import LandingDesktop from "./shared/components/landing-desktop/LandingDesktop.vue";
 import LandingMobile from "./shared/components/landing-mobile/LandingMobile.vue";
+import { useSortUsers } from "./shared/services/sort-users.hook";
 
 import QoaTopBar from "@/shared/components/qoa-top-bar/QoaTopBar";
 import { QOA_USERS } from "@/shared/constants/storage.constant";
@@ -88,53 +89,16 @@ export default {
       });
     };
 
-    const sortUsers = users => {
-      let sortedUsers = [...users];
-      const { sortBy = "" } = queryParamsRef.value;
-
-      if (sortBy === "color") {
-        const greenUsers = sortedUsers.filter(user => {
-          return user.color === "green";
-        });
-
-        const blueUsers = sortedUsers.filter(user => {
-          return user.color === "blue";
-        });
-
-        const redUsers = sortedUsers.filter(user => {
-          return user.color === "red";
-        });
-
-        return [...greenUsers, ...blueUsers, ...redUsers];
-      }
-
-      if (sortBy === "cities") {
-        sortedUsers.sort((a, b) => {
-          const cityA = a.location.city.toUpperCase();
-          const cityB = b.location.city.toUpperCase();
-
-          if (cityA < cityB) {
-            return -1;
-          }
-
-          if (cityA > cityB) {
-            return 1;
-          }
-
-          return 0;
-        });
-      }
-
-      return sortedUsers;
-    };
-
     const fetchPaginatedUsers = page => {
       apiInvoker
         .get(QUERY_PARAMS)
         .then(res => {
           const { results } = res.data;
           const colorfuledUsers = colorfulUsers(results);
-          const sortedUsers = sortUsers(colorfuledUsers);
+          const sortedUsers = useSortUsers(
+            colorfuledUsers,
+            queryParamsRef.value.sortBy,
+          );
           const options = {
             limit: 10,
             page: parseInt(page),
@@ -153,7 +117,10 @@ export default {
     const getPaginatedUsers = page => {
       const results = ls.get(QOA_USERS);
       const colorfuledUsers = colorfulUsers(results);
-      const sortedUsers = sortUsers(colorfuledUsers);
+      const sortedUsers = useSortUsers(
+        colorfuledUsers,
+        queryParamsRef.value.sortBy,
+      );
       const options = {
         limit: 10,
         page: parseInt(page),
