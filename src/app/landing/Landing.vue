@@ -1,5 +1,5 @@
 <template>
-  <qoa-top-bar></qoa-top-bar>
+  <qoa-top-bar @sorted="handleSort"></qoa-top-bar>
 
   <div v-if="isReady" class="Landing Container">
     <qoa-card
@@ -25,7 +25,8 @@
 </template>
 
 <script>
-import { onMounted, ref } from "vue";
+import { computed, onMounted, ref, watchEffect } from "vue";
+import { useRoute, useRouter } from "vue-router";
 
 import { QUERY_PARAMS } from "./shared/constants/landing.constant";
 
@@ -47,13 +48,12 @@ export default {
   setup() {
     const { apiInvoker } = useApiInvoker();
     const ls = useLocalStorage();
+    const route = useRoute();
+    const router = useRouter();
+    const queryParamsRef = computed(() => route.query);
 
     const isReady = ref(false);
     const paginatedUsers = ref({});
-    const isSort = ref({
-      color: false,
-      cities: false,
-    });
 
     onMounted(() => {
       paginateUsers();
@@ -67,14 +67,34 @@ export default {
       fetchPaginatedUsers(page);
     };
 
+    const handleSort = sortBy => {
+      router.push({
+        query: { sortBy },
+      });
+    };
+
     const sortUsers = users => {
       let sortedUsers = [...users];
+      const { sortBy = "" } = queryParamsRef.value;
+      console.log(sortBy);
 
-      if (isSort.value.color) {
-        //
+      if (sortBy === "color") {
+        const greenUsers = sortedUsers.filter(user => {
+          return user.color === "green";
+        });
+
+        const blueUsers = sortedUsers.filter(user => {
+          return user.color === "blue";
+        });
+
+        const redUsers = sortedUsers.filter(user => {
+          return user.color === "red";
+        });
+
+        return [...greenUsers, ...blueUsers, ...redUsers];
       }
 
-      if (isSort.value.cities) {
+      if (sortBy === "cities") {
         sortedUsers.sort((a, b) => {
           const cityA = a.location.city.toUpperCase();
           const cityB = b.location.city.toUpperCase();
@@ -179,10 +199,15 @@ export default {
       return `${className} BgColor-secondary`;
     };
 
+    watchEffect(() => {
+      paginateUsers();
+    });
+
     return {
       getAddress,
       getCardClassName,
       getFullName,
+      handleSort,
       isReady,
       paginateUsers,
       paginatedUsers,

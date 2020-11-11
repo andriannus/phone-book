@@ -8,13 +8,21 @@
 
     <div class="TopBar-actions">
       <div class="TopBar-action">
-        <button class="Button Button--primary" type="button">
+        <button
+          class="Button Button--primary"
+          type="button"
+          @click="sortUser('color')"
+        >
           Color
         </button>
       </div>
 
       <div class="TopBar-action">
-        <button class="Button Button--primary Button--outlined" type="button">
+        <button
+          class="Button Button--primary Button--outlined"
+          type="button"
+          @click="sortUser('cities')"
+        >
           Cities
         </button>
       </div>
@@ -25,5 +33,13 @@
 <script>
 export default {
   name: "QoaTopBar",
+
+  setup(_, { emit }) {
+    const sortUser = value => {
+      emit("sorted", value);
+    };
+
+    return { sortUser };
+  },
 };
 </script>
