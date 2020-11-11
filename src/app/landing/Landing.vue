@@ -2,24 +2,7 @@
   <qoa-top-bar @sorted="handleSort"></qoa-top-bar>
 
   <div v-if="isReady" class="Landing Container" @scroll="handleScroll">
-    <template v-if="!isMobile">
-      <qoa-card
-        v-for="(user, index) in paginatedUsers.data"
-        :key="index"
-        :className="getCardClassName(user.color)"
-      >
-        <div class="Landing-image TextAlign-center">
-          <img :src="user.picture.thumbnail" alt="Picture" />
-        </div>
-
-        <p>{{ getFullName(user.name) }}</p>
-        <p>{{ user.dob.age }} tahun</p>
-        <p>{{ getAddress(user.location) }}</p>
-        <p>{{ user.email }}</p>
-      </qoa-card>
-    </template>
-
-    <template v-else>
+    <template v-if="isMobile">
       <qoa-card
         v-for="(user, index) in paginatedUsers.data"
         :key="index"
@@ -41,15 +24,22 @@
       </qoa-card>
     </template>
 
-    <button
-      v-if="paginatedUsers.meta.nextPage"
-      id="BtnLoadMore"
-      class="Button Button--primary"
-      type="button"
-      @click="paginateUsers(paginatedUsers.meta.nextPage)"
-    >
-      Load More
-    </button>
+    <template v-else>
+      <qoa-card
+        v-for="(user, index) in paginatedUsers.data"
+        :key="index"
+        :className="getCardClassName(user.color)"
+      >
+        <div class="Landing-image TextAlign-center">
+          <img :src="user.picture.thumbnail" alt="Picture" />
+        </div>
+
+        <p>{{ getFullName(user.name) }}</p>
+        <p>{{ user.dob.age }} tahun</p>
+        <p>{{ getAddress(user.location) }}</p>
+        <p>{{ user.email }}</p>
+      </qoa-card>
+    </template>
   </div>
 </template>
 
@@ -87,6 +77,7 @@ export default {
 
     onMounted(() => {
       window.addEventListener("resize", onResize);
+      window.addEventListener("scroll", handleScrollDesktop);
     });
 
     const onResize = () => {
@@ -96,17 +87,27 @@ export default {
     const isReady = ref(false);
     const paginatedUsers = ref({});
 
+    const handleScrollDesktop = () => {
+      if (!isReady.value) return;
+      if (!paginatedUsers.value.meta.nextPage) return;
+
+      const element = document.getElementById("app");
+      const bottomOfPage = element.scrollHeight - window.screen.height - 100;
+
+      if (document.documentElement.scrollTop >= bottomOfPage) {
+        paginateUsers(paginatedUsers.value.meta.nextPage);
+      }
+    };
+
     const handleScroll = () => {
       if (!isReady.value) return;
       if (!paginatedUsers.value.meta.nextPage) return;
 
-      const { left } = document
-        .getElementById("BtnLoadMore")
-        .getBoundingClientRect();
+      const element = document.querySelector(".Landing");
+      const rightOfPage = element.scrollWidth - element.clientWidth - 100;
 
-      if (left <= document.body.offsetWidth) {
-        console.log("RUN BOOY");
-        // paginateUsers(paginatedUsers.value.meta.nextPage);
+      if (element.scrollLeft >= rightOfPage) {
+        paginateUsers(paginatedUsers.value.meta.nextPage);
       }
     };
 
@@ -286,6 +287,7 @@ export default {
   margin-top: 1rem;
 
   @include amb-responsive-media("xs") {
+    margin-bottom: 1rem;
     display: flex;
     flex-direction: column;
 
@@ -297,6 +299,7 @@ export default {
   }
 
   @include amb-responsive-media("md") {
+    margin-bottom: 0;
     display: flex;
     min-height: calc(100vh - 56px - 1rem);
     flex-direction: row;
