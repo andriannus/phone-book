@@ -20,17 +20,17 @@
 import { computed, ref, onMounted, onUnmounted, watchEffect } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
-import { QUERY_PARAMS } from "./shared/constants/landing.constant";
 import LandingDesktop from "./shared/components/landing-desktop/LandingDesktop.vue";
 import LandingMobile from "./shared/components/landing-mobile/LandingMobile.vue";
+import { QUERY_PARAMS } from "./shared/constants/landing.constant";
 import { useColorfulUsers } from "./shared/services/colorful-users.hook";
+import { usePaginateUsers } from "./shared/services/paginate-users.hook";
 import { useSortUsers } from "./shared/services/sort-users.hook";
 
 import QoaTopBar from "@/shared/components/qoa-top-bar/QoaTopBar";
 import { QOA_USERS } from "@/shared/constants/storage.constant";
 import { useApiInvoker } from "@/shared/services/api-invoker";
 import { useLocalStorage } from "@/shared/services/local-storage";
-import { paginate } from "@/shared/utils/pagination";
 
 export default {
   name: "Landing",
@@ -49,9 +49,10 @@ export default {
 
     const clientWidth = ref(document.body.clientWidth);
     const isReady = ref(false);
+    const isFirstMounted = ref(false);
     const paginatedUsers = ref({});
 
-    const queryParamsRef = computed(() => route.query);
+    const queryRef = computed(() => route.query);
     const isMobile = computed(() => clientWidth.value < 768);
 
     onMounted(() => {
@@ -67,73 +68,68 @@ export default {
     };
 
     const paginateUsers = (page = 1) => {
-      router.push({
-        query: {
-          ...route.query,
-          page,
-        },
-      });
+      navigate({ page });
 
       if (ls.isExist(QOA_USERS)) {
-        return getPaginatedUsers(page);
+        return getPaginatedUsers();
       }
 
-      fetchPaginatedUsers(page);
+      fetchPaginatedUsers();
     };
 
     const handleSort = sortBy => {
+      navigate({ sortBy });
+    };
+
+    const navigate = query => {
       router.push({
         query: {
           ...route.query,
-          sortBy,
+          ...query,
         },
       });
     };
 
-    const fetchPaginatedUsers = page => {
+    const transformRandomUsers = users => {
+      const { page = 1, sortBy = "" } = queryRef.value;
+
+      const colorfuledUsers = useColorfulUsers(users);
+      const sortedUsers = useSortUsers(colorfuledUsers, sortBy);
+      const paginatedUsers = usePaginateUsers(sortedUsers, page);
+
+      return paginatedUsers;
+    };
+
+    const fetchPaginatedUsers = () => {
       apiInvoker
         .get(QUERY_PARAMS)
         .then(res => {
           const { results } = res.data;
-          const colorfuledUsers = useColorfulUsers(results);
-          const sortedUsers = useSortUsers(
-            colorfuledUsers,
-            queryParamsRef.value.sortBy,
-          );
-          const options = {
-            limit: 10,
-            page: parseInt(page),
-            total: results.length,
-          };
 
-          ls.set(QOA_USERS, colorfuledUsers);
-          paginatedUsers.value = paginate(sortedUsers, options);
+          paginatedUsers.value = transformRandomUsers(results);
           isReady.value = true;
+
+          ls.set(QOA_USERS, results);
         })
         .catch(() => {
           console.log("Something wrong.");
         });
     };
 
-    const getPaginatedUsers = page => {
+    const getPaginatedUsers = () => {
       const results = ls.get(QOA_USERS);
-      const colorfuledUsers = useColorfulUsers(results);
-      const sortedUsers = useSortUsers(
-        colorfuledUsers,
-        queryParamsRef.value.sortBy,
-      );
-      const options = {
-        limit: 10,
-        page: parseInt(page),
-        total: results.length,
-      };
 
-      paginatedUsers.value = paginate(sortedUsers, options);
+      paginatedUsers.value = transformRandomUsers(results);
       isReady.value = true;
     };
 
     watchEffect(() => {
-      const { page = 1 } = queryParamsRef.value;
+      const { page = 1 } = queryRef.value;
+
+      if (!isFirstMounted.value) {
+        isFirstMounted.value = true;
+      }
+
       paginateUsers(page);
     });
 
