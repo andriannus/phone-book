@@ -1,7 +1,7 @@
 <template>
   <qoa-top-bar @sorted="handleSort"></qoa-top-bar>
 
-  <div v-if="isReady" class="Landing Container">
+  <div v-if="isReady" class="Landing Container" @scroll="handleScroll">
     <qoa-card
       v-for="(user, index) in paginatedUsers.data"
       :key="index"
@@ -19,6 +19,7 @@
 
     <button
       v-if="paginatedUsers.meta.nextPage"
+      id="BtnLoadMore"
       class="Button Button--primary"
       type="button"
       @click="paginateUsers(paginatedUsers.meta.nextPage)"
@@ -58,6 +59,20 @@ export default {
 
     const isReady = ref(false);
     const paginatedUsers = ref({});
+
+    const handleScroll = () => {
+      if (!isReady.value) return;
+      if (!paginatedUsers.value.meta.nextPage) return;
+
+      const { left } = document
+        .getElementById("BtnLoadMore")
+        .getBoundingClientRect();
+
+      if (left <= document.body.offsetWidth) {
+        // console.log("Scroll :", scrollLeft);
+        paginateUsers(paginatedUsers.value.meta.nextPage);
+      }
+    };
 
     const paginateUsers = (page = 1) => {
       router.push({
@@ -220,6 +235,7 @@ export default {
       handleSort,
       isReady,
       paginateUsers,
+      handleScroll,
       paginatedUsers,
     };
   },
