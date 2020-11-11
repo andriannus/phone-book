@@ -8,13 +8,14 @@
       :className="getCardClassName(user.color)"
     >
       <p>{{ getFullName(user.name) }}</p>
+      <p>{{ user.dob.age }} tahun</p>
       <p>{{ getAddress(user.location) }}</p>
       <p>{{ user.email }}</p>
     </qoa-card>
 
     <button
+      v-if="paginatedUsers.meta.nextPage"
       class="Button Button--primary"
-      :disabled="!paginatedUsers.meta.nextPage"
       type="button"
       @click="paginateUsers(paginatedUsers.meta.nextPage)"
     >
