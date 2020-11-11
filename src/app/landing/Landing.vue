@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { computed, onMounted, ref, watchEffect } from "vue";
+import { computed, ref, watchEffect } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
 import { QUERY_PARAMS } from "./shared/constants/landing.constant";
@@ -55,11 +55,14 @@ export default {
     const isReady = ref(false);
     const paginatedUsers = ref({});
 
-    onMounted(() => {
-      paginateUsers();
-    });
-
     const paginateUsers = (page = 1) => {
+      router.push({
+        query: {
+          ...route.query,
+          page,
+        },
+      });
+
       if (ls.isExist(QOA_USERS)) {
         return getPaginatedUsers(page);
       }
@@ -69,14 +72,16 @@ export default {
 
     const handleSort = sortBy => {
       router.push({
-        query: { sortBy },
+        query: {
+          ...route.query,
+          sortBy,
+        },
       });
     };
 
     const sortUsers = users => {
       let sortedUsers = [...users];
       const { sortBy = "" } = queryParamsRef.value;
-      console.log(sortBy);
 
       if (sortBy === "color") {
         const greenUsers = sortedUsers.filter(user => {
@@ -142,7 +147,7 @@ export default {
       const sortedUsers = sortUsers(colorfuledUsers);
       const options = {
         limit: 10,
-        page,
+        page: parseInt(page),
         total: results.length,
       };
 
@@ -200,7 +205,8 @@ export default {
     };
 
     watchEffect(() => {
-      paginateUsers();
+      const { page = 1 } = queryParamsRef.value;
+      paginateUsers(page);
     });
 
     return {
