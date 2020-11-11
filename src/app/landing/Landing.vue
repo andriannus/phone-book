@@ -7,6 +7,10 @@
       :key="index"
       :className="getCardClassName(user.color)"
     >
+      <div class="TextAlign-center">
+        <img :src="user.picture.thumbnail" alt="Picture" />
+      </div>
+
       <p>{{ getFullName(user.name) }}</p>
       <p>{{ user.dob.age }} tahun</p>
       <p>{{ getAddress(user.location) }}</p>
@@ -232,6 +236,10 @@ export default {
   &-card {
     min-width: 350px;
     height: 100%;
+
+    *:not(:last-child) {
+      margin-bottom: 1rem;
+    }
 
     &:not(:last-child) {
       margin-right: 1rem;
