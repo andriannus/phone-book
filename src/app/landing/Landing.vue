@@ -23,6 +23,7 @@ import { useRoute, useRouter } from "vue-router";
 import { QUERY_PARAMS } from "./shared/constants/landing.constant";
 import LandingDesktop from "./shared/components/landing-desktop/LandingDesktop.vue";
 import LandingMobile from "./shared/components/landing-mobile/LandingMobile.vue";
+import { useColorfulUsers } from "./shared/services/colorful-users.hook";
 import { useSortUsers } from "./shared/services/sort-users.hook";
 
 import QoaTopBar from "@/shared/components/qoa-top-bar/QoaTopBar";
@@ -94,7 +95,7 @@ export default {
         .get(QUERY_PARAMS)
         .then(res => {
           const { results } = res.data;
-          const colorfuledUsers = colorfulUsers(results);
+          const colorfuledUsers = useColorfulUsers(results);
           const sortedUsers = useSortUsers(
             colorfuledUsers,
             queryParamsRef.value.sortBy,
@@ -116,7 +117,7 @@ export default {
 
     const getPaginatedUsers = page => {
       const results = ls.get(QOA_USERS);
-      const colorfuledUsers = colorfulUsers(results);
+      const colorfuledUsers = useColorfulUsers(results);
       const sortedUsers = useSortUsers(
         colorfuledUsers,
         queryParamsRef.value.sortBy,
@@ -129,30 +130,6 @@ export default {
 
       paginatedUsers.value = paginate(sortedUsers, options);
       isReady.value = true;
-    };
-
-    const colorfulUsers = users => {
-      const colorfuledUsers = users.map(user => {
-        switch (true) {
-          case user.dob.age < 21:
-            return {
-              ...user,
-              color: "red",
-            };
-          case user.dob.age >= 21 && user.dob.age <= 56:
-            return {
-              ...user,
-              color: "green",
-            };
-          case user.dob.age > 56:
-            return {
-              ...user,
-              color: "blue",
-            };
-        }
-      });
-
-      return colorfuledUsers;
     };
 
     watchEffect(() => {
