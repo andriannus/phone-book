@@ -9,13 +9,13 @@
         :className="getCardClassName(user.color)"
       >
         <div class="Flex MarginBottom-base">
-          <div class="MarginRight-base">
+          <div class="Landing-image MarginRight-base">
             <img :src="user.picture.thumbnail" alt="Picture" />
           </div>
 
           <div>
-            <p>{{ getFullName(user.name) }}</p>
-            <p>{{ user.dob.age }} tahun</p>
+            <p class="MarginBottom-xsmall">{{ getFullName(user.name) }}</p>
+            <p class="MarginBottom-xsmall">{{ user.dob.age }} years old</p>
             <p>{{ user.email }}</p>
           </div>
         </div>
@@ -25,20 +25,24 @@
     </template>
 
     <template v-else>
-      <qoa-card
+      <div
         v-for="(user, index) in paginatedUsers.data"
         :key="index"
-        :className="getCardClassName(user.color)"
+        class="Landing-column"
       >
-        <div class="Landing-image TextAlign-center">
-          <img :src="user.picture.thumbnail" alt="Picture" />
-        </div>
+        <qoa-card :className="getCardClassName(user.color)">
+          <div class="Landing-image TextAlign-center">
+            <img :src="user.picture.thumbnail" alt="Picture" />
+          </div>
 
-        <p>{{ getFullName(user.name) }}</p>
-        <p>{{ user.dob.age }} tahun</p>
-        <p>{{ getAddress(user.location) }}</p>
-        <p>{{ user.email }}</p>
-      </qoa-card>
+          <p>
+            <strong>{{ getFullName(user.name) }}</strong>
+          </p>
+          <p>{{ user.dob.age }} years old</p>
+          <p>{{ getAddress(user.location) }}</p>
+          <p>{{ user.email }}</p>
+        </qoa-card>
+      </div>
     </template>
   </div>
 </template>
@@ -286,12 +290,22 @@ export default {
 .Landing {
   margin-top: 1rem;
 
+  &-image {
+    img {
+      border-radius: 50%;
+    }
+  }
+
   @include amb-responsive-media("xs") {
     margin-bottom: 1rem;
     display: flex;
     flex-direction: column;
 
     &-card {
+      p {
+        line-height: 1rem;
+      }
+
       &:not(:last-child) {
         margin-bottom: 1rem;
       }
@@ -300,14 +314,25 @@ export default {
 
   @include amb-responsive-media("md") {
     margin-bottom: 0;
+    padding-bottom: 1rem;
     display: flex;
     min-height: calc(100vh - 56px - 1rem);
     flex-direction: row;
     overflow-x: auto;
 
+    &-column {
+      padding: 1rem;
+      background-color: whitesmoke;
+      border-radius: 0.5rem;
+
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+    }
+
     &-card {
       min-width: 350px;
-      height: 100%;
+      height: auto;
 
       *:not(:last-child) {
         margin-bottom: 1rem;
@@ -317,6 +342,20 @@ export default {
         margin-right: 1rem;
       }
     }
+  }
+}
+
+::-webkit-scrollbar {
+  background-color: #f5f5f5;
+
+  &-thumb {
+    background-color: #000000;
+    border: 2px solid #555555;
+  }
+
+  &-track {
+    background-color: #f5f5f5;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   }
 }
 </style>

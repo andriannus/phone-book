@@ -1,5 +1,8 @@
 <template>
-  <div :class="{ [props.className]: hasClassName }" class="Card">
+  <div
+    :class="{ [props.className]: hasClassName }"
+    class="Card Card--borderless Card--elevated"
+  >
     <div class="Card-body">
       <slot></slot>
     </div>
