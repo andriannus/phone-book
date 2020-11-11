@@ -23,10 +23,13 @@
 </template>
 
 <script>
-import { onMounted, onUnmounted } from "vue";
+import { onMounted, onUnmounted, reactive } from "vue";
 
 import QoaCard from "@/shared/components/qoa-card/QoaCard";
+import { QOA_POSITION_Y } from "@/shared/constants/storage.constant";
+import { useLocalStorage } from "@/shared/services/local-storage";
 import { transformAddress, transformFullName } from "@/shared/utils/transform";
+import { debounce } from "@/shared/utils/debounce";
 
 export default {
   name: "LandingMobile",
@@ -45,31 +48,47 @@ export default {
   },
 
   setup(props, { emit }) {
+    const ls = useLocalStorage();
+
+    const state = reactive({
+      container: null,
+      scrollTop: 0,
+    });
+
     onMounted(() => {
+      state.container = document.querySelector(".Landing");
       window.addEventListener("scroll", onVerticalScroll);
+      scrollToLastPosition();
     });
 
     onUnmounted(() => {
       window.removeEventListener("scroll", onVerticalScroll);
     });
 
-    const isStillScrollable = () => {
-      const container = document.querySelector(".Landing");
-      const { body, documentElement } = document;
-      const bottomOfPage = container.scrollHeight - window.screen.height - 100;
-
-      return (
-        documentElement.scrollTop >= bottomOfPage ||
-        body.scrollTop >= bottomOfPage
-      );
+    const scrollToLastPosition = () => {
+      state.container.scrollTo({
+        top: ls.get(QOA_POSITION_Y),
+      });
     };
 
-    const onVerticalScroll = () => {
+    const isStillScrollable = () => {
+      const bottomOfPage =
+        state.container.scrollHeight - window.screen.height - 100;
+
+      return state.scrollTop >= bottomOfPage;
+    };
+
+    const onVerticalScroll = debounce(() => {
+      const { body, documentElement } = document;
+      state.scrollTop = body.scrollTop || documentElement.scrollTop;
+
+      ls.set(QOA_POSITION_Y, state.scrollTop);
+
       if (!props.paginatedUsers.meta.nextPage) return;
       if (!isStillScrollable()) return;
 
       emit("updated", props.paginatedUsers.meta.nextPage);
-    };
+    }, 250);
 
     const fullName = name => {
       return transformFullName(name);
