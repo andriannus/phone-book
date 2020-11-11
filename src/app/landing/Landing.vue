@@ -49,6 +49,10 @@ export default {
 
     const isReady = ref(false);
     const paginatedUsers = ref({});
+    const isSort = ref({
+      color: false,
+      cities: false,
+    });
 
     onMounted(() => {
       paginateUsers();
@@ -62,20 +66,48 @@ export default {
       fetchPaginatedUsers(page);
     };
 
+    const sortUsers = users => {
+      let sortedUsers = [...users];
+
+      if (isSort.value.color) {
+        //
+      }
+
+      if (isSort.value.cities) {
+        sortedUsers.sort((a, b) => {
+          const cityA = a.location.city.toUpperCase();
+          const cityB = b.location.city.toUpperCase();
+
+          if (cityA < cityB) {
+            return -1;
+          }
+
+          if (cityA > cityB) {
+            return 1;
+          }
+
+          return 0;
+        });
+      }
+
+      return sortedUsers;
+    };
+
     const fetchPaginatedUsers = page => {
       apiInvoker
         .get(QUERY_PARAMS)
         .then(res => {
           const { results } = res.data;
           const colorfuledUsers = colorfulUsers(results);
+          const sortedUsers = sortUsers(colorfuledUsers);
           const options = {
             limit: 10,
             page,
             total: results.length,
           };
 
-          ls.set(QOA_USERS, results);
-          paginatedUsers.value = paginate(colorfuledUsers, options);
+          ls.set(QOA_USERS, colorfuledUsers);
+          paginatedUsers.value = paginate(sortedUsers, options);
           isReady.value = true;
         })
         .catch(() => {
@@ -86,13 +118,14 @@ export default {
     const getPaginatedUsers = page => {
       const results = ls.get(QOA_USERS);
       const colorfuledUsers = colorfulUsers(results);
+      const sortedUsers = sortUsers(colorfuledUsers);
       const options = {
         limit: 10,
         page,
         total: results.length,
       };
 
-      paginatedUsers.value = paginate(colorfuledUsers, options);
+      paginatedUsers.value = paginate(sortedUsers, options);
       isReady.value = true;
     };
 
