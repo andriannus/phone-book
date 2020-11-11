@@ -1,50 +1,19 @@
 <template>
   <qoa-top-bar @sorted="handleSort"></qoa-top-bar>
 
-  <div v-if="isReady" class="Landing Container" @scroll="handleScroll">
-    <template v-if="isMobile">
-      <qoa-card
-        v-for="(user, index) in paginatedUsers.data"
-        :key="index"
-        :className="getCardClassName(user.color)"
-      >
-        <div class="Flex MarginBottom-base">
-          <div class="Landing-image MarginRight-base">
-            <img :src="user.picture.thumbnail" alt="Picture" />
-          </div>
+  <template v-if="isReady">
+    <landing-mobile
+      v-if="isMobile"
+      :paginatedUsers="paginatedUsers"
+      @updated="paginateUsers"
+    ></landing-mobile>
 
-          <div>
-            <p class="MarginBottom-xsmall">{{ getFullName(user.name) }}</p>
-            <p class="MarginBottom-xsmall">{{ user.dob.age }} years old</p>
-            <p>{{ user.email }}</p>
-          </div>
-        </div>
-
-        <p>{{ getAddress(user.location) }}</p>
-      </qoa-card>
-    </template>
-
-    <template v-else>
-      <div
-        v-for="(user, index) in paginatedUsers.data"
-        :key="index"
-        class="Landing-column"
-      >
-        <qoa-card :className="getCardClassName(user.color)">
-          <div class="Landing-image TextAlign-center">
-            <img :src="user.picture.thumbnail" alt="Picture" />
-          </div>
-
-          <p>
-            <strong>{{ getFullName(user.name) }}</strong>
-          </p>
-          <p>{{ user.dob.age }} years old</p>
-          <p>{{ getAddress(user.location) }}</p>
-          <p>{{ user.email }}</p>
-        </qoa-card>
-      </div>
-    </template>
-  </div>
+    <landing-desktop
+      v-else
+      :paginatedUsers="paginatedUsers"
+      @updated="paginateUsers"
+    ></landing-desktop>
+  </template>
 </template>
 
 <script>
@@ -52,8 +21,9 @@ import { computed, ref, onMounted, onUnmounted, watchEffect } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
 import { QUERY_PARAMS } from "./shared/constants/landing.constant";
+import LandingDesktop from "./shared/components/landing-desktop/LandingDesktop.vue";
+import LandingMobile from "./shared/components/landing-mobile/LandingMobile.vue";
 
-import QoaCard from "@/shared/components/qoa-card/QoaCard";
 import QoaTopBar from "@/shared/components/qoa-top-bar/QoaTopBar";
 import { QOA_USERS } from "@/shared/constants/storage.constant";
 import { useApiInvoker } from "@/shared/services/api-invoker";
@@ -64,7 +34,8 @@ export default {
   name: "Landing",
 
   components: {
-    QoaCard,
+    LandingDesktop,
+    LandingMobile,
     QoaTopBar,
   },
 
@@ -75,50 +46,22 @@ export default {
     const router = useRouter();
 
     const clientWidth = ref(document.body.clientWidth);
+    const isReady = ref(false);
+    const paginatedUsers = ref({});
+
     const queryParamsRef = computed(() => route.query);
-    const isMobile = computed(() => {
-      return clientWidth.value < 768;
-    });
+    const isMobile = computed(() => clientWidth.value < 768);
 
     onMounted(() => {
       window.addEventListener("resize", onResize);
-      window.addEventListener("scroll", handleScrollDesktop);
     });
 
     onUnmounted(() => {
       window.removeEventListener("resize", onResize);
-      window.removeEventListener("scroll", handleScrollDesktop);
     });
 
     const onResize = () => {
       clientWidth.value = document.body.clientWidth;
-    };
-
-    const isReady = ref(false);
-    const paginatedUsers = ref({});
-
-    const handleScrollDesktop = () => {
-      if (!isReady.value) return;
-      if (!paginatedUsers.value.meta.nextPage) return;
-
-      const element = document.getElementById("app");
-      const bottomOfPage = element.scrollHeight - window.screen.height - 100;
-
-      if (document.documentElement.scrollTop >= bottomOfPage) {
-        paginateUsers(paginatedUsers.value.meta.nextPage);
-      }
-    };
-
-    const handleScroll = () => {
-      if (!isReady.value) return;
-      if (!paginatedUsers.value.meta.nextPage) return;
-
-      const element = document.querySelector(".Landing");
-      const rightOfPage = element.scrollWidth - element.clientWidth - 100;
-
-      if (element.scrollLeft >= rightOfPage) {
-        paginateUsers(paginatedUsers.value.meta.nextPage);
-      }
     };
 
     const paginateUsers = (page = 1) => {
@@ -245,123 +188,18 @@ export default {
       return colorfuledUsers;
     };
 
-    const getFullName = name => {
-      const { first, last, title } = name;
-      return `${title} ${first} ${last}`;
-    };
-
-    const getAddress = location => {
-      const { city, postcode, state } = location;
-
-      return `${city}, ${state}, ${postcode}`;
-    };
-
-    const getCardClassName = color => {
-      let className = "Landing-card";
-
-      if (color === "red") {
-        return `${className} BgColor-danger`;
-      }
-
-      if (color === "green") {
-        return `${className} BgColor-primary`;
-      }
-
-      return `${className} BgColor-secondary`;
-    };
-
     watchEffect(() => {
       const { page = 1 } = queryParamsRef.value;
       paginateUsers(page);
     });
 
     return {
-      getAddress,
-      getCardClassName,
-      getFullName,
       handleSort,
       isReady,
       paginateUsers,
-      handleScroll,
       paginatedUsers,
       isMobile,
     };
   },
 };
 </script>
-
-<style lang="scss" scoped>
-@import "@amar-ui-web/responsive/scss/mixins";
-
-.Landing {
-  margin-top: 1rem;
-
-  &-image {
-    img {
-      border-radius: 50%;
-    }
-  }
-
-  @include amb-responsive-media("xs") {
-    margin-bottom: 1rem;
-    display: flex;
-    flex-direction: column;
-
-    &-card {
-      p {
-        line-height: 1rem;
-      }
-
-      &:not(:last-child) {
-        margin-bottom: 1rem;
-      }
-    }
-  }
-
-  @include amb-responsive-media("md") {
-    margin-bottom: 0;
-    padding-bottom: 1rem;
-    display: flex;
-    min-height: calc(100vh - 56px - 1rem);
-    flex-direction: row;
-    overflow-x: auto;
-
-    &-column {
-      padding: 1rem;
-      background-color: whitesmoke;
-      border-radius: 0.5rem;
-
-      &:not(:last-child) {
-        margin-right: 1rem;
-      }
-    }
-
-    &-card {
-      min-width: 350px;
-      height: auto;
-
-      *:not(:last-child) {
-        margin-bottom: 1rem;
-      }
-
-      &:not(:last-child) {
-        margin-right: 1rem;
-      }
-    }
-  }
-}
-
-::-webkit-scrollbar {
-  background-color: #f5f5f5;
-
-  &-thumb {
-    background-color: #000000;
-    border: 2px solid #555555;
-  }
-
-  &-track {
-    background-color: #f5f5f5;
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  }
-}
-</style>
