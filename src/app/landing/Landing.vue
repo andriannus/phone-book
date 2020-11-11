@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import { computed, ref, onMounted, watchEffect } from "vue";
+import { computed, ref, onMounted, onUnmounted, watchEffect } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
 import { QUERY_PARAMS } from "./shared/constants/landing.constant";
@@ -73,8 +73,9 @@ export default {
     const ls = useLocalStorage();
     const route = useRoute();
     const router = useRouter();
-    const queryParamsRef = computed(() => route.query);
+
     const clientWidth = ref(document.body.clientWidth);
+    const queryParamsRef = computed(() => route.query);
     const isMobile = computed(() => {
       return clientWidth.value < 768;
     });
@@ -82,6 +83,11 @@ export default {
     onMounted(() => {
       window.addEventListener("resize", onResize);
       window.addEventListener("scroll", handleScrollDesktop);
+    });
+
+    onUnmounted(() => {
+      window.removeEventListener("resize", onResize);
+      window.removeEventListener("scroll", handleScrollDesktop);
     });
 
     const onResize = () => {
