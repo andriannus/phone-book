@@ -22,10 +22,13 @@
 </template>
 
 <script>
-import { onMounted } from "vue";
+import { onMounted, reactive } from "vue";
 
 import QoaCard from "@/shared/components/qoa-card/QoaCard";
+import { QOA_POSITION_X } from "@/shared/constants/storage.constant";
+import { useLocalStorage } from "@/shared/services/local-storage";
 import { transformAddress, transformFullName } from "@/shared/utils/transform";
+import { debounce } from "@/shared/utils/debounce";
 
 export default {
   name: "LandingDesktop",
@@ -44,24 +47,38 @@ export default {
   },
 
   setup(props, { emit }) {
-    onMounted(() => {
-      //
+    const ls = useLocalStorage();
+
+    const state = reactive({
+      container: null,
     });
 
-    const isStillScrollable = () => {
-      const container = document.querySelector(".Landing");
-      const rightOfPage = container.scrollWidth - container.clientWidth - 100;
+    onMounted(() => {
+      state.container = document.querySelector(".Landing");
+      scrollToLastPosition();
+    });
 
-      return container.scrollLeft >= rightOfPage;
+    const scrollToLastPosition = () => {
+      state.container.scrollTo({
+        left: ls.get(QOA_POSITION_X),
+      });
     };
 
-    const onHorizontalScroll = () => {
-      if (!props.paginatedUsers.meta.nextPage) return;
+    const isStillScrollable = () => {
+      const rightOfPage =
+        state.container.scrollWidth - state.container.clientWidth - 100;
 
+      return state.container.scrollLeft >= rightOfPage;
+    };
+
+    const onHorizontalScroll = debounce(() => {
+      ls.set(QOA_POSITION_X, state.container.scrollLeft);
+
+      if (!props.paginatedUsers.meta.nextPage) return;
       if (isStillScrollable()) {
         emit("updated", props.paginatedUsers.meta.nextPage);
       }
-    };
+    }, 250);
 
     const fullName = name => {
       return transformFullName(name);
@@ -90,6 +107,7 @@ export default {
   },
 };
 </script>
+
 <style lang="scss" scoped>
 .Landing {
   display: flex;
