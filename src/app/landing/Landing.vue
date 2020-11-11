@@ -2,20 +2,44 @@
   <qoa-top-bar @sorted="handleSort"></qoa-top-bar>
 
   <div v-if="isReady" class="Landing Container" @scroll="handleScroll">
-    <qoa-card
-      v-for="(user, index) in paginatedUsers.data"
-      :key="index"
-      :className="getCardClassName(user.color)"
-    >
-      <div class="TextAlign-center">
-        <img :src="user.picture.thumbnail" alt="Picture" />
-      </div>
+    <template v-if="!isMobile">
+      <qoa-card
+        v-for="(user, index) in paginatedUsers.data"
+        :key="index"
+        :className="getCardClassName(user.color)"
+      >
+        <div class="Landing-image TextAlign-center">
+          <img :src="user.picture.thumbnail" alt="Picture" />
+        </div>
 
-      <p>{{ getFullName(user.name) }}</p>
-      <p>{{ user.dob.age }} tahun</p>
-      <p>{{ getAddress(user.location) }}</p>
-      <p>{{ user.email }}</p>
-    </qoa-card>
+        <p>{{ getFullName(user.name) }}</p>
+        <p>{{ user.dob.age }} tahun</p>
+        <p>{{ getAddress(user.location) }}</p>
+        <p>{{ user.email }}</p>
+      </qoa-card>
+    </template>
+
+    <template v-else>
+      <qoa-card
+        v-for="(user, index) in paginatedUsers.data"
+        :key="index"
+        :className="getCardClassName(user.color)"
+      >
+        <div class="Flex MarginBottom-base">
+          <div class="MarginRight-base">
+            <img :src="user.picture.thumbnail" alt="Picture" />
+          </div>
+
+          <div>
+            <p>{{ getFullName(user.name) }}</p>
+            <p>{{ user.dob.age }} tahun</p>
+            <p>{{ user.email }}</p>
+          </div>
+        </div>
+
+        <p>{{ getAddress(user.location) }}</p>
+      </qoa-card>
+    </template>
 
     <button
       v-if="paginatedUsers.meta.nextPage"
@@ -30,7 +54,7 @@
 </template>
 
 <script>
-import { computed, ref, watchEffect } from "vue";
+import { computed, ref, onMounted, watchEffect } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
 import { QUERY_PARAMS } from "./shared/constants/landing.constant";
@@ -56,6 +80,18 @@ export default {
     const route = useRoute();
     const router = useRouter();
     const queryParamsRef = computed(() => route.query);
+    const clientWidth = ref(document.body.clientWidth);
+    const isMobile = computed(() => {
+      return clientWidth.value < 768;
+    });
+
+    onMounted(() => {
+      window.addEventListener("resize", onResize);
+    });
+
+    const onResize = () => {
+      clientWidth.value = document.body.clientWidth;
+    };
 
     const isReady = ref(false);
     const paginatedUsers = ref({});
@@ -69,8 +105,8 @@ export default {
         .getBoundingClientRect();
 
       if (left <= document.body.offsetWidth) {
-        // console.log("Scroll :", scrollLeft);
-        paginateUsers(paginatedUsers.value.meta.nextPage);
+        console.log("RUN BOOY");
+        // paginateUsers(paginatedUsers.value.meta.nextPage);
       }
     };
 
@@ -237,28 +273,46 @@ export default {
       paginateUsers,
       handleScroll,
       paginatedUsers,
+      isMobile,
     };
   },
 };
 </script>
 
 <style lang="scss" scoped>
+@import "@amar-ui-web/responsive/scss/mixins";
+
 .Landing {
-  display: flex;
   margin-top: 1rem;
-  min-height: calc(100vh - 56px - 1rem);
-  overflow-x: auto;
 
-  &-card {
-    min-width: 350px;
-    height: 100%;
+  @include amb-responsive-media("xs") {
+    display: flex;
+    flex-direction: column;
 
-    *:not(:last-child) {
-      margin-bottom: 1rem;
+    &-card {
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
     }
+  }
 
-    &:not(:last-child) {
-      margin-right: 1rem;
+  @include amb-responsive-media("md") {
+    display: flex;
+    min-height: calc(100vh - 56px - 1rem);
+    flex-direction: row;
+    overflow-x: auto;
+
+    &-card {
+      min-width: 350px;
+      height: 100%;
+
+      *:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
     }
   }
 }
