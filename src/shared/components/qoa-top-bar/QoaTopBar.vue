@@ -1,7 +1,7 @@
 <template>
   <div class="TopBar">
     <div class="TopBar-logo">
-      <span class="FontSize-large">
+      <span class="FontSize-large Color-secondary-60">
         <strong>Qoala Test</strong>
       </span>
     </div>
