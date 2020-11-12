@@ -1,7 +1,24 @@
 <template>
-  <qoa-top-bar @sorted="handleSort"></qoa-top-bar>
+  <div v-if="!isDataReady" class="Landing-loading">
+    <span>Loading data, please wait...</span>
+  </div>
 
-  <template v-if="isReady">
+  <div v-else-if="didSomethingWrong" class="Landing-error">
+    <div class="TextAlign-center">
+      <p class="MarginBottom-base">Something wrong.</p>
+      <button
+        class="Button Button--primary"
+        type="button"
+        @click="reloadCurrentPage"
+      >
+        Reload
+      </button>
+    </div>
+  </div>
+
+  <template v-else>
+    <qoa-top-bar @sorted="handleSort"></qoa-top-bar>
+
     <landing-mobile
       v-if="isMobile"
       :paginatedUsers="paginatedUsers"
@@ -48,7 +65,8 @@ export default {
     const router = useRouter();
 
     const clientWidth = ref(document.body.clientWidth);
-    const isReady = ref(false);
+    const didSomethingWrong = ref(false);
+    const isDataReady = ref(false);
     const isFirstMounted = ref(false);
     const paginatedUsers = ref({});
 
@@ -62,6 +80,10 @@ export default {
     onUnmounted(() => {
       window.removeEventListener("resize", onResize);
     });
+
+    const reloadCurrentPage = () => {
+      location.reload();
+    };
 
     const onResize = () => {
       clientWidth.value = document.body.clientWidth;
@@ -107,12 +129,14 @@ export default {
           const { results } = res.data;
 
           paginatedUsers.value = transformRandomUsers(results);
-          isReady.value = true;
 
           ls.set(QOA_USERS, results);
         })
         .catch(() => {
-          console.log("Something wrong.");
+          didSomethingWrong.value = true;
+        })
+        .finally(() => {
+          isDataReady.value = true;
         });
     };
 
@@ -120,7 +144,7 @@ export default {
       const results = ls.get(QOA_USERS);
 
       paginatedUsers.value = transformRandomUsers(results);
-      isReady.value = true;
+      isDataReady.value = true;
     };
 
     watchEffect(() => {
@@ -134,12 +158,28 @@ export default {
     });
 
     return {
+      didSomethingWrong,
       handleSort,
-      isReady,
+      isMobile,
+      isDataReady,
       paginateUsers,
       paginatedUsers,
-      isMobile,
+      reloadCurrentPage,
     };
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.Landing {
+  &-loading,
+  &-error {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    min-height: 100vh;
+  }
+}
+</style>
