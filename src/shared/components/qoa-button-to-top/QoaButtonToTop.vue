@@ -62,10 +62,10 @@ export default {
 <style lang="scss" scoped>
 .ButtonToTop {
   bottom: 1rem;
-  right: 0;
   left: 0;
-  position: fixed;
   margin: auto;
+  position: fixed;
+  right: 0;
   width: 11rem;
 }
 </style>
