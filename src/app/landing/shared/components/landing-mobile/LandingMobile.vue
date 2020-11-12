@@ -58,7 +58,10 @@ export default {
     onMounted(() => {
       state.container = document.querySelector(".Landing");
       window.addEventListener("scroll", onVerticalScroll);
-      scrollToLastPosition();
+
+      if (ls.isExist(QOA_POSITION_Y)) {
+        scrollToLastPosition();
+      }
     });
 
     onUnmounted(() => {

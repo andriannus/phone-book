@@ -55,7 +55,10 @@ export default {
 
     onMounted(() => {
       state.container = document.querySelector(".Landing");
-      scrollToLastPosition();
+
+      if (ls.isExist(QOA_POSITION_X)) {
+        scrollToLastPosition();
+      }
     });
 
     const scrollToLastPosition = () => {
