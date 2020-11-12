@@ -1,12 +1,12 @@
 <template>
-  <div class="Landing Container" @scroll="onHorizontalScroll">
+  <div class="LandingDesktop Container" @scroll="onHorizontalScroll">
     <div
       v-for="(user, index) in props.paginatedUsers.data"
       :key="index"
-      class="Landing-column"
+      class="LandingDesktop-column"
     >
       <qoa-card :className="cardClassName(user.color)">
-        <div class="Landing-image TextAlign-center">
+        <div class="LandingDesktop-image TextAlign-center">
           <img
             alt="Picture"
             class="BgColor-light"
@@ -61,7 +61,7 @@ export default {
     });
 
     onMounted(() => {
-      state.container = document.querySelector(".Landing");
+      state.container = document.querySelector(".LandingDesktop");
 
       if (ls.isExist(QOA_POSITION_X)) {
         scrollToLastPosition();
@@ -99,7 +99,7 @@ export default {
     };
 
     const cardClassName = color => {
-      const className = "Landing-card";
+      const className = "LandingDesktop-card";
 
       switch (color) {
         case "red":
@@ -121,7 +121,7 @@ export default {
 <style lang="scss" scoped>
 @import "@amar-ui-web/color/scss/variables";
 
-.Landing {
+.LandingDesktop {
   display: flex;
   flex-direction: row;
   margin-bottom: 0;

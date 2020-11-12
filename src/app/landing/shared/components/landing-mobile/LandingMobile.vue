@@ -1,12 +1,12 @@
 <template>
-  <div class="Landing Container">
+  <div class="LandingMobile Container">
     <qoa-card
       v-for="(user, index) in paginatedUsers.data"
       :key="index"
       :className="cardClassName(user.color)"
     >
       <div class="Flex MarginBottom-base">
-        <div class="Landing-image MarginRight-base">
+        <div class="LandingMobile-image MarginRight-base">
           <img
             alt="Picture"
             class="BgColor-light"
@@ -63,7 +63,7 @@ export default {
     });
 
     onMounted(() => {
-      state.container = document.querySelector(".Landing");
+      state.container = document.querySelector(".LandingMobile");
       window.addEventListener("scroll", onVerticalScroll);
 
       if (ls.isExist(QOA_POSITION_Y)) {
@@ -109,7 +109,7 @@ export default {
     };
 
     const cardClassName = color => {
-      const className = "Landing-card";
+      const className = "LandingMobile-card";
 
       switch (color) {
         case "red":
@@ -131,7 +131,7 @@ export default {
 <style lang="scss" scoped>
 @import "@amar-ui-web/responsive/scss/mixins";
 
-.Landing {
+.LandingMobile {
   margin-top: 1rem;
   margin-bottom: 1rem;
   display: flex;
