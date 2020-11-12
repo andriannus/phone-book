@@ -3,7 +3,7 @@
     <qoa-slide-up-transition>
       <button
         v-if="isShowButton"
-        class="ButtonToTop Button Button--dark"
+        class="ButtonToTop Button Button--dark Button--rounded Button--elevated"
         @click="onClickButton"
       >
         Take me to fly up
