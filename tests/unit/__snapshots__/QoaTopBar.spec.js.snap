@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QoaTopBar.vue should created 1`] = `
+VueWrapper {
+  "__app": Object {
+    "_component": Object {
+      "__emits": Object {},
+      "__props": Array [
+        Object {},
+        Array [],
+      ],
+      "name": "VTU_ROOT",
+      "render": [Function],
+    },
+    "_container": <div
+      data-v-app=""
+    >
+      <div
+        class="TopBar"
+      >
+        <div
+          class="TopBar-logo"
+        >
+          <span
+            class="FontSize-large"
+          >
+            <strong>
+              Qoala Test
+            </strong>
+          </span>
+        </div>
+        <div
+          class="TopBar-actions"
+        >
+          <div
+            class="TopBar-action"
+          >
+            <button
+              class="Button Button--primary Button--outlined"
+              id="BtnSortByColor"
+              type="button"
+            >
+               Color 
+            </button>
+          </div>
+          <div
+            class="TopBar-action"
+          >
+            <button
+              class="Button Button--primary Button--outlined"
+              id="BtnSortByCities"
+              type="button"
+            >
+               Cities 
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>,
+    "_context": Object {
+      "app": [Circular],
+      "components": Object {},
+      "config": Object {
+        "errorHandler": undefined,
+        "globalProperties": Object {},
+        "isCustomElement": [Function],
+        "isNativeTag": [Function],
+        "optionMergeStrategies": Object {},
+        "performance": false,
+        "warnHandler": undefined,
+      },
+      "directives": Object {},
+      "mixins": Array [
+        Object {
+          "__emits": null,
+          "__props": Array [],
+          "beforeCreate": [Function],
+        },
+        Object {
+          "__emits": null,
+          "__props": Array [],
+          "beforeCreate": [Function],
+        },
+      ],
+      "provides": Object {},
+      "reload": [Function],
+    },
+    "_props": null,
+    "_uid": 0,
+    "component": [Function],
+    "config": Object {
+      "errorHandler": undefined,
+      "globalProperties": Object {},
+      "isCustomElement": [Function],
+      "isNativeTag": [Function],
+      "optionMergeStrategies": Object {},
+      "performance": false,
+      "warnHandler": undefined,
+    },
+    "directive": [Function],
+    "mixin": [Function],
+    "mount": [Function],
+    "provide": [Function],
+    "unmount": [Function],
+    "use": [Function],
+    "version": "3.0.2",
+  },
+  "__functionalEmits": Object {},
+  "__setProps": [Function],
+  "componentVM": Object {
+    "__emitted": Object {},
+    "sortUser": [Function],
+  },
+  "rootVM": Object {
+    "__emitted": Object {},
+  },
+}
+`;
