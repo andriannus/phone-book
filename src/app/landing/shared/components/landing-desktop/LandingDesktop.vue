@@ -53,6 +53,8 @@ export default {
     },
   },
 
+  emits: ["updated"],
+
   setup(props, { emit }) {
     const ls = useLocalStorage();
 
