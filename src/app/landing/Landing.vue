@@ -67,7 +67,6 @@ export default {
     const clientWidth = ref(document.body.clientWidth);
     const didSomethingWrong = ref(false);
     const isDataReady = ref(false);
-    const isFirstMounted = ref(false);
     const paginatedUsers = ref({});
 
     const queryRef = computed(() => route.query);
@@ -147,14 +146,22 @@ export default {
       isDataReady.value = true;
     };
 
-    watchEffect(() => {
-      const { page = 1 } = queryRef.value;
+    const handlePageWithoutQuery = page => {
+      router.replace({
+        query: { page },
+      });
+    };
 
-      if (!isFirstMounted.value) {
-        isFirstMounted.value = true;
+    watchEffect(() => {
+      const { page } = queryRef.value;
+      const hasPageQuery = !page;
+      const validPage = page || 1;
+
+      if (hasPageQuery) {
+        return handlePageWithoutQuery(validPage);
       }
 
-      paginateUsers(page);
+      paginateUsers(validPage);
     });
 
     return {
