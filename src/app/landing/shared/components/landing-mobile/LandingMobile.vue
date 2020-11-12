@@ -7,7 +7,14 @@
     >
       <div class="Flex MarginBottom-base">
         <div class="Landing-image MarginRight-base">
-          <img :src="user.picture.thumbnail" alt="Picture" />
+          <img
+            alt="Picture"
+            class="BgColor-light"
+            height="48"
+            loading="lazy"
+            :src="user.picture.thumbnail"
+            width="48"
+          />
         </div>
 
         <div>

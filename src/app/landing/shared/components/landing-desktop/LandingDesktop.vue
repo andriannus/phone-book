@@ -7,7 +7,14 @@
     >
       <qoa-card :className="cardClassName(user.color)">
         <div class="Landing-image TextAlign-center">
-          <img :src="user.picture.thumbnail" alt="Picture" />
+          <img
+            alt="Picture"
+            class="BgColor-light"
+            height="48"
+            loading="lazy"
+            :src="user.picture.thumbnail"
+            width="48"
+          />
         </div>
 
         <p>
@@ -112,6 +119,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@amar-ui-web/color/scss/variables";
+
 .Landing {
   display: flex;
   flex-direction: row;
@@ -128,7 +137,7 @@ export default {
   }
 
   &-column {
-    background-color: whitesmoke;
+    background-color: $amb-neutral-10;
     border-radius: 0.5rem;
     padding: 1rem;
 
@@ -152,16 +161,15 @@ export default {
 }
 
 ::-webkit-scrollbar {
-  background-color: #f5f5f5;
+  background-color: $amb-neutral-20;
 
   &-thumb {
-    background-color: #000000;
-    border: 2px solid #555555;
+    background-color: $amb-neutral-90;
   }
 
   &-track {
-    background-color: #f5f5f5;
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: $amb-neutral-10;
+    box-shadow: inset 0 0 6px $amb-neutral-60;
   }
 }
 </style>
