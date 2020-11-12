@@ -22,7 +22,7 @@ VueWrapper {
           class="TopBar-logo"
         >
           <span
-            class="FontSize-large"
+            class="FontSize-large Color-secondary-60"
           >
             <strong>
               Qoala Test
