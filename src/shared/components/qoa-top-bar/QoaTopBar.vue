@@ -9,7 +9,8 @@
     <div class="TopBar-actions">
       <div class="TopBar-action">
         <button
-          class="Button Button--primary"
+          id="BtnSortByColor"
+          class="Button Button--primary Button--outlined"
           type="button"
           @click="sortUser('color')"
         >
@@ -19,6 +20,7 @@
 
       <div class="TopBar-action">
         <button
+          id="BtnSortByCities"
           class="Button Button--primary Button--outlined"
           type="button"
           @click="sortUser('cities')"
