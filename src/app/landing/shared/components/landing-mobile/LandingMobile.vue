@@ -27,11 +27,14 @@
       <p>{{ address(user.location) }}</p>
     </qoa-card>
   </div>
+
+  <qoa-button-to-top></qoa-button-to-top>
 </template>
 
 <script>
 import { onMounted, onUnmounted, reactive } from "vue";
 
+import QoaButtonToTop from "@/shared/components/qoa-button-to-top/QoaButtonToTop.vue";
 import QoaCard from "@/shared/components/qoa-card/QoaCard";
 import { QOA_POSITION_Y } from "@/shared/constants/storage.constant";
 import { useLocalStorage } from "@/shared/services/local-storage";
@@ -42,6 +45,7 @@ export default {
   name: "LandingMobile",
 
   components: {
+    QoaButtonToTop,
     QoaCard,
   },
 
