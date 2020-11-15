@@ -9,11 +9,16 @@ module.exports = {
     },
   },
   chainWebpack: config => {
-    config.plugin("html").tap(args => {
-      const [arg] = args;
-      arg.title = "Phone Book";
+    config.plugin("html").tap(options => {
+      options[0].title = "Phone Book";
+      return options;
+    });
 
-      return args;
+    config.plugins.delete("prefetch");
+
+    config.plugin("preload").tap(options => {
+      options[0].include = "allChunks";
+      return options;
     });
   },
 };
