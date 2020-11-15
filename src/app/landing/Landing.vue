@@ -1,9 +1,9 @@
 <template>
-  <div v-if="!isDataReady" class="Landing-loading">
+  <div v-if="!state.isDataReady" class="Landing-loading">
     <span>Loading data, please wait...</span>
   </div>
 
-  <div v-else-if="didSomethingWrong" class="Landing-error">
+  <div v-else-if="state.didSomethingWrong" class="Landing-error">
     <div class="TextAlign-center">
       <p class="MarginBottom-base">Something wrong.</p>
       <button
@@ -21,20 +21,20 @@
 
     <landing-mobile
       v-if="isMobile"
-      :paginatedUsers="paginatedUsers"
+      :paginatedUsers="state.paginatedUsers"
       @updated="paginateUsers"
     ></landing-mobile>
 
     <landing-desktop
       v-else
-      :paginatedUsers="paginatedUsers"
+      :paginatedUsers="state.paginatedUsers"
       @updated="paginateUsers"
     ></landing-desktop>
   </template>
 </template>
 
 <script>
-import { computed, ref, onMounted, onUnmounted, watchEffect } from "vue";
+import { computed, onMounted, onUnmounted, reactive, watchEffect } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
 import LandingDesktop from "./shared/components/landing-desktop/LandingDesktop.vue";
@@ -64,13 +64,15 @@ export default {
     const route = useRoute();
     const router = useRouter();
 
-    const clientWidth = ref(document.body.clientWidth);
-    const didSomethingWrong = ref(false);
-    const isDataReady = ref(false);
-    const paginatedUsers = ref({});
+    const state = reactive({
+      clientWidth: document.body.clientWidth,
+      didSomethingWrong: false,
+      isDataReady: false,
+      paginatedUsers: {},
+    });
 
     const queryRef = computed(() => route.query);
-    const isMobile = computed(() => clientWidth.value < 768);
+    const isMobile = computed(() => state.clientWidth < 768);
 
     onMounted(() => {
       window.addEventListener("resize", onResize);
@@ -80,12 +82,12 @@ export default {
       window.removeEventListener("resize", onResize);
     });
 
-    const reloadCurrentPage = () => {
-      location.reload();
+    const onResize = () => {
+      state.clientWidth = document.body.clientWidth;
     };
 
-    const onResize = () => {
-      clientWidth.value = document.body.clientWidth;
+    const reloadCurrentPage = () => {
+      location.reload();
     };
 
     const paginateUsers = (page = 1) => {
@@ -127,23 +129,23 @@ export default {
         .then(res => {
           const { results } = res.data;
 
-          paginatedUsers.value = transformRandomUsers(results);
+          state.paginatedUsers = transformRandomUsers(results);
 
           ls.set(QOA_USERS, results);
         })
         .catch(() => {
-          didSomethingWrong.value = true;
+          state.didSomethingWrong = true;
         })
         .finally(() => {
-          isDataReady.value = true;
+          state.isDataReady = true;
         });
     };
 
     const getPaginatedUsers = () => {
       const results = ls.get(QOA_USERS);
 
-      paginatedUsers.value = transformRandomUsers(results);
-      isDataReady.value = true;
+      state.paginatedUsers = transformRandomUsers(results);
+      state.isDataReady = true;
     };
 
     const handlePageWithoutQuery = page => {
@@ -165,12 +167,10 @@ export default {
     });
 
     return {
-      didSomethingWrong,
       handleSort,
       isMobile,
-      isDataReady,
       paginateUsers,
-      paginatedUsers,
+      state,
       reloadCurrentPage,
     };
   },
