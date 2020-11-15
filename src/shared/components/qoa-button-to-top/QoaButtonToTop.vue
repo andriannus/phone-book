@@ -28,14 +28,14 @@ export default {
     const isShowButton = ref(false);
 
     onMounted(() => {
-      window.addEventListener("scroll", toggleApplyLoanButton);
+      window.addEventListener("scroll", toggleToTopButton);
     });
 
     onUnmounted(() => {
-      window.removeEventListener("scroll", toggleApplyLoanButton);
+      window.removeEventListener("scroll", toggleToTopButton);
     });
 
-    const toggleApplyLoanButton = () => {
+    const toggleToTopButton = () => {
       const { body, documentElement } = document;
       const isValidBody = body.scrollTop > 300;
       const isValidDocumentElement = documentElement.scrollTop > 300;
