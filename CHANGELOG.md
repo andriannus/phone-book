@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/andriannus/phone-book/compare/v1.1.0...v1.1.1) (2020-11-15)
+
+
+### Others
+
+* adjust webpack config ([73e7180](https://github.com/andriannus/phone-book/commit/73e718032440e621b22f155a88cfec9a0eb6f0b3))
+
+
+### Code Refactoring
+
+* adjust landing card ([bf2d3e5](https://github.com/andriannus/phone-book/commit/bf2d3e5e2ad80ea79917f3f0c78162e44428f533))
+* rename function ([6d805dc](https://github.com/andriannus/phone-book/commit/6d805dcf573bf19728bacb3f9a0e1196073ab9fa))
+* use reactive instead of ref ([2bb3608](https://github.com/andriannus/phone-book/commit/2bb3608f21ad0e33ba99f0d52b20501c559124ae))
+
 ## 1.1.0 (2020-11-12)
 
 
