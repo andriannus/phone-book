@@ -20,7 +20,10 @@
         <p>
           <strong>{{ fullName(user.name) }}</strong>
         </p>
-        <p>{{ user.dob.age }} years old</p>
+        <p>
+          {{ user.dob.age }}
+          <em>years old</em>
+        </p>
         <p>{{ address(user.location) }}</p>
         <p>{{ user.email }}</p>
       </qoa-card>
@@ -131,6 +134,7 @@ export default {
   min-height: calc(100vh - 56px - 1rem);
   overflow-x: auto;
   padding-bottom: 1rem;
+  word-break: break-all;
 
   &-image {
     img {
@@ -157,7 +161,7 @@ export default {
     }
 
     *:not(:last-child) {
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
     }
   }
 }

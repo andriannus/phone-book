@@ -18,8 +18,14 @@
         </div>
 
         <div>
-          <p class="MarginBottom-xsmall">{{ fullName(user.name) }}</p>
-          <p class="MarginBottom-xsmall">{{ user.dob.age }} years old</p>
+          <strong>
+            <p class="MarginBottom-xsmall">{{ fullName(user.name) }}</p>
+          </strong>
+
+          <p class="MarginBottom-xsmall">
+            {{ user.dob.age }}
+            <em>years old</em>
+          </p>
           <p>{{ user.email }}</p>
         </div>
       </div>
@@ -138,10 +144,11 @@ export default {
 @import "@amar-ui-web/responsive/scss/mixins";
 
 .LandingMobile {
+  display: flex;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  display: flex;
   flex-direction: column;
+  word-break: break-all;
 
   &-card {
     p {
