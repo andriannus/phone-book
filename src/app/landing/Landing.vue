@@ -156,10 +156,9 @@ export default {
 
     watchEffect(() => {
       const { page } = queryRef.value;
-      const hasPageQuery = !page;
       const validPage = page || 1;
 
-      if (hasPageQuery) {
+      if (!page) {
         return handlePageWithoutQuery(validPage);
       }
 
