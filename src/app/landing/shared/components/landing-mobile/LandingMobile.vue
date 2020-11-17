@@ -41,7 +41,7 @@
 import { onMounted, onUnmounted, reactive } from "vue";
 
 import QoaButtonToTop from "@/shared/components/qoa-button-to-top/QoaButtonToTop.vue";
-import QoaCard from "@/shared/components/qoa-card/QoaCard";
+import QoaCard from "@/shared/components/qoa-card/QoaCard.vue";
 import { QOA_POSITION_Y } from "@/shared/constants/storage.constant";
 import { useLocalStorage } from "@/shared/services/local-storage";
 import { transformAddress, transformFullName } from "@/shared/utils/transform";

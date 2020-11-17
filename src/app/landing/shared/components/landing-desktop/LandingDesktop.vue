@@ -34,7 +34,7 @@
 <script>
 import { onMounted, reactive } from "vue";
 
-import QoaCard from "@/shared/components/qoa-card/QoaCard";
+import QoaCard from "@/shared/components/qoa-card/QoaCard.vue";
 import { QOA_POSITION_X } from "@/shared/constants/storage.constant";
 import { useLocalStorage } from "@/shared/services/local-storage";
 import { transformAddress, transformFullName } from "@/shared/utils/transform";
