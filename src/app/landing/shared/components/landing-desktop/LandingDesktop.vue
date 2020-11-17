@@ -90,9 +90,9 @@ export default {
       ls.set(QOA_POSITION_X, state.container.scrollLeft);
 
       if (!props.paginatedUsers.meta.nextPage) return;
-      if (isStillScrollable()) {
-        emit("updated", props.paginatedUsers.meta.nextPage);
-      }
+      if (!isStillScrollable()) return;
+
+      emit("updated", props.paginatedUsers.meta.nextPage);
     }, 250);
 
     const fullName = name => {
