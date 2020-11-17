@@ -20,10 +20,12 @@
         <p>
           <strong>{{ fullName(user.name) }}</strong>
         </p>
+
         <p>
           {{ user.dob.age }}
           <em>years old</em>
         </p>
+
         <p>{{ address(user.location) }}</p>
         <p>{{ user.email }}</p>
       </qoa-card>

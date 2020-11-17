@@ -26,6 +26,7 @@
             {{ user.dob.age }}
             <em>years old</em>
           </p>
+
           <p>{{ user.email }}</p>
         </div>
       </div>
