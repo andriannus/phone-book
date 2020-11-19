@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/andriannus/phone-book/compare/v1.1.1...v1.2.0) (2020-11-19)
+
+
+### Features
+
+* horizontal scroll using mouse wheel ([e3e8291](https://github.com/andriannus/phone-book/commit/e3e82913f2aa668d003e5a220d3c138fa72e887a))
+
+
+### Code Refactoring
+
+* move logic to new function ([62a825a](https://github.com/andriannus/phone-book/commit/62a825ad858645b1e4ee14fbcf99e54407db0ff7))
+* rename variable ([831a79a](https://github.com/andriannus/phone-book/commit/831a79a01c6142b8efeed1b1c203f9a02ddc42df))
+* tidy up code ([c8f0522](https://github.com/andriannus/phone-book/commit/c8f0522ea42b754d5f5eacf4f5e7296eb5bce293))
+* tidy up code ([03960fd](https://github.com/andriannus/phone-book/commit/03960fd57a467e3bbdd421093d229eb7b8efafa8))
+* update missing file type ([88e3287](https://github.com/andriannus/phone-book/commit/88e3287944657b60b5e3422cb3cdac37d61617dc))
+
 ### [1.1.1](https://github.com/andriannus/phone-book/compare/v1.1.0...v1.1.1) (2020-11-15)
 
 
