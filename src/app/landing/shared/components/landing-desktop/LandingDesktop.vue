@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { onMounted, reactive } from "vue";
+import { onMounted, onUnmounted, reactive } from "vue";
 
 import QoaCard from "@/shared/components/qoa-card/QoaCard.vue";
 import { QOA_POSITION_X } from "@/shared/constants/storage.constant";
@@ -70,10 +70,27 @@ export default {
     onMounted(() => {
       state.container = document.querySelector(".LandingDesktop");
 
+      state.container.addEventListener("wheel", onMouseWheel);
+
       if (ls.isExist(QOA_POSITION_X)) {
         scrollToLastPosition();
       }
     });
+
+    onUnmounted(() => {
+      state.container.removeEventListener("wheel", onMouseWheel);
+    });
+
+    const onMouseWheel = e => {
+      const isGoRight = e.deltaY > 0;
+
+      if (isGoRight) {
+        state.container.scrollLeft += 100;
+        return;
+      }
+
+      state.container.scrollLeft -= 100;
+    };
 
     const scrollToLastPosition = () => {
       state.container.scrollTo({
