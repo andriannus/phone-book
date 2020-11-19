@@ -6,6 +6,17 @@ export const useSortUsers = (users, sort) => {
     sort,
   });
 
+  const handleSort = () => {
+    switch (state.sort) {
+      case "cities":
+        return sortByCity();
+      case "color":
+        return sortByColor();
+      default:
+        return;
+    }
+  };
+
   const sortByCity = () => {
     state.users.sort((a, b) => {
       const cityA = a.location.city.toUpperCase();
@@ -40,14 +51,7 @@ export const useSortUsers = (users, sort) => {
   };
 
   watchEffect(() => {
-    switch (state.sort) {
-      case "cities":
-        return sortByCity();
-      case "color":
-        return sortByColor();
-      default:
-        return;
-    }
+    handleSort();
   });
 
   return state.users;
