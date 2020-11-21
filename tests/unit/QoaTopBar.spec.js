@@ -1,4 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
+
 import QoaTopBar from "@/shared/components/qoa-top-bar/QoaTopBar.vue";
 
 describe("QoaTopBar.vue", () => {
@@ -8,7 +9,7 @@ describe("QoaTopBar.vue", () => {
     wrapper = shallowMount(QoaTopBar);
   });
 
-  it("should created", () => {
+  it("should create", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
