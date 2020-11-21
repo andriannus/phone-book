@@ -117,8 +117,8 @@ export default {
     const transformRandomUsers = users => {
       const { page = 1, sortBy = "" } = queryRef.value;
 
-      const colorfuledUsers = useColorfulUsers(users);
-      const sortedUsers = useSortUsers(colorfuledUsers, sortBy);
+      const colorfulUsers = useColorfulUsers(users);
+      const sortedUsers = useSortUsers(colorfulUsers, sortBy);
       const paginatedUsers = usePaginateUsers(sortedUsers, page);
 
       return paginatedUsers;

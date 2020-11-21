@@ -3,11 +3,11 @@ import { reactive, watchEffect } from "vue";
 export const useColorfulUsers = users => {
   const state = reactive({
     users,
-    colorfuledUsers: [],
+    colorfulUsers: [],
   });
 
-  const colorfulUsers = () => {
-    state.colorfuledUsers = state.users.map(user => {
+  const handleUserColors = () => {
+    state.colorfulUsers = state.users.map(user => {
       switch (true) {
         case user.dob.age < 21:
           return { ...user, color: "red" };
@@ -22,8 +22,8 @@ export const useColorfulUsers = users => {
   };
 
   watchEffect(() => {
-    colorfulUsers();
+    handleUserColors();
   });
 
-  return state.colorfuledUsers;
+  return state.colorfulUsers;
 };

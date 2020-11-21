@@ -6,7 +6,7 @@ export const useSortUsers = (users, sort) => {
     sort,
   });
 
-  const handleSort = () => {
+  const handleUserSort = () => {
     switch (state.sort) {
       case "cities":
         return sortByCity();
@@ -51,7 +51,7 @@ export const useSortUsers = (users, sort) => {
   };
 
   watchEffect(() => {
-    handleSort();
+    handleUserSort();
   });
 
   return state.users;
