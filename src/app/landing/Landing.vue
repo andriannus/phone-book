@@ -124,22 +124,17 @@ export default {
       return paginatedUsers;
     };
 
-    const fetchPaginatedUsers = () => {
-      apiInvoker
-        .get(QUERY_PARAMS)
-        .then(res => {
-          const { results } = res.data;
+    const fetchPaginatedUsers = async () => {
+      try {
+        const { data: Data } = await apiInvoker.get(QUERY_PARAMS);
 
-          state.paginatedUsers = transformRandomUsers(results);
-
-          ls.set(QOA_USERS, results);
-        })
-        .catch(() => {
-          state.didSomethingWrong = true;
-        })
-        .finally(() => {
-          state.isDataReady = true;
-        });
+        state.paginatedUsers = transformRandomUsers(Data.results);
+        ls.set(QOA_USERS, Data.results);
+      } catch {
+        state.didSomethingWrong = true;
+      } finally {
+        state.isDataReady = true;
+      }
     };
 
     const getPaginatedUsers = () => {
