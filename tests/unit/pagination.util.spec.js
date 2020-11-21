@@ -1,68 +1,69 @@
+import faker from "faker";
+
 import { paginate } from "@/shared/utils/pagination";
 
 describe("pagination.util.js", () => {
-  let userStub;
-  let optionsStub;
+  let userStub = {};
+  let optionsStub = {};
 
   beforeEach(() => {
-    userStub = [
-      {
-        name: {
-          title: "Ms",
-          first: "Esma",
-          last: "Biçer",
-        },
-        location: {
-          street: {
-            number: 5949,
-            name: "Kushimoto Sk",
-          },
-          city: "Çankırı",
-          state: "Hatay",
-          country: "Turkey",
-          postcode: 95307,
-          coordinates: {
-            latitude: "-58.1599",
-            longitude: "98.6441",
-          },
-          timezone: {
-            offset: "-4:00",
-            description: "Atlantic Time (Canada), Caracas, La Paz",
-          },
-        },
-        email: "esma.bicer@example.com",
-        dob: {
-          date: "1989-06-04T13:05:17.883Z",
-          age: 31,
-        },
-        registered: {
-          date: "2004-04-23T15:45:32.305Z",
-          age: 16,
-        },
-        picture: {
-          large: "https://randomuser.me/api/portraits/women/76.jpg",
-          medium: "https://randomuser.me/api/portraits/med/women/76.jpg",
-          thumbnail: "https://randomuser.me/api/portraits/thumb/women/76.jpg",
-        },
-        color: "green",
+    userStub = {
+      name: {
+        title: faker.name.title(),
+        first: faker.name.firstName(),
+        last: faker.name.lastName(),
       },
-    ];
+      location: {
+        street: {
+          number: faker.random.number(),
+          name: faker.address.streetName(),
+        },
+        city: faker.address.city(),
+        state: faker.address.state(),
+        country: faker.address.country(),
+        postcode: faker.address.zipCodeByState(),
+        coordinates: {
+          latitude: faker.address.latitude(),
+          longitude: faker.address.longitude(),
+        },
+        timezone: {
+          offset: "-4:00",
+          description: "Atlantic Time (Canada), Caracas, La Paz",
+        },
+      },
+      email: faker.internet.email(),
+      dob: {
+        date: faker.date.past(),
+        age: faker.random.number(),
+      },
+      registered: {
+        date: faker.date.past(),
+        age: faker.random.number(),
+      },
+      picture: {
+        large: faker.image.imageUrl(),
+        medium: faker.image.imageUrl(),
+        thumbnail: faker.image.imageUrl(),
+      },
+      color: faker.internet.color(),
+    };
 
     optionsStub = {
       limit: 10,
       page: 1,
-      total: userStub.length,
+      total: 1,
     };
   });
 
   afterEach(() => {
-    userStub = [];
+    userStub = {};
     optionsStub = {};
   });
 
   it("should return paginated data", () => {
+    const mockPaginatedUsers = paginate([userStub], optionsStub);
     const expectedResult = {
-      data: [...userStub],
+      data: [userStub],
       meta: {
         page: 1,
         perPage: 10,
@@ -73,6 +74,6 @@ describe("pagination.util.js", () => {
       },
     };
 
-    expect(paginate(userStub, optionsStub)).toEqual(expectedResult);
+    expect(mockPaginatedUsers).toEqual(expectedResult);
   });
 });
