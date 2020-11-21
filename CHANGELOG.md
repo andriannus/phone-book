@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/andriannus/phone-book/compare/v1.2.0...v1.3.0) (2020-11-21)
+
+
+### Features
+
+* create hook to handle card color ([d58826f](https://github.com/andriannus/phone-book/commit/d58826f55e0c3ec06429665be81bcadc10a627aa))
+
+
+### Code Refactoring
+
+* adjust variable and function names ([66309b9](https://github.com/andriannus/phone-book/commit/66309b95d3073d218cf8cdaaa6772437b75a2f91))
+* fetch users using async await ([7d2759b](https://github.com/andriannus/phone-book/commit/7d2759b2a71c82a5864b66096130314e299135a9))
+* implement colorful card hook ([bd4a650](https://github.com/andriannus/phone-book/commit/bd4a650bfdb3970889e366add041d81d0d47c340))
+* tidy up code ([9856f07](https://github.com/andriannus/phone-book/commit/9856f07a57a8987c3ba903aeeb421a8ce3a96067))
+
+
+### Others
+
+* change file format ([7fd4b02](https://github.com/andriannus/phone-book/commit/7fd4b0240f5d91704612688e92e65a3861a887d0))
+
 ## [1.2.0](https://github.com/andriannus/phone-book/compare/v1.1.1...v1.2.0) (2020-11-19)
 
 
