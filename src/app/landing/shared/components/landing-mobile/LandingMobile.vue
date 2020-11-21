@@ -41,6 +41,8 @@
 <script>
 import { onMounted, onUnmounted, reactive } from "vue";
 
+import { useColorfulCard } from "../../services/colorful-card.hook";
+
 import QoaButtonToTop from "@/shared/components/qoa-button-to-top/QoaButtonToTop.vue";
 import QoaCard from "@/shared/components/qoa-card/QoaCard.vue";
 import { QOA_POSITION_Y } from "@/shared/constants/storage.constant";
@@ -121,19 +123,11 @@ export default {
       return transformAddress(location);
     };
 
-    const cardClassName = color => {
+    const cardClassName = userColor => {
       const className = "LandingMobile-card";
+      const colorfulCard = useColorfulCard(userColor);
 
-      switch (color) {
-        case "red":
-          return `${className} BgColor-danger`;
-        case "green":
-          return `${className} BgColor-primary`;
-        case "blue":
-          return `${className} BgColor-secondary`;
-        default:
-          return;
-      }
+      return `${className} ${colorfulCard}`;
     };
 
     return { address, cardClassName, fullName, props };

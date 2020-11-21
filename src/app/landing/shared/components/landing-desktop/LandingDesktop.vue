@@ -36,6 +36,8 @@
 <script>
 import { onMounted, onUnmounted, reactive } from "vue";
 
+import { useColorfulCard } from "../../services/colorful-card.hook";
+
 import QoaCard from "@/shared/components/qoa-card/QoaCard.vue";
 import { QOA_POSITION_X } from "@/shared/constants/storage.constant";
 import { useLocalStorage } from "@/shared/services/local-storage";
@@ -121,19 +123,11 @@ export default {
       return transformAddress(location);
     };
 
-    const cardClassName = color => {
+    const cardClassName = userColor => {
       const className = "LandingDesktop-card";
+      const colorfulCard = useColorfulCard(userColor);
 
-      switch (color) {
-        case "red":
-          return `${className} BgColor-danger`;
-        case "green":
-          return `${className} BgColor-primary`;
-        case "blue":
-          return `${className} BgColor-secondary`;
-        default:
-          return;
-      }
+      return `${className} ${colorfulCard}`;
     };
 
     return { address, cardClassName, fullName, onHorizontalScroll, props };
