@@ -69,7 +69,6 @@ export default {
 
     onMounted(() => {
       state.container = document.querySelector(".LandingDesktop");
-
       state.container.addEventListener("wheel", onMouseWheel);
 
       if (ls.isExist(QOA_POSITION_X)) {
@@ -148,8 +147,7 @@ export default {
 .LandingDesktop {
   display: flex;
   flex-direction: row;
-  margin-bottom: 0;
-  margin-top: 1rem;
+  margin: 1rem auto 0 auto;
   min-height: calc(100vh - 56px - 1rem);
   overflow-x: auto;
   padding-bottom: 1rem;

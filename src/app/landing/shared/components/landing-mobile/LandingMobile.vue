@@ -146,8 +146,7 @@ export default {
 
 .LandingMobile {
   display: flex;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
   flex-direction: column;
   word-break: break-all;
 
