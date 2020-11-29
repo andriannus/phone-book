@@ -5,8 +5,8 @@
       :key="index"
       :className="cardClassName(user.color)"
     >
-      <div class="Flex MarginBottom-base">
-        <div class="LandingMobile-image MarginRight-base">
+      <div class="Flex MarginBottom">
+        <div class="LandingMobile-image MarginRight">
           <img
             alt="Picture"
             class="BgColor-light"

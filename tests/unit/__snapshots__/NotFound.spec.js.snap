@@ -19,7 +19,7 @@ VueWrapper {
         class="NotFound"
       >
         <p
-          class="FontSize-2xlarge MarginBottom-base"
+          class="FontSize-2xlarge MarginBottom"
         >
           Page Not Found
         </p>

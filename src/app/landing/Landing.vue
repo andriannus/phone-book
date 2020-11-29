@@ -5,7 +5,7 @@
 
   <div v-else-if="state.didSomethingWrong" class="Landing-error">
     <div class="TextAlign-center">
-      <p class="MarginBottom-base">Something wrong.</p>
+      <p class="MarginBottom">Something wrong.</p>
 
       <button
         class="Button Button--primary"
@@ -165,8 +165,8 @@ export default {
       handleSort,
       isMobile,
       paginateUsers,
-      state,
       reloadCurrentPage,
+      state,
     };
   },
 };

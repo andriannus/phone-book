@@ -1,6 +1,6 @@
 <template>
   <div class="NotFound">
-    <p class="FontSize-2xlarge MarginBottom-base">Page Not Found</p>
+    <p class="FontSize-2xlarge MarginBottom">Page Not Found</p>
 
     <router-link class="Button Button--primary" to="/landing">
       Take me away
