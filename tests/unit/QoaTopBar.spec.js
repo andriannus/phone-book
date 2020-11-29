@@ -29,19 +29,19 @@ describe("QoaTopBar.vue", () => {
     expect(wrapper.emitted("sorted")[0]).toEqual(["color"]);
   });
 
-  it("should emit when cities button clicked", () => {
-    const sortByCitiesButton = wrapper.find("#BtnSortByCities");
+  it("should emit when city button clicked", () => {
+    const sortByCityButton = wrapper.find("#BtnSortByCity");
 
-    sortByCitiesButton.trigger("click");
+    sortByCityButton.trigger("click");
 
     expect(wrapper.emitted("sorted")).toBeTruthy();
   });
 
-  it("should emit with `cities` argument when color button clicked", () => {
-    const sortByCitiesButton = wrapper.find("#BtnSortByCities");
+  it("should emit with `city` argument when color button clicked", () => {
+    const sortByCityButton = wrapper.find("#BtnSortByCity");
 
-    sortByCitiesButton.trigger("click");
+    sortByCityButton.trigger("click");
 
-    expect(wrapper.emitted("sorted")[0]).toEqual(["cities"]);
+    expect(wrapper.emitted("sorted")[0]).toEqual(["city"]);
   });
 });

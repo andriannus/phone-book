@@ -20,12 +20,12 @@
 
       <div class="TopBar-action">
         <button
-          id="BtnSortByCities"
+          id="BtnSortByCity"
           class="Button Button--primary Button--outlined"
           type="button"
-          @click="sortUser('cities')"
+          @click="sortUser('city')"
         >
-          Cities
+          City
         </button>
       </div>
     </div>

@@ -8,7 +8,7 @@ export const useSortUsers = (users, sort) => {
 
   const handleUserSort = () => {
     switch (state.sort) {
-      case "cities":
+      case "city":
         return sortByCity();
       case "color":
         return sortByColor();

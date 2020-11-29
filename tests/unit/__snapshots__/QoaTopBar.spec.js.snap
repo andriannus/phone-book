@@ -48,10 +48,10 @@ VueWrapper {
           >
             <button
               class="Button Button--primary Button--outlined"
-              id="BtnSortByCities"
+              id="BtnSortByCity"
               type="button"
             >
-               Cities 
+               City 
             </button>
           </div>
         </div>
