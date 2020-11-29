@@ -1,5 +1,7 @@
 # Phone Book
 
+Qoala's Front End test case.
+
 ## Project setup
 
 ```bash
