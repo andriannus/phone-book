@@ -1,4 +1,4 @@
-export function debounce(callback, wait) {
+export const debounce = (callback, wait) => {
   let timeout;
 
   return (...args) => {
@@ -6,4 +6,4 @@ export function debounce(callback, wait) {
     clearTimeout(timeout);
     timeout = setTimeout(() => callback.apply(context, args), wait);
   };
-}
+};
