@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.1](https://github.com/andriannus/phone-book/compare/v1.3.0...v1.3.1) (2020-11-29)
+
+
+### Code Refactoring
+
+* update class name ([e308fd7](https://github.com/andriannus/phone-book/commit/e308fd7ba7af766bfbc18f0ce2671736cb633686))
+* use arrow function ([914d6dc](https://github.com/andriannus/phone-book/commit/914d6dc77b8e3f180e2f2a347a7f072ce20c11e1))
+* use city instead of cities ([94e27a5](https://github.com/andriannus/phone-book/commit/94e27a5a59a94529834e9aa55556c37d99aec107))
+
+
+### Docs
+
+* update readme ([eb744cc](https://github.com/andriannus/phone-book/commit/eb744cc1e3f23e64ab957dd6c55262fa84769a25))
+
+
+### Tests
+
+* adjust test case name at top-bar component ([caf9acc](https://github.com/andriannus/phone-book/commit/caf9acc455997b7dbe544ae4cded5e22f1cd5b41))
+* create unit test for not found page ([b050325](https://github.com/andriannus/phone-book/commit/b0503251a4e8c74d62d7fefd0bfbabd004c1fa5b))
+* implement faker at transform spec ([eacde6e](https://github.com/andriannus/phone-book/commit/eacde6e26232c9991d5092b48b0191c7438eec4a))
+* use faker and update unit test ([ca7fb03](https://github.com/andriannus/phone-book/commit/ca7fb030cf9f07a76a52ae015e001ec5d8bef149))
+
+
+### Others
+
+* install faker ([1839356](https://github.com/andriannus/phone-book/commit/18393563b2b0c662812f7ead181968a5c70209a5))
+* update jsconfig ([43e3d75](https://github.com/andriannus/phone-book/commit/43e3d75b526c93e7e081b125d7604007e60e7ee7))
+
 ## [1.3.0](https://github.com/andriannus/phone-book/compare/v1.2.0...v1.3.0) (2020-11-21)
 
 
