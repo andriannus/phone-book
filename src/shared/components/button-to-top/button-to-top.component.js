@@ -1,6 +1,6 @@
 import { defineComponent, onMounted, onUnmounted, ref } from "vue";
 
-import QoaSlideUpTransition from "@/shared/transitions/QoaSlideUpTransition.vue";
+import QoaSlideUpTransition from "@/shared/components/slide-up-transition/slide-up-transition.component.vue";
 
 export default defineComponent({
   name: "ButtonToTop",
