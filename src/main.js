@@ -1,8 +1,8 @@
 import { createApp } from "vue";
 
-import App from "@/App.vue";
-import router from "@/main.routes";
-import "@/main.scss";
+import App from "@/app.component.vue";
+import router from "@/app.routes";
+import "@/app.component.scss";
 
 createApp(App)
   .use(router)
