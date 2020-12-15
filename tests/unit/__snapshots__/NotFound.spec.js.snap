@@ -33,7 +33,18 @@ VueWrapper {
     </div>,
     "_context": Object {
       "app": [Circular],
-      "components": Object {},
+      "components": Object {
+        "transition": Object {
+          "name": "transition",
+          "props": Object {},
+          "render": [Function],
+        },
+        "transition-group": Object {
+          "name": "transition-group",
+          "props": Object {},
+          "render": [Function],
+        },
+      },
       "config": Object {
         "errorHandler": undefined,
         "globalProperties": Object {},
@@ -77,9 +88,8 @@ VueWrapper {
     "provide": [Function],
     "unmount": [Function],
     "use": [Function],
-    "version": "3.0.2",
+    "version": "3.0.3",
   },
-  "__functionalEmits": Object {},
   "__setProps": [Function],
   "componentVM": Object {
     "__emitted": Object {},
