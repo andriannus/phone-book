@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.2](https://github.com/andriannus/phone-book/compare/v1.3.1...v1.3.2) (2020-12-15)
+
+
+### Others
+
+* adjust vue config ([4980957](https://github.com/andriannus/phone-book/commit/4980957e19cd97580baea963e42dde9ac4a6f84a))
+* rename app files ([53b2066](https://github.com/andriannus/phone-book/commit/53b20667185ff7f37a181d7791f833be3543e528))
+
+
+### Tests
+
+* update notfound snapshot ([f19eed4](https://github.com/andriannus/phone-book/commit/f19eed40baa8d1de5a1d8f72d87e8fac38e4b518))
+
+
+### Code Refactoring
+
+* adjust strong text ([13f4c69](https://github.com/andriannus/phone-book/commit/13f4c69a7687f98017fd398abc07488229def1a2))
+* move shared folder into app folder ([7014a4d](https://github.com/andriannus/phone-book/commit/7014a4d7c72c1f15506e6761218192f2046db54b))
+* rename button-to-top files ([b1eaf0a](https://github.com/andriannus/phone-book/commit/b1eaf0a8c7e960b405adaa91c10bf1369b807ff8))
+* rename card files ([71c4d58](https://github.com/andriannus/phone-book/commit/71c4d585233f0569a0523ec6c598bfd3c9e172d3))
+* rename landing files ([f80eac9](https://github.com/andriannus/phone-book/commit/f80eac928f92cd89764dbfdc70c364341499371b))
+* rename not-found files ([acf3808](https://github.com/andriannus/phone-book/commit/acf3808257018545889908474bd520a0d2685d53))
+* rename slide-up-transition files ([8f3dde8](https://github.com/andriannus/phone-book/commit/8f3dde8e8b7e59e9d6952d7c3cbc4a9bfc24553d))
+* rename top-bar files ([9cd5ff5](https://github.com/andriannus/phone-book/commit/9cd5ff55c68f6e93f20fbfeb7643ae09685ab381))
+
 ### [1.3.1](https://github.com/andriannus/phone-book/compare/v1.3.0...v1.3.1) (2020-11-29)
 
 
