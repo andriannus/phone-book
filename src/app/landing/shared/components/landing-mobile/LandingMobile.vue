@@ -44,7 +44,7 @@ import { onMounted, onUnmounted, reactive } from "vue";
 import { useColorfulCard } from "../../services/colorful-card.hook";
 
 import QoaButtonToTop from "@/shared/components/button-to-top/button-to-top.component.vue";
-import QoaCard from "@/shared/components/qoa-card/QoaCard.vue";
+import QoaCard from "@/shared/components/card/card.component.vue";
 import { QOA_POSITION_Y } from "@/shared/constants/storage.constant";
 import { useLocalStorage } from "@/shared/services/local-storage";
 import { transformAddress, transformFullName } from "@/shared/utils/transform";
