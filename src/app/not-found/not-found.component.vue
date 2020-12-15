@@ -8,18 +8,5 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "NotFound",
-};
-</script>
-
-<style lang="scss" scoped>
-.NotFound {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 100vh;
-}
-</style>
+<script src="./not-found.component.js"></script>
+<style lang="scss" scoped src="./not-found.component.scss"></style>

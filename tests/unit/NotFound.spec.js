@@ -1,8 +1,8 @@
 import { shallowMount } from "@vue/test-utils";
 
-import NotFound from "@/app/not-found/NotFound.vue";
+import NotFound from "@/app/not-found/not-found.component.vue";
 
-describe("NotFound.vue", () => {
+describe("not-found.component.vue", () => {
   let wrapper;
 
   beforeEach(() => {

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NotFound.vue should create 1`] = `
+exports[`not-found.component.vue should create 1`] = `
 VueWrapper {
   "__app": Object {
     "_component": Object {
