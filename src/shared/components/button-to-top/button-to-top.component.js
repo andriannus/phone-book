@@ -1,24 +1,9 @@
-<template>
-  <teleport to="body">
-    <qoa-slide-up-transition>
-      <button
-        v-if="isShowButton"
-        class="ButtonToTop Button Button--dark Button--rounded Button--elevated"
-        @click="onClickButton"
-      >
-        Take me to fly up
-      </button>
-    </qoa-slide-up-transition>
-  </teleport>
-</template>
-
-<script>
-import { onMounted, onUnmounted, ref } from "vue";
+import { defineComponent, onMounted, onUnmounted, ref } from "vue";
 
 import QoaSlideUpTransition from "@/shared/transitions/QoaSlideUpTransition.vue";
 
-export default {
-  name: "QoaButtonToTop",
+export default defineComponent({
+  name: "ButtonToTop",
 
   components: {
     QoaSlideUpTransition,
@@ -56,16 +41,4 @@ export default {
 
     return { isShowButton, onClickButton };
   },
-};
-</script>
-
-<style lang="scss" scoped>
-.ButtonToTop {
-  bottom: 1rem;
-  left: 0;
-  margin: auto;
-  position: fixed;
-  right: 0;
-  width: 11rem;
-}
-</style>
+});
