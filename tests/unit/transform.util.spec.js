@@ -1,6 +1,9 @@
 import faker from "faker";
 
-import { transformAddress, transformFullName } from "@/shared/utils/transform";
+import {
+  transformAddress,
+  transformFullName,
+} from "@/app/shared/utils/transform";
 
 describe("transform.util.js", () => {
   it("should return full name", () => {

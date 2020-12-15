@@ -1,6 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
 
-import QoaTopBar from "@/shared/components/top-bar/top-bar.component.vue";
+import QoaTopBar from "@/app/shared/components/top-bar/top-bar.component.vue";
 
 describe("top-bar.component.vue", () => {
   let wrapper;

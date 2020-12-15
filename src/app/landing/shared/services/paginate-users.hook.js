@@ -1,6 +1,6 @@
 import { reactive, watchEffect } from "vue";
 
-import { paginate } from "@/shared/utils/pagination";
+import { paginate } from "@/app/shared/utils/pagination";
 
 export const usePaginateUsers = (users, page) => {
   const state = reactive({

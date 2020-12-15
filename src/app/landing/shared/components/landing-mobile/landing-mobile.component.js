@@ -2,12 +2,15 @@ import { defineComponent, onMounted, onUnmounted, reactive } from "vue";
 
 import { useColorfulCard } from "../../services/colorful-card.hook";
 
-import QoaButtonToTop from "@/shared/components/button-to-top/button-to-top.component.vue";
-import QoaCard from "@/shared/components/card/card.component.vue";
-import { QOA_POSITION_Y } from "@/shared/constants/storage.constant";
-import { useLocalStorage } from "@/shared/services/local-storage";
-import { transformAddress, transformFullName } from "@/shared/utils/transform";
-import { debounce } from "@/shared/utils/debounce";
+import QoaButtonToTop from "@/app/shared/components/button-to-top/button-to-top.component.vue";
+import QoaCard from "@/app/shared/components/card/card.component.vue";
+import { QOA_POSITION_Y } from "@/app/shared/constants/storage.constant";
+import { useLocalStorage } from "@/app/shared/services/local-storage";
+import {
+  transformAddress,
+  transformFullName,
+} from "@/app/shared/utils/transform";
+import { debounce } from "@/app/shared/utils/debounce";
 
 export default defineComponent({
   name: "LandingMobile",

@@ -1,7 +1,7 @@
 import { reactive } from "vue";
 import axios from "axios";
 
-import { API } from "@/shared/constants/api.constant";
+import { API } from "@/app/shared/constants/api.constant";
 
 export const useApiInvoker = ({ baseUrl, headers } = {}) => {
   const state = reactive({

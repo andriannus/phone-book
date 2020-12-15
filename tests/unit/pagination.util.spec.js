@@ -1,6 +1,6 @@
 import faker from "faker";
 
-import { paginate } from "@/shared/utils/pagination";
+import { paginate } from "@/app/shared/utils/pagination";
 
 describe("pagination.util.js", () => {
   let userStub = {};
