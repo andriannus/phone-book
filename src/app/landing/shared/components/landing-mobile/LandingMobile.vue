@@ -18,9 +18,9 @@
         </div>
 
         <div>
-          <strong>
-            <p class="MarginBottom-xsmall">{{ fullName(user.name) }}</p>
-          </strong>
+          <p class="MarginBottom-xsmall">
+            <strong>{{ fullName(user.name) }}</strong>
+          </p>
 
           <p class="MarginBottom-xsmall">
             {{ user.dob.age }}
