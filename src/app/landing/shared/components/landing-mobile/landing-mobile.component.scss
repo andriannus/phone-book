@@ -1,0 +1,24 @@
+@import "@amar-ui-web/responsive/scss/mixins";
+
+.LandingMobile {
+  display: flex;
+  margin: 1rem 0;
+  flex-direction: column;
+  word-break: break-all;
+
+  &-card {
+    p {
+      line-height: 1rem;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &-image {
+    img {
+      border-radius: 50%;
+    }
+  }
+}

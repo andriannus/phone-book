@@ -6,7 +6,8 @@ const landingRoutes = [
   {
     path: "/landing",
     name: "Landing",
-    component: () => import(/* webpackChunkName: "landing" */ "./Landing.vue"),
+    component: () =>
+      import(/* webpackChunkName: "landing" */ "./landing.component.vue"),
   },
 ];
 

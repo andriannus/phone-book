@@ -1,45 +1,15 @@
-<template>
-  <div v-if="!state.isDataReady" class="Landing-loading">
-    <span>Loading data, please wait...</span>
-  </div>
-
-  <div v-else-if="state.didSomethingWrong" class="Landing-error">
-    <div class="TextAlign-center">
-      <p class="MarginBottom">Something wrong.</p>
-
-      <button
-        class="Button Button--primary"
-        type="button"
-        @click="reloadCurrentPage"
-      >
-        Reload
-      </button>
-    </div>
-  </div>
-
-  <template v-else>
-    <qoa-top-bar @sorted="handleSort"></qoa-top-bar>
-
-    <landing-mobile
-      v-if="isMobile"
-      :paginatedUsers="state.paginatedUsers"
-      @updated="paginateUsers"
-    ></landing-mobile>
-
-    <landing-desktop
-      v-else
-      :paginatedUsers="state.paginatedUsers"
-      @updated="paginateUsers"
-    ></landing-desktop>
-  </template>
-</template>
-
-<script>
-import { computed, onMounted, onUnmounted, reactive, watchEffect } from "vue";
+import {
+  computed,
+  defineComponent,
+  onMounted,
+  onUnmounted,
+  reactive,
+  watchEffect,
+} from "vue";
 import { useRoute, useRouter } from "vue-router";
 
-import LandingDesktop from "./shared/components/landing-desktop/LandingDesktop.vue";
-import LandingMobile from "./shared/components/landing-mobile/LandingMobile.vue";
+import LandingDesktop from "./shared/components/landing-desktop/landing-desktop.component.vue";
+import LandingMobile from "./shared/components/landing-mobile/landing-mobile.component.vue";
 import { QUERY_PARAMS } from "./shared/constants/landing.constant";
 import { useColorfulUsers } from "./shared/services/colorful-users.hook";
 import { usePaginateUsers } from "./shared/services/paginate-users.hook";
@@ -50,7 +20,7 @@ import { QOA_USERS } from "@/shared/constants/storage.constant";
 import { useApiInvoker } from "@/shared/services/api-invoker";
 import { useLocalStorage } from "@/shared/services/local-storage";
 
-export default {
+export default defineComponent({
   name: "Landing",
 
   components: {
@@ -169,19 +139,4 @@ export default {
       state,
     };
   },
-};
-</script>
-
-<style lang="scss" scoped>
-.Landing {
-  &-loading,
-  &-error {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    justify-content: center;
-    min-height: 100vh;
-  }
-}
-</style>
+});

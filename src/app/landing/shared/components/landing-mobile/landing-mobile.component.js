@@ -1,45 +1,4 @@
-<template>
-  <div class="LandingMobile Container">
-    <qoa-card
-      v-for="(user, index) in paginatedUsers.data"
-      :key="index"
-      :className="cardClassName(user.color)"
-    >
-      <div class="Flex MarginBottom">
-        <div class="LandingMobile-image MarginRight">
-          <img
-            alt="Picture"
-            class="BgColor-light"
-            height="48"
-            loading="lazy"
-            :src="user.picture.thumbnail"
-            width="48"
-          />
-        </div>
-
-        <div>
-          <p class="MarginBottom-xsmall">
-            <strong>{{ fullName(user.name) }}</strong>
-          </p>
-
-          <p class="MarginBottom-xsmall">
-            {{ user.dob.age }}
-            <em>years old</em>
-          </p>
-
-          <p>{{ user.email }}</p>
-        </div>
-      </div>
-
-      <p>{{ address(user.location) }}</p>
-    </qoa-card>
-  </div>
-
-  <qoa-button-to-top></qoa-button-to-top>
-</template>
-
-<script>
-import { onMounted, onUnmounted, reactive } from "vue";
+import { defineComponent, onMounted, onUnmounted, reactive } from "vue";
 
 import { useColorfulCard } from "../../services/colorful-card.hook";
 
@@ -50,7 +9,7 @@ import { useLocalStorage } from "@/shared/services/local-storage";
 import { transformAddress, transformFullName } from "@/shared/utils/transform";
 import { debounce } from "@/shared/utils/debounce";
 
-export default {
+export default defineComponent({
   name: "LandingMobile",
 
   components: {
@@ -132,32 +91,4 @@ export default {
 
     return { address, cardClassName, fullName, props };
   },
-};
-</script>
-
-<style lang="scss" scoped>
-@import "@amar-ui-web/responsive/scss/mixins";
-
-.LandingMobile {
-  display: flex;
-  margin: 1rem 0;
-  flex-direction: column;
-  word-break: break-all;
-
-  &-card {
-    p {
-      line-height: 1rem;
-    }
-
-    &:not(:last-child) {
-      margin-bottom: 1rem;
-    }
-  }
-
-  &-image {
-    img {
-      border-radius: 50%;
-    }
-  }
-}
-</style>
+});
