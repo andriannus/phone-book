@@ -45,7 +45,7 @@ import { useColorfulUsers } from "./shared/services/colorful-users.hook";
 import { usePaginateUsers } from "./shared/services/paginate-users.hook";
 import { useSortUsers } from "./shared/services/sort-users.hook";
 
-import QoaTopBar from "@/shared/components/qoa-top-bar/QoaTopBar.vue";
+import QoaTopBar from "@/shared/components/top-bar/top-bar.component.vue";
 import { QOA_USERS } from "@/shared/constants/storage.constant";
 import { useApiInvoker } from "@/shared/services/api-invoker";
 import { useLocalStorage } from "@/shared/services/local-storage";

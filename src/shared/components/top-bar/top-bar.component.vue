@@ -32,24 +32,5 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "QoaTopBar",
-
-  setup(_, { emit }) {
-    const sortUser = value => {
-      emit("sorted", value);
-    };
-
-    return { sortUser };
-  },
-};
-</script>
-
-<style lang="scss" scoped>
-.TopBar {
-  position: sticky;
-  top: 0;
-  z-index: 2;
-}
-</style>
+<script src="./top-bar.component.js"></script>
+<style lang="scss" scoped src="./top-bar.component.scss"></style>
