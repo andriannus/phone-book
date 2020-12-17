@@ -1,5 +1,7 @@
 import { reactive, watchEffect } from "vue";
 
+import { USER_COLOR } from "../constants/landing.constant";
+
 export const useColorfulCard = userColor => {
   const state = reactive({
     colorfulCard: "",
@@ -7,13 +9,13 @@ export const useColorfulCard = userColor => {
 
   const handleCardColor = () => {
     switch (userColor) {
-      case "red":
+      case USER_COLOR.red:
         state.colorfulCard = "BgColor-danger";
         return;
-      case "green":
+      case USER_COLOR.green:
         state.colorfulCard = "BgColor-primary";
         return;
-      case "blue":
+      case USER_COLOR.blue:
         state.colorfulCard = "BgColor-secondary";
         return;
       default:

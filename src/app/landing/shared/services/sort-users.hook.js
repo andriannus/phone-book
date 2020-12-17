@@ -1,5 +1,7 @@
 import { reactive, watchEffect } from "vue";
 
+import { USER_COLOR } from "../constants/landing.constant";
+
 export const useSortUsers = (users, sort) => {
   const state = reactive({
     users,
@@ -36,15 +38,15 @@ export const useSortUsers = (users, sort) => {
 
   const sortByColor = () => {
     const greenUsers = state.users.filter(user => {
-      return user.color === "green";
+      return user.color === USER_COLOR.green;
     });
 
     const blueUsers = state.users.filter(user => {
-      return user.color === "blue";
+      return user.color === USER_COLOR.blue;
     });
 
     const redUsers = state.users.filter(user => {
-      return user.color === "red";
+      return user.color === USER_COLOR.red;
     });
 
     state.users = [...greenUsers, ...blueUsers, ...redUsers];
