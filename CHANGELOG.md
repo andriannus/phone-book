@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.3](https://github.com/andriannus/phone-book/compare/v1.3.2...v1.3.3) (2020-12-17)
+
+
+### Code Refactoring
+
+* move app files to app folder ([14ea3b7](https://github.com/andriannus/phone-book/commit/14ea3b78d982f249378a6a774af368f91621a783))
+* remove props on return setup ([1747f89](https://github.com/andriannus/phone-book/commit/1747f8997d63d79a07b22118ce94c8d01aaed235))
+* rename test files ([41730eb](https://github.com/andriannus/phone-book/commit/41730eb54c98f4abc2b904f32284393c9b3eb36d))
+* use constant for user color ([306e95c](https://github.com/andriannus/phone-book/commit/306e95cfe48624f445c5be19107c2a3eb5bb3c89))
+* use JS file for return class ([e1dede0](https://github.com/andriannus/phone-book/commit/e1dede0cd99e1e9ef5143eff0f2a833fccade55b))
+
 ### [1.3.2](https://github.com/andriannus/phone-book/compare/v1.3.1...v1.3.2) (2020-12-15)
 
 
