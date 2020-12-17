@@ -1,7 +1,7 @@
 <template>
   <div class="LandingDesktop Container" @scroll="onHorizontalScroll">
     <div
-      v-for="(user, index) in props.paginatedUsers.data"
+      v-for="(user, index) in paginatedUsers.data"
       :key="index"
       class="LandingDesktop-column"
     >

@@ -97,6 +97,6 @@ export default defineComponent({
       return `${className} ${colorfulCard}`;
     };
 
-    return { address, cardClassName, fullName, onHorizontalScroll, props };
+    return { address, cardClassName, fullName, onHorizontalScroll };
   },
 });
