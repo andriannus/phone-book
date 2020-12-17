@@ -11,8 +11,12 @@ export default defineComponent({
   },
 
   setup(props) {
-    const hasClassName = computed(() => !!props.className);
+    const cardClassName = computed(() => {
+      return {
+        [props.className]: !!props.className,
+      };
+    });
 
-    return { hasClassName, props };
+    return { cardClassName };
   },
 });
