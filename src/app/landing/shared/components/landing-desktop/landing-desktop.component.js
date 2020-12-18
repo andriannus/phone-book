@@ -76,8 +76,7 @@ export default defineComponent({
     const onHorizontalScroll = debounce(() => {
       ls.set(QOA_POSITION_X, state.container.scrollLeft);
 
-      if (!props.paginatedUsers.meta.nextPage) return;
-      if (!isStillScrollable()) return;
+      if (!props.paginatedUsers.meta.nextPage || !isStillScrollable()) return;
 
       emit("updated", props.paginatedUsers.meta.nextPage);
     }, 250);

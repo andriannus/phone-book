@@ -71,8 +71,7 @@ export default defineComponent({
 
       ls.set(QOA_POSITION_Y, state.scrollTop);
 
-      if (!props.paginatedUsers.meta.nextPage) return;
-      if (!isStillScrollable()) return;
+      if (!props.paginatedUsers.meta.nextPage || !isStillScrollable()) return;
 
       emit("updated", props.paginatedUsers.meta.nextPage);
     }, 250);
