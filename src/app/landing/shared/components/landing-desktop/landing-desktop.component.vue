@@ -31,6 +31,8 @@
       </qoa-card>
     </div>
   </div>
+
+  <qoa-button-to-left selector=".LandingDesktop"></qoa-button-to-left>
 </template>
 
 <script src="./landing-desktop.component.js"></script>

@@ -2,6 +2,7 @@ import { defineComponent, onMounted, onUnmounted, reactive } from "vue";
 
 import { useColorfulCard } from "../../services/colorful-card.hook";
 
+import QoaButtonToLeft from "@/app/shared/components/button-to-left/button-to-left.component.vue";
 import QoaCard from "@/app/shared/components/card/card.component.vue";
 import { QOA_POSITION_X } from "@/app/shared/constants/storage.constant";
 import { useLocalStorage } from "@/app/shared/services/local-storage";
@@ -15,6 +16,7 @@ export default defineComponent({
   name: "LandingDesktop",
 
   components: {
+    QoaButtonToLeft,
     QoaCard,
   },
 
