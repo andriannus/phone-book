@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "vue-cli-service build",
+    "build:modern": "vue-cli-service build --modern",
     "commit": "git-cz",
     "lint": "vue-cli-service lint",
     "release": "standard-version",
