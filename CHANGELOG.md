@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/andriannus/phone-book/compare/v1.3.3...v1.4.0) (2020-12-23)
+
+
+### Features
+
+* back to left smooth ([f62ab80](https://github.com/andriannus/phone-book/commit/f62ab801a7444c83a058299c2f9d4044fb2a7397))
+* create button to left component ([2390847](https://github.com/andriannus/phone-book/commit/2390847b63a8d9ddad670883965c38d0c1e52338))
+
+
+### Others
+
+* build to modern browser ([fa23aac](https://github.com/andriannus/phone-book/commit/fa23aac4359954b2b81ffcd4332bf9c8ab9ecc4b))
+
+
+### Code Refactoring
+
+* adjust if condition ([d22cbaa](https://github.com/andriannus/phone-book/commit/d22cbaa95ef02ddc0c9a3a95b929e20df80cff10))
+* create constant for scroll interval and divider ([83db024](https://github.com/andriannus/phone-book/commit/83db0245b6e2415253953a33a5468138b2f2a8fa))
+* implement button to left component ([8c63035](https://github.com/andriannus/phone-book/commit/8c63035d42b05b7b2537ade741130ba2847e8300))
+
 ### [1.3.3](https://github.com/andriannus/phone-book/compare/v1.3.2...v1.3.3) (2020-12-17)
 
 
