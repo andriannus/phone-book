@@ -39,9 +39,14 @@ export default defineComponent({
     const onClickButton = () => {
       if (!state.container) return;
 
-      state.container.scrollTo({
-        left: 0,
-      });
+      const scrollStep = state.container.scrollLeft / 30;
+      const scrollInterval = setInterval(() => {
+        if (state.container.scrollLeft === 0) {
+          window.clearInterval(scrollInterval);
+        }
+
+        state.container.scrollLeft -= scrollStep;
+      }, 15);
     };
 
     return { onClickButton, state };
