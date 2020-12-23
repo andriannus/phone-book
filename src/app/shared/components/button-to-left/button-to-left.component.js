@@ -1,6 +1,10 @@
 import { defineComponent, onMounted, onUnmounted, reactive } from "vue";
 
 import QoaSlideUpTransition from "@/app/shared/components/slide-up-transition/slide-up-transition.component.vue";
+import {
+  SCROLL_INTERVAL,
+  SCROLL_STEP_DIVIDER,
+} from "@/app/shared/constants/scroll.constant";
 
 export default defineComponent({
   name: "ButtonToLeft",
@@ -39,14 +43,14 @@ export default defineComponent({
     const onClickButton = () => {
       if (!state.container) return;
 
-      const scrollStep = state.container.scrollLeft / 30;
+      const scrollStep = state.container.scrollLeft / SCROLL_STEP_DIVIDER;
       const scrollInterval = setInterval(() => {
         if (state.container.scrollLeft === 0) {
           window.clearInterval(scrollInterval);
         }
 
         state.container.scrollLeft -= scrollStep;
-      }, 15);
+      }, SCROLL_INTERVAL);
     };
 
     return { onClickButton, state };
