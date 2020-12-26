@@ -4,6 +4,7 @@ import { useColorfulCard } from "../../services/colorful-card.hook";
 
 import QoaButtonToLeft from "@/app/shared/components/button-to-left/button-to-left.component.vue";
 import QoaCard from "@/app/shared/components/card/card.component.vue";
+import { UPDATED } from "@/app/shared/constants/emit.constant";
 import { QOA_POSITION_X } from "@/app/shared/constants/storage.constant";
 import { useLocalStorage } from "@/app/shared/services/local-storage";
 import {
@@ -29,7 +30,7 @@ export default defineComponent({
     },
   },
 
-  emits: ["updated"],
+  emits: [UPDATED],
 
   setup(props, { emit }) {
     const ls = useLocalStorage();
@@ -80,7 +81,7 @@ export default defineComponent({
 
       if (!props.paginatedUsers.meta.nextPage || !isStillScrollable()) return;
 
-      emit("updated", props.paginatedUsers.meta.nextPage);
+      emit(UPDATED, props.paginatedUsers.meta.nextPage);
     }, 250);
 
     const fullName = name => {
