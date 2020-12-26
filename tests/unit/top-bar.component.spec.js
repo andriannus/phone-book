@@ -1,6 +1,7 @@
 import { shallowMount } from "@vue/test-utils";
 
 import QoaTopBar from "@/app/shared/components/top-bar/top-bar.component.vue";
+import { SORTED } from "@/app/shared/constants/emit.constant";
 
 describe("top-bar.component.vue", () => {
   let wrapper;
@@ -18,7 +19,7 @@ describe("top-bar.component.vue", () => {
 
     sortByColorButton.trigger("click");
 
-    expect(wrapper.emitted("sorted")).toBeTruthy();
+    expect(wrapper.emitted(SORTED)).toBeTruthy();
   });
 
   it("should emit with `color` argument when color button clicked", () => {
@@ -26,7 +27,7 @@ describe("top-bar.component.vue", () => {
 
     sortByColorButton.trigger("click");
 
-    expect(wrapper.emitted("sorted")[0]).toEqual(["color"]);
+    expect(wrapper.emitted(SORTED)[0]).toEqual(["color"]);
   });
 
   it("should emit when city button clicked", () => {
@@ -34,7 +35,7 @@ describe("top-bar.component.vue", () => {
 
     sortByCityButton.trigger("click");
 
-    expect(wrapper.emitted("sorted")).toBeTruthy();
+    expect(wrapper.emitted(SORTED)).toBeTruthy();
   });
 
   it("should emit with `city` argument when color button clicked", () => {
@@ -42,6 +43,6 @@ describe("top-bar.component.vue", () => {
 
     sortByCityButton.trigger("click");
 
-    expect(wrapper.emitted("sorted")[0]).toEqual(["city"]);
+    expect(wrapper.emitted(SORTED)[0]).toEqual(["city"]);
   });
 });
