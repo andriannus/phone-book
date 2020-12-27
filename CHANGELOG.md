@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/andriannus/phone-book/compare/v1.4.0...v2.0.0) (2020-12-27)
+
+
+### Features
+
+* migrate to TypeScript ([8be4664](https://github.com/andriannus/phone-book/commit/8be4664648920cac0ef54005b8757ad725fbbf41))
+
+
+### Others
+
+* preload landing css ([235067d](https://github.com/andriannus/phone-book/commit/235067d43a5ea98fd264737d1d378016c97e101b))
+* remove wrong preload syntax ([222d6e7](https://github.com/andriannus/phone-book/commit/222d6e7dbb4d05c2fc291213fa5f51c02e7e2715))
+
+
+### Code Refactoring
+
+* create and use constant for card class ([37cee45](https://github.com/andriannus/phone-book/commit/37cee451f10733093c2dadda8424b878b8ba6250))
+* create constant for emit name ([14dd610](https://github.com/andriannus/phone-book/commit/14dd6109a01d1d9dee3d41aa8dcaa73e59c34383))
+* move scss to app component vue ([81b4234](https://github.com/andriannus/phone-book/commit/81b42349600cc59f1f25dc99fe882b58c62333b9))
+* sort const position ([8c76813](https://github.com/andriannus/phone-book/commit/8c76813fce6fef5da0ee97a2315f4dc615ad4e63))
+* update emit constant ([60ddf4e](https://github.com/andriannus/phone-book/commit/60ddf4efe41e78fde70484573d1d6970b8e98161))
+
 ## [1.4.0](https://github.com/andriannus/phone-book/compare/v1.3.3...v1.4.0) (2020-12-23)
 
 
