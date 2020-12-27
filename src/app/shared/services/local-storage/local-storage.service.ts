@@ -1,10 +1,10 @@
 export const useLocalStorage = () => {
-  const get = key => {
+  const get = (key: string) => {
     const data = localStorage.getItem(key) || "";
     return JSON.parse(data);
   };
 
-  const set = (key, value) => {
+  const set = (key: string, value: any) => {
     const data = JSON.stringify(value);
     localStorage.setItem(key, data);
   };
@@ -13,7 +13,7 @@ export const useLocalStorage = () => {
     localStorage.clear();
   };
 
-  const isExist = key => {
+  const isExist = (key: string) => {
     return !!localStorage.getItem(key);
   };
 

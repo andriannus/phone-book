@@ -1,10 +1,12 @@
 import { reactive } from "vue";
-import axios from "axios";
+import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
+
+import { ApiInvoker, ApiInvokerState } from "./api-invoker.model";
 
 import { API } from "@/app/shared/constants/api.constant";
 
-export const useApiInvoker = ({ baseUrl, headers } = {}) => {
-  const state = reactive({
+export function useApiInvoker({ baseUrl = "", headers = {} }: ApiInvoker) {
+  const state = reactive<ApiInvokerState>({
     cancelSource: null,
   });
 
@@ -14,7 +16,7 @@ export const useApiInvoker = ({ baseUrl, headers } = {}) => {
     ...headers,
   });
 
-  const createCancelToken = config => {
+  const createCancelToken = (config: AxiosRequestConfig) => {
     const { CancelToken } = axios;
     const source = CancelToken.source();
     state.cancelSource = source;
@@ -28,18 +30,18 @@ export const useApiInvoker = ({ baseUrl, headers } = {}) => {
     }
   };
 
-  const interceptRequest = config => {
+  const interceptRequest = (config: AxiosRequestConfig) => {
     cancelRequest();
     createCancelToken(config);
 
     return config;
   };
 
-  const interceptSuccessResponse = res => {
+  const interceptSuccessResponse = (res: AxiosResponse) => {
     return res;
   };
 
-  const interceptErrorResponse = err => {
+  const interceptErrorResponse = (err: any) => {
     return Promise.reject(err);
   };
 
@@ -50,4 +52,4 @@ export const useApiInvoker = ({ baseUrl, headers } = {}) => {
   );
 
   return { apiInvoker };
-};
+}

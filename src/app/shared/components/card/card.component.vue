@@ -6,4 +6,4 @@
   </div>
 </template>
 
-<script src="./card.component.js"></script>
+<script lang="ts" src="./card.component.ts"></script>

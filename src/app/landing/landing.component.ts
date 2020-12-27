@@ -8,17 +8,21 @@ import {
 } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
+import { LandingState, LandingUrlQuery } from "./landing.model";
 import LandingDesktop from "./shared/components/landing-desktop/landing-desktop.component.vue";
 import LandingMobile from "./shared/components/landing-mobile/landing-mobile.component.vue";
 import { QUERY_PARAMS } from "./shared/constants/landing.constant";
-import { useColorfulUsers } from "./shared/services/colorful-users.hook";
-import { usePaginateUsers } from "./shared/services/paginate-users.hook";
-import { useSortUsers } from "./shared/services/sort-users.hook";
+import { useColorfulUsers } from "./shared/services/colorful-users";
+import { usePaginateUsers } from "./shared/services/paginate-users";
+import { useSortUsers } from "./shared/services/sort-users";
 
 import QoaTopBar from "@/app/shared/components/top-bar/top-bar.component.vue";
 import { QOA_USERS } from "@/app/shared/constants/storage.constant";
+import { UserSort } from "@/app/shared/enums/user.enum";
+import { RandomUserData } from "@/app/shared/models/random-user.model";
 import { useApiInvoker } from "@/app/shared/services/api-invoker";
 import { useLocalStorage } from "@/app/shared/services/local-storage";
+import { PaginatedData } from "@/app/shared/utils/pagination";
 
 export default defineComponent({
   name: "Landing",
@@ -30,16 +34,16 @@ export default defineComponent({
   },
 
   setup() {
-    const { apiInvoker } = useApiInvoker();
+    const { apiInvoker } = useApiInvoker({});
     const ls = useLocalStorage();
     const route = useRoute();
     const router = useRouter();
 
-    const state = reactive({
+    const state = reactive<LandingState>({
       clientWidth: document.body.clientWidth,
       didSomethingWrong: false,
       isDataReady: false,
-      paginatedUsers: {},
+      paginatedUsers: {} as PaginatedData<RandomUserData>,
     });
 
     const queryRef = computed(() => route.query);
@@ -61,7 +65,7 @@ export default defineComponent({
       location.reload();
     };
 
-    const paginateUsers = (page = 1) => {
+    const paginateUsers = (page: string = "1") => {
       navigate({ page });
 
       if (ls.isExist(QOA_USERS)) {
@@ -71,11 +75,11 @@ export default defineComponent({
       fetchPaginatedUsers();
     };
 
-    const handleSort = sortBy => {
+    const handleSort = (sortBy: UserSort) => {
       navigate({ sortBy });
     };
 
-    const navigate = query => {
+    const navigate = (query: LandingUrlQuery) => {
       router.push({
         query: {
           ...route.query,
@@ -84,12 +88,12 @@ export default defineComponent({
       });
     };
 
-    const transformRandomUsers = users => {
-      const { page = 1, sortBy = "" } = queryRef.value;
+    const transformRandomUsers = (users: RandomUserData[]) => {
+      const { page = "1", sortBy = "" } = queryRef.value;
 
       const colorfulUsers = useColorfulUsers(users);
-      const sortedUsers = useSortUsers(colorfulUsers, sortBy);
-      const paginatedUsers = usePaginateUsers(sortedUsers, page);
+      const sortedUsers = useSortUsers(colorfulUsers, sortBy as UserSort);
+      const paginatedUsers = usePaginateUsers(sortedUsers, page as string);
 
       return paginatedUsers;
     };
@@ -114,21 +118,21 @@ export default defineComponent({
       state.isDataReady = true;
     };
 
-    const handlePageWithoutQuery = page => {
+    const handlePageWithoutQuery = (page: string) => {
       router.replace({
         query: { page },
       });
     };
 
     watchEffect(() => {
-      const { page } = queryRef.value;
-      const validPage = page || 1;
+      const { page = "" } = queryRef.value;
+      const validPage = page || "1";
 
       if (!page) {
-        return handlePageWithoutQuery(validPage);
+        return handlePageWithoutQuery(validPage as string);
       }
 
-      paginateUsers(validPage);
+      paginateUsers(validPage as string);
     });
 
     return {

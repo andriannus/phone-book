@@ -1,11 +1,14 @@
 import { defineComponent, onMounted, onUnmounted, reactive } from "vue";
 
-import { useColorfulCard } from "../../services/colorful-card.hook";
+import { LandingMobileState } from "./landing-mobile.model";
+import { useColorfulCard } from "../../services/colorful-card";
 
 import QoaButtonToTop from "@/app/shared/components/button-to-top/button-to-top.component.vue";
 import QoaCard from "@/app/shared/components/card/card.component.vue";
 import { UPDATED } from "@/app/shared/constants/emit.constant";
 import { QOA_POSITION_Y } from "@/app/shared/constants/storage.constant";
+import { UserColor } from "@/app/shared/enums/user.enum";
+import { Location, Name } from "@/app/shared/models/random-user.model";
 import { useLocalStorage } from "@/app/shared/services/local-storage";
 import {
   transformAddress,
@@ -24,7 +27,7 @@ export default defineComponent({
   props: {
     paginatedUsers: {
       type: Object,
-      default() {
+      default: () => {
         return {};
       },
     },
@@ -35,7 +38,7 @@ export default defineComponent({
   setup(props, { emit }) {
     const ls = useLocalStorage();
 
-    const state = reactive({
+    const state = reactive<LandingMobileState>({
       container: null,
       scrollTop: 0,
     });
@@ -54,14 +57,14 @@ export default defineComponent({
     });
 
     const scrollToLastPosition = () => {
-      state.container.scrollTo({
+      state.container?.scrollTo({
         top: ls.get(QOA_POSITION_Y),
       });
     };
 
     const isStillScrollable = () => {
       const bottomOfPage =
-        state.container.scrollHeight - window.screen.height - 100;
+        state.container!.scrollHeight - window.screen.height - 100;
 
       return state.scrollTop >= bottomOfPage;
     };
@@ -77,15 +80,15 @@ export default defineComponent({
       emit(UPDATED, props.paginatedUsers.meta.nextPage);
     }, 250);
 
-    const fullName = name => {
+    const fullName = (name: Name) => {
       return transformFullName(name);
     };
 
-    const address = location => {
+    const address = (location: Location) => {
       return transformAddress(location);
     };
 
-    const cardClassName = userColor => {
+    const cardClassName = (userColor: UserColor) => {
       const className = "LandingMobile-card";
       const colorfulCard = useColorfulCard(userColor);
 

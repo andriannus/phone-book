@@ -32,5 +32,5 @@
   </div>
 </template>
 
-<script src="./top-bar.component.js"></script>
+<script lang="ts" src="./top-bar.component.ts"></script>
 <style lang="scss" scoped src="./top-bar.component.scss"></style>

@@ -1,10 +1,10 @@
-import { shallowMount } from "@vue/test-utils";
+import { shallowMount, VueWrapper } from "@vue/test-utils";
 
 import QoaTopBar from "@/app/shared/components/top-bar/top-bar.component.vue";
 import { SORTED } from "@/app/shared/constants/emit.constant";
 
 describe("top-bar.component.vue", () => {
-  let wrapper;
+  let wrapper: VueWrapper<any>;
 
   beforeEach(() => {
     wrapper = shallowMount(QoaTopBar);

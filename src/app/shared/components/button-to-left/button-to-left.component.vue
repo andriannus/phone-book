@@ -12,5 +12,5 @@
   </teleport>
 </template>
 
-<script src="./button-to-left.component.js"></script>
+<script lang="ts" src="./button-to-left.component.ts"></script>
 <style lang="scss" scoped src="./button-to-left.component.scss"></style>

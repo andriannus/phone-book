@@ -38,5 +38,5 @@
   <qoa-button-to-top></qoa-button-to-top>
 </template>
 
-<script src="./landing-mobile.component.js"></script>
+<script lang="ts" src="./landing-mobile.component.ts"></script>
 <style lang="scss" scoped src="./landing-mobile.component.scss"></style>

@@ -1,4 +1,6 @@
-export const paginate = (data, options) => {
+import { PaginatonOptions } from "./pagination.model";
+
+export const paginate = <T>(data: T[], options: PaginatonOptions) => {
   const { page, limit, total } = options;
   const totalPage = Math.ceil(total / limit);
 

@@ -1,18 +1,21 @@
 import { reactive, watchEffect } from "vue";
 
-import { USER_COLOR } from "../constants/landing.constant";
+import { SortUsersState } from "./sort-users.model";
+import { ColorfulUser } from "../colorful-users";
 
-export const useSortUsers = (users, sort) => {
-  const state = reactive({
+import { UserColor, UserSort } from "@/app/shared/enums/user.enum";
+
+export const useSortUsers = (users: ColorfulUser[], sort: UserSort) => {
+  const state = reactive<SortUsersState>({
     users,
     sort,
   });
 
   const handleUserSort = () => {
     switch (state.sort) {
-      case "city":
+      case UserSort.City:
         return sortByCity();
-      case "color":
+      case UserSort.Color:
         return sortByColor();
       default:
         return;
@@ -38,15 +41,15 @@ export const useSortUsers = (users, sort) => {
 
   const sortByColor = () => {
     const greenUsers = state.users.filter(user => {
-      return user.color === USER_COLOR.green;
+      return user.color === UserColor.Green;
     });
 
     const blueUsers = state.users.filter(user => {
-      return user.color === USER_COLOR.blue;
+      return user.color === UserColor.Blue;
     });
 
     const redUsers = state.users.filter(user => {
-      return user.color === USER_COLOR.red;
+      return user.color === UserColor.Red;
     });
 
     state.users = [...greenUsers, ...blueUsers, ...redUsers];

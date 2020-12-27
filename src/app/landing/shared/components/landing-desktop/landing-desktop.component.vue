@@ -35,5 +35,5 @@
   <qoa-button-to-left selector=".LandingDesktop"></qoa-button-to-left>
 </template>
 
-<script src="./landing-desktop.component.js"></script>
+<script lang="ts" src="./landing-desktop.component.ts"></script>
 <style lang="scss" scoped src="./landing-desktop.component.scss"></style>

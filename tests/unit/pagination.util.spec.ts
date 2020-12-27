@@ -1,10 +1,12 @@
 import faker from "faker";
 
-import { paginate } from "@/app/shared/utils/pagination";
+import { UserColor } from "@/app/shared/enums/user.enum";
+import { ColorfulUser } from "@/app/landing/shared/services/colorful-users";
+import { paginate, PaginatonOptions } from "@/app/shared/utils/pagination";
 
 describe("pagination.util.js", () => {
-  let userStub = {};
-  let optionsStub = {};
+  let userStub: ColorfulUser;
+  let optionsStub: PaginatonOptions;
 
   beforeEach(() => {
     userStub = {
@@ -21,7 +23,7 @@ describe("pagination.util.js", () => {
         city: faker.address.city(),
         state: faker.address.state(),
         country: faker.address.country(),
-        postcode: faker.address.zipCodeByState(),
+        postcode: parseInt(faker.address.zipCodeByState(faker.address.state())),
         coordinates: {
           latitude: faker.address.latitude(),
           longitude: faker.address.longitude(),
@@ -45,7 +47,7 @@ describe("pagination.util.js", () => {
         medium: faker.image.imageUrl(),
         thumbnail: faker.image.imageUrl(),
       },
-      color: faker.internet.color(),
+      color: UserColor.Blue,
     };
 
     optionsStub = {
@@ -56,8 +58,8 @@ describe("pagination.util.js", () => {
   });
 
   afterEach(() => {
-    userStub = {};
-    optionsStub = {};
+    userStub = {} as ColorfulUser;
+    optionsStub = {} as PaginatonOptions;
   });
 
   it("should return paginated data", () => {
