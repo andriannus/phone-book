@@ -26,7 +26,7 @@ export const useSortUsers = (
   };
 
   const sortByCity = (): void => {
-    state.users.sort((a, b) => {
+    state.users.sort((a: ColorfulUser, b: ColorfulUser): 1 | -1 | 0 => {
       const cityA = a.location.city.toUpperCase();
       const cityB = b.location.city.toUpperCase();
 
@@ -43,22 +43,22 @@ export const useSortUsers = (
   };
 
   const sortByColor = (): void => {
-    const greenUsers = state.users.filter(user => {
+    const greenUsers = state.users.filter((user: ColorfulUser) => {
       return user.color === UserColor.Green;
     });
 
-    const blueUsers = state.users.filter(user => {
+    const blueUsers = state.users.filter((user: ColorfulUser) => {
       return user.color === UserColor.Blue;
     });
 
-    const redUsers = state.users.filter(user => {
+    const redUsers = state.users.filter((user: ColorfulUser) => {
       return user.color === UserColor.Red;
     });
 
     state.users = [...greenUsers, ...blueUsers, ...redUsers];
   };
 
-  watchEffect(() => {
+  watchEffect((): void => {
     handleUserSort();
   });
 

@@ -26,7 +26,7 @@ export const useColorfulCard = (userColor: UserColor): CardClass => {
     }
   };
 
-  watchEffect(() => {
+  watchEffect((): void => {
     handleCardColor();
   });
 

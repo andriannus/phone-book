@@ -46,7 +46,7 @@ export default defineComponent({
       if (!state.container) return;
 
       const scrollStep = state.container.scrollLeft / SCROLL_STEP_DIVIDER;
-      const scrollInterval = setInterval(() => {
+      const scrollInterval = setInterval((): void => {
         if (state.container!.scrollLeft === 0) {
           window.clearInterval(scrollInterval);
         }

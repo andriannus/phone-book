@@ -3,7 +3,11 @@ import { reactive, watchEffect } from "vue";
 import { PaginateUsersState } from "./paginate-users.model";
 
 import { RandomUserData } from "@/app/shared/models/random-user.model";
-import { paginate, PaginatedData } from "@/app/shared/utils/pagination";
+import {
+  paginate,
+  PaginatedData,
+  PaginationOptions,
+} from "@/app/shared/utils/pagination";
 
 export const usePaginateUsers = (
   users: RandomUserData[],
@@ -14,17 +18,17 @@ export const usePaginateUsers = (
     paginatedUsers: {} as PaginatedData<RandomUserData>,
   });
 
-  const paginateUsers = () => {
-    const options = {
+  const paginateUsers = (): void => {
+    const options: PaginationOptions = {
       limit: 10,
       page: parseInt(page),
       total: users.length,
     };
 
-    state.paginatedUsers = paginate(users, options);
+    state.paginatedUsers = paginate<RandomUserData>(users, options);
   };
 
-  watchEffect(() => {
+  watchEffect((): void => {
     paginateUsers();
   });
 

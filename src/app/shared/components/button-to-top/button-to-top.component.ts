@@ -38,7 +38,7 @@ export default defineComponent({
 
     const onClickButton = (): void => {
       const scrollStep = -window.scrollY / SCROLL_STEP_DIVIDER;
-      const scrollInterval = setInterval(() => {
+      const scrollInterval = setInterval((): void => {
         if (window.scrollY === 0) {
           return clearInterval(scrollInterval);
         }

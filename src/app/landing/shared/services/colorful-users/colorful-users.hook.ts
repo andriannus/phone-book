@@ -26,7 +26,7 @@ export const useColorfulUsers = (users: RandomUserData[]): ColorfulUser[] => {
     }) as ColorfulUser[];
   };
 
-  watchEffect(() => {
+  watchEffect((): void => {
     handleUserColors();
   });
 
