@@ -49,23 +49,23 @@ export default defineComponent({
     const queryRef = computed(() => route.query);
     const isMobile = computed(() => state.clientWidth < 768);
 
-    onMounted(() => {
+    onMounted((): void => {
       window.addEventListener("resize", onResize);
     });
 
-    onUnmounted(() => {
+    onUnmounted((): void => {
       window.removeEventListener("resize", onResize);
     });
 
-    const onResize = () => {
+    const onResize = (): void => {
       state.clientWidth = document.body.clientWidth;
     };
 
-    const reloadCurrentPage = () => {
+    const reloadCurrentPage = (): void => {
       location.reload();
     };
 
-    const paginateUsers = (page: string = "1") => {
+    const paginateUsers = (page: string = "1"): void => {
       navigate({ page });
 
       if (ls.isExist(QOA_USERS)) {
@@ -75,11 +75,11 @@ export default defineComponent({
       fetchPaginatedUsers();
     };
 
-    const handleSort = (sortBy: UserSort) => {
+    const handleSort = (sortBy: UserSort): void => {
       navigate({ sortBy });
     };
 
-    const navigate = (query: LandingUrlQuery) => {
+    const navigate = (query: LandingUrlQuery): void => {
       router.push({
         query: {
           ...route.query,
@@ -88,7 +88,9 @@ export default defineComponent({
       });
     };
 
-    const transformRandomUsers = (users: RandomUserData[]) => {
+    const transformRandomUsers = (
+      users: RandomUserData[],
+    ): PaginatedData<RandomUserData> => {
       const { page = "1", sortBy = "" } = queryRef.value;
 
       const colorfulUsers = useColorfulUsers(users);
@@ -98,7 +100,7 @@ export default defineComponent({
       return paginatedUsers;
     };
 
-    const fetchPaginatedUsers = async () => {
+    const fetchPaginatedUsers = async (): Promise<void> => {
       try {
         const { data: Data } = await apiInvoker.get(QUERY_PARAMS);
 
@@ -111,20 +113,20 @@ export default defineComponent({
       }
     };
 
-    const getPaginatedUsers = () => {
+    const getPaginatedUsers = (): void => {
       const results = ls.get(QOA_USERS);
 
       state.paginatedUsers = transformRandomUsers(results);
       state.isDataReady = true;
     };
 
-    const handlePageWithoutQuery = (page: string) => {
+    const handlePageWithoutQuery = (page: string): void => {
       router.replace({
         query: { page },
       });
     };
 
-    watchEffect(() => {
+    watchEffect((): void => {
       const { page = "" } = queryRef.value;
       const validPage = page || "1";
 

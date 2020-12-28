@@ -1,4 +1,10 @@
-import { defineComponent, onMounted, onUnmounted, reactive } from "vue";
+import {
+  defineComponent,
+  onMounted,
+  onUnmounted,
+  PropType,
+  reactive,
+} from "vue";
 
 import { LandingDesktopState } from "./landing-desktop.model";
 import { useColorfulCard } from "../../services/colorful-card";
@@ -8,13 +14,18 @@ import QoaCard from "@/app/shared/components/card/card.component.vue";
 import { UPDATED } from "@/app/shared/constants/emit.constant";
 import { QOA_POSITION_X } from "@/app/shared/constants/storage.constant";
 import { UserColor } from "@/app/shared/enums/user.enum";
-import { Location, Name } from "@/app/shared/models/random-user.model";
+import {
+  Location,
+  Name,
+  RandomUserData,
+} from "@/app/shared/models/random-user.model";
 import { useLocalStorage } from "@/app/shared/services/local-storage";
+import { debounce } from "@/app/shared/utils/debounce";
+import { PaginatedData } from "@/app/shared/utils/pagination";
 import {
   transformAddress,
   transformFullName,
 } from "@/app/shared/utils/transform";
-import { debounce } from "@/app/shared/utils/debounce";
 
 export default defineComponent({
   name: "LandingDesktop",
@@ -26,7 +37,7 @@ export default defineComponent({
 
   props: {
     paginatedUsers: {
-      type: Object,
+      type: Object as PropType<PaginatedData<RandomUserData>>,
       default: () => {
         return {};
       },
@@ -42,7 +53,7 @@ export default defineComponent({
       container: null,
     });
 
-    onMounted(() => {
+    onMounted((): void => {
       state.container = document.querySelector(".LandingDesktop");
       state.container?.addEventListener("wheel", onMouseWheel);
 
@@ -51,11 +62,11 @@ export default defineComponent({
       }
     });
 
-    onUnmounted(() => {
+    onUnmounted((): void => {
       state.container?.removeEventListener("wheel", onMouseWheel);
     });
 
-    const onMouseWheel = (e: Event) => {
+    const onMouseWheel = (e: Event): void => {
       const isGoRight = (e as WheelEvent).deltaY > 0;
 
       if (isGoRight) {
@@ -66,20 +77,20 @@ export default defineComponent({
       state.container!.scrollLeft -= 100;
     };
 
-    const scrollToLastPosition = () => {
+    const scrollToLastPosition = (): void => {
       state.container?.scrollTo({
         left: ls.get(QOA_POSITION_X),
       });
     };
 
-    const isStillScrollable = () => {
+    const isStillScrollable = (): boolean => {
       const rightOfPage =
         state.container!.scrollWidth - state.container!.clientWidth - 100;
 
       return state.container!.scrollLeft >= rightOfPage;
     };
 
-    const onHorizontalScroll = debounce(() => {
+    const onHorizontalScroll = debounce((): void => {
       ls.set(QOA_POSITION_X, state.container?.scrollLeft);
 
       if (!props.paginatedUsers.meta.nextPage || !isStillScrollable()) return;
@@ -87,15 +98,15 @@ export default defineComponent({
       emit(UPDATED, props.paginatedUsers.meta.nextPage);
     }, 250);
 
-    const fullName = (name: Name) => {
+    const fullName = (name: Name): string => {
       return transformFullName(name);
     };
 
-    const address = (location: Location) => {
+    const address = (location: Location): string => {
       return transformAddress(location);
     };
 
-    const cardClassName = (userColor: UserColor) => {
+    const cardClassName = (userColor: UserColor): string => {
       const className = "LandingDesktop-card";
       const colorfulCard = useColorfulCard(userColor);
 

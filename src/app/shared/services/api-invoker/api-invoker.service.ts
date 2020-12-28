@@ -16,7 +16,7 @@ export function useApiInvoker({ baseUrl = "", headers = {} }: ApiInvoker) {
     ...headers,
   });
 
-  const createCancelToken = (config: AxiosRequestConfig) => {
+  const createCancelToken = (config: AxiosRequestConfig): void => {
     const { CancelToken } = axios;
     const source = CancelToken.source();
     state.cancelSource = source;
@@ -24,24 +24,24 @@ export function useApiInvoker({ baseUrl = "", headers = {} }: ApiInvoker) {
     config.cancelToken = source.token;
   };
 
-  const cancelRequest = () => {
+  const cancelRequest = (): void => {
     if (state.cancelSource) {
       return state.cancelSource.cancel();
     }
   };
 
-  const interceptRequest = (config: AxiosRequestConfig) => {
+  const interceptRequest = (config: AxiosRequestConfig): AxiosRequestConfig => {
     cancelRequest();
     createCancelToken(config);
 
     return config;
   };
 
-  const interceptSuccessResponse = (res: AxiosResponse) => {
+  const interceptSuccessResponse = (res: AxiosResponse): AxiosResponse => {
     return res;
   };
 
-  const interceptErrorResponse = (err: any) => {
+  const interceptErrorResponse = (err: any): Promise<never> => {
     return Promise.reject(err);
   };
 

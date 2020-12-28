@@ -5,13 +5,16 @@ import { ColorfulUser } from "../colorful-users";
 
 import { UserColor, UserSort } from "@/app/shared/enums/user.enum";
 
-export const useSortUsers = (users: ColorfulUser[], sort: UserSort) => {
+export const useSortUsers = (
+  users: ColorfulUser[],
+  sort: UserSort,
+): ColorfulUser[] => {
   const state = reactive<SortUsersState>({
     users,
     sort,
   });
 
-  const handleUserSort = () => {
+  const handleUserSort = (): void => {
     switch (state.sort) {
       case UserSort.City:
         return sortByCity();
@@ -22,7 +25,7 @@ export const useSortUsers = (users: ColorfulUser[], sort: UserSort) => {
     }
   };
 
-  const sortByCity = () => {
+  const sortByCity = (): void => {
     state.users.sort((a, b) => {
       const cityA = a.location.city.toUpperCase();
       const cityB = b.location.city.toUpperCase();
@@ -39,7 +42,7 @@ export const useSortUsers = (users: ColorfulUser[], sort: UserSort) => {
     });
   };
 
-  const sortByColor = () => {
+  const sortByColor = (): void => {
     const greenUsers = state.users.filter(user => {
       return user.color === UserColor.Green;
     });

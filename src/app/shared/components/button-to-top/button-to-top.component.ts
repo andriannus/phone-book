@@ -16,15 +16,15 @@ export default defineComponent({
   setup() {
     const isShowButton = ref(false);
 
-    onMounted(() => {
+    onMounted((): void => {
       window.addEventListener("scroll", toggleToTopButton);
     });
 
-    onUnmounted(() => {
+    onUnmounted((): void => {
       window.removeEventListener("scroll", toggleToTopButton);
     });
 
-    const toggleToTopButton = () => {
+    const toggleToTopButton = (): void => {
       const { body, documentElement } = document;
       const isValidBody = body.scrollTop > 300;
       const isValidDocumentElement = documentElement.scrollTop > 300;
@@ -32,7 +32,7 @@ export default defineComponent({
       isShowButton.value = isValidBody || isValidDocumentElement;
     };
 
-    const onClickButton = () => {
+    const onClickButton = (): void => {
       const scrollStep = -window.scrollY / SCROLL_STEP_DIVIDER;
       const scrollInterval = setInterval(() => {
         if (window.scrollY === 0) {

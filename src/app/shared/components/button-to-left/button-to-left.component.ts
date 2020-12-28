@@ -28,21 +28,21 @@ export default defineComponent({
       isShowButton: false,
     });
 
-    onMounted(() => {
+    onMounted((): void => {
       state.container = document.querySelector(props.selector);
       state.container?.addEventListener("scroll", toggleToLeftButton);
     });
 
-    onUnmounted(() => {
+    onUnmounted((): void => {
       state.container?.removeEventListener("scroll", toggleToLeftButton);
     });
 
-    const toggleToLeftButton = () => {
+    const toggleToLeftButton = (): void => {
       if (!state.container) return;
       state.isShowButton = state.container.scrollLeft >= 900;
     };
 
-    const onClickButton = () => {
+    const onClickButton = (): void => {
       if (!state.container) return;
 
       const scrollStep = state.container.scrollLeft / SCROLL_STEP_DIVIDER;

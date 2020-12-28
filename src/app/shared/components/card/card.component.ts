@@ -11,7 +11,7 @@ export default defineComponent({
   },
 
   setup(props) {
-    const cardClassName = computed(() => {
+    const cardClassName = computed((): { [x: string]: boolean } => {
       return {
         [props.className]: !!props.className,
       };
