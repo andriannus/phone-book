@@ -119,7 +119,7 @@ export default defineComponent({
     };
 
     const getPaginatedUsers = (): void => {
-      const results = ls.get(QOA_USERS);
+      const results = ls.get<RandomUserData[]>(QOA_USERS);
 
       state.paginatedUsers = transformRandomUsers(results);
       state.isDataReady = true;

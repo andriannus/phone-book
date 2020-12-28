@@ -69,7 +69,7 @@ export default defineComponent({
 
     const scrollToLastPosition = (): void => {
       state.container?.scrollTo({
-        top: ls.get(QOA_POSITION_Y),
+        top: ls.get<number>(QOA_POSITION_Y),
       });
     };
 

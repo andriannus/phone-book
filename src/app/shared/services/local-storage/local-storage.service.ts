@@ -1,5 +1,5 @@
 export const useLocalStorage = () => {
-  const get = (key: string): any => {
+  const get = <T = any>(key: string): T => {
     const data = localStorage.getItem(key) || "";
     return JSON.parse(data);
   };
