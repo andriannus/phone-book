@@ -1,4 +1,6 @@
-import { defineComponent, onMounted, onUnmounted, ref } from "vue";
+import { defineComponent, onMounted, onUnmounted, reactive } from "vue";
+
+import { ButtonToTopState } from "./button-to-top.model";
 
 import QoaSlideUpTransition from "@/app/shared/components/slide-up-transition/slide-up-transition.component.vue";
 import {
@@ -14,7 +16,9 @@ export default defineComponent({
   },
 
   setup() {
-    const isShowButton = ref(false);
+    const state = reactive<ButtonToTopState>({
+      isShowButton: false,
+    });
 
     onMounted((): void => {
       window.addEventListener("scroll", toggleToTopButton);
@@ -29,7 +33,7 @@ export default defineComponent({
       const isValidBody = body.scrollTop > 300;
       const isValidDocumentElement = documentElement.scrollTop > 300;
 
-      isShowButton.value = isValidBody || isValidDocumentElement;
+      state.isShowButton = isValidBody || isValidDocumentElement;
     };
 
     const onClickButton = (): void => {
@@ -43,6 +47,6 @@ export default defineComponent({
       }, SCROLL_INTERVAL);
     };
 
-    return { isShowButton, onClickButton };
+    return { onClickButton, state };
   },
 });

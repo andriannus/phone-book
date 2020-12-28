@@ -2,7 +2,7 @@
   <teleport to="body">
     <qoa-slide-up-transition>
       <button
-        v-if="isShowButton"
+        v-if="state.isShowButton"
         class="ButtonToTop Button Button--dark Button--rounded Button--elevated"
         @click="onClickButton"
       >
