@@ -11,6 +11,6 @@ export default defineComponent({
       emit(SORTED, value);
     };
 
-    return { sortUser };
+    return { sortUser, UserSort };
   },
 });

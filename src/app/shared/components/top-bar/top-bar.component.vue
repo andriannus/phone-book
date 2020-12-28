@@ -12,7 +12,7 @@
           id="BtnSortByColor"
           class="Button Button--primary Button--outlined"
           type="button"
-          @click="sortUser('color')"
+          @click="sortUser(UserSort.Color)"
         >
           Color
         </button>
@@ -23,7 +23,7 @@
           id="BtnSortByCity"
           class="Button Button--primary Button--outlined"
           type="button"
-          @click="sortUser('city')"
+          @click="sortUser(UserSort.City)"
         >
           City
         </button>
