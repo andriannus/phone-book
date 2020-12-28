@@ -1,5 +1,5 @@
-import { RandomUserData } from "@/app/shared/models/random-user.model";
 import { UserColor } from "@/app/shared/enums/user.enum";
+import { RandomUserData } from "@/app/shared/models/random-user.model";
 
 export interface ColorfulUsersState {
   users: RandomUserData[];
