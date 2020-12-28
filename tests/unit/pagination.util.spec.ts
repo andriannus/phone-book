@@ -2,11 +2,11 @@ import faker from "faker";
 
 import { UserColor } from "@/app/shared/enums/user.enum";
 import { ColorfulUser } from "@/app/landing/shared/services/colorful-users";
-import { paginate, PaginatonOptions } from "@/app/shared/utils/pagination";
+import { paginate, PaginationOptions } from "@/app/shared/utils/pagination";
 
 describe("pagination.util.js", () => {
   let userStub: ColorfulUser;
-  let optionsStub: PaginatonOptions;
+  let optionsStub: PaginationOptions;
 
   beforeEach(() => {
     userStub = {
@@ -59,7 +59,7 @@ describe("pagination.util.js", () => {
 
   afterEach(() => {
     userStub = {} as ColorfulUser;
-    optionsStub = {} as PaginatonOptions;
+    optionsStub = {} as PaginationOptions;
   });
 
   it("should return paginated data", () => {
