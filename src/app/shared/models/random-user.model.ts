@@ -1,3 +1,15 @@
+export interface RandomUserResponse {
+  info: Info;
+  results: RandomUserData[];
+}
+
+export interface Info {
+  page: number;
+  results: number;
+  seed: string;
+  version: string;
+}
+
 export interface RandomUserData {
   dob: Dob;
   email: string;

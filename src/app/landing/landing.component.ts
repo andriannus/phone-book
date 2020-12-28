@@ -19,7 +19,10 @@ import { useSortUsers } from "./shared/services/sort-users";
 import QoaTopBar from "@/app/shared/components/top-bar/top-bar.component.vue";
 import { QOA_USERS } from "@/app/shared/constants/storage.constant";
 import { UserSort } from "@/app/shared/enums/user.enum";
-import { RandomUserData } from "@/app/shared/models/random-user.model";
+import {
+  RandomUserData,
+  RandomUserResponse,
+} from "@/app/shared/models/random-user.model";
 import { useApiInvoker } from "@/app/shared/services/api-invoker";
 import { useLocalStorage } from "@/app/shared/services/local-storage";
 import { PaginatedData } from "@/app/shared/utils/pagination";
@@ -102,7 +105,9 @@ export default defineComponent({
 
     const fetchPaginatedUsers = async (): Promise<void> => {
       try {
-        const { data: Data } = await apiInvoker.get(QUERY_PARAMS);
+        const { data: Data } = await apiInvoker.get<RandomUserResponse>(
+          QUERY_PARAMS,
+        );
 
         state.paginatedUsers = transformRandomUsers(Data.results);
         ls.set(QOA_USERS, Data.results);
