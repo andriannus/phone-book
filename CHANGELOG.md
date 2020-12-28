@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/andriannus/phone-book/compare/v2.0.0...v2.0.1) (2020-12-28)
+
+
+### Code Refactoring
+
+* add generic for type-safe LS get ([ffad683](https://github.com/andriannus/phone-book/commit/ffad683beec82430769cc7dcad732785c973d762))
+* add missing type for fetch random user ([90514b6](https://github.com/andriannus/phone-book/commit/90514b6fe3a7c62f58cb56ecc8a8fa2d48635891))
+* add missing types ([a0477b4](https://github.com/andriannus/phone-book/commit/a0477b436764bafcb964aeff556565a9d779f7ea))
+* add missing types ([05b4fe2](https://github.com/andriannus/phone-book/commit/05b4fe25c170e2706dcf265c9dd96c8f405911cb))
+* fix typo interface ([aa7aa27](https://github.com/andriannus/phone-book/commit/aa7aa27132d54e27dcb3cd3ce66f8bde93092716))
+* remove unused constant ([fe40b41](https://github.com/andriannus/phone-book/commit/fe40b41a518db74d518b0144301fbbff7478534c))
+* sort import member ([af42f2f](https://github.com/andriannus/phone-book/commit/af42f2fd5474830d7448b18a6d2c6c0aba2b9410))
+* use enum for parameter ([47202e9](https://github.com/andriannus/phone-book/commit/47202e9dc233648caa92ec84ff6c2e275119b803))
+* use reactive instead of ref ([588f1e1](https://github.com/andriannus/phone-book/commit/588f1e13be58e3b161faf6cb73500167f47b9171))
+
 ## [2.0.0](https://github.com/andriannus/phone-book/compare/v1.4.0...v2.0.0) (2020-12-27)
 
 
