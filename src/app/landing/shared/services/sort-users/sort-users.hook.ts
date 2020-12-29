@@ -16,12 +16,15 @@ export const useSortUsers = (
 
   const handleUserSort = (): void => {
     switch (state.sort) {
-      case UserSort.City:
+      case UserSort.City: {
         return sortByCity();
-      case UserSort.Color:
+      }
+      case UserSort.Color: {
         return sortByColor();
-      default:
+      }
+      default: {
         return;
+      }
     }
   };
 
@@ -43,15 +46,15 @@ export const useSortUsers = (
   };
 
   const sortByColor = (): void => {
-    const greenUsers = state.users.filter((user: ColorfulUser) => {
+    const greenUsers = state.users.filter((user: ColorfulUser): boolean => {
       return user.color === UserColor.Green;
     });
 
-    const blueUsers = state.users.filter((user: ColorfulUser) => {
+    const blueUsers = state.users.filter((user: ColorfulUser): boolean => {
       return user.color === UserColor.Blue;
     });
 
-    const redUsers = state.users.filter((user: ColorfulUser) => {
+    const redUsers = state.users.filter((user: ColorfulUser): boolean => {
       return user.color === UserColor.Red;
     });
 

@@ -14,14 +14,27 @@ export const useColorfulUsers = (users: RandomUserData[]): ColorfulUser[] => {
   const handleUserColors = (): void => {
     state.colorfulUsers = state.users.map((user: RandomUserData) => {
       switch (true) {
-        case user.dob.age < 21:
-          return { ...user, color: UserColor.Red };
-        case user.dob.age >= 21 && user.dob.age <= 56:
-          return { ...user, color: UserColor.Green };
-        case user.dob.age > 56:
-          return { ...user, color: UserColor.Blue };
-        default:
+        case user.dob.age < 21: {
+          return {
+            ...user,
+            color: UserColor.Red,
+          };
+        }
+        case user.dob.age >= 21 && user.dob.age <= 56: {
+          return {
+            ...user,
+            color: UserColor.Green,
+          };
+        }
+        case user.dob.age > 56: {
+          return {
+            ...user,
+            color: UserColor.Blue,
+          };
+        }
+        default: {
           return;
+        }
       }
     }) as ColorfulUser[];
   };

@@ -12,17 +12,21 @@ export const useColorfulCard = (userColor: UserColor): CardClass => {
 
   const handleCardColor = (): void => {
     switch (userColor) {
-      case UserColor.Red:
+      case UserColor.Red: {
         state.colorfulCard = CardClass.Red;
         return;
-      case UserColor.Green:
+      }
+      case UserColor.Green: {
         state.colorfulCard = CardClass.Green;
         return;
-      case UserColor.Blue:
+      }
+      case UserColor.Blue: {
         state.colorfulCard = CardClass.Blue;
         return;
-      default:
+      }
+      default: {
         return;
+      }
     }
   };
 
