@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.2](https://github.com/andriannus/phone-book/compare/v2.0.1...v2.0.2) (2020-12-29)
+
+
+### Code Refactoring
+
+* add missing types and use ! instead of ? ([94f957c](https://github.com/andriannus/phone-book/commit/94f957cc940f2a17c017d9e22bb7fe79ad87214e))
+* create new interface ([fb72941](https://github.com/andriannus/phone-book/commit/fb72941d3c9f4fadae8dded15afcad11002565f0))
+* export using * ([1af4815](https://github.com/andriannus/phone-book/commit/1af48159dc26bc373a546e71cf89d17065212be3))
+* tidy up switch case ([7e1fc23](https://github.com/andriannus/phone-book/commit/7e1fc236807369f40b6639ffa9ca753e9b1e8caf))
+* update const arrow function to function ([dc83b3d](https://github.com/andriannus/phone-book/commit/dc83b3da326d04711ab1fecbae91f16eb173deaa))
+* update snapshot ([5e96b9c](https://github.com/andriannus/phone-book/commit/5e96b9c42d44b02fe3f4f9e7307069c218d52857))
+
 ### [2.0.1](https://github.com/andriannus/phone-book/compare/v2.0.0...v2.0.1) (2020-12-28)
 
 
