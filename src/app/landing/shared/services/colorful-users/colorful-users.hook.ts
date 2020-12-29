@@ -5,13 +5,17 @@ import { ColorfulUser, ColorfulUsersState } from "./colorful-users.model";
 import { UserColor } from "@/app/shared/enums/user.enum";
 import { RandomUserData } from "@/app/shared/models/random-user.model";
 
-export const useColorfulUsers = (users: RandomUserData[]): ColorfulUser[] => {
+export function useColorfulUsers(users: RandomUserData[]): ColorfulUser[] {
   const state = reactive<ColorfulUsersState>({
     users,
     colorfulUsers: [],
   });
 
-  const handleUserColors = (): void => {
+  watchEffect((): void => {
+    handleUserColors();
+  });
+
+  function handleUserColors(): void {
     state.colorfulUsers = state.users.map((user: RandomUserData) => {
       switch (true) {
         case user.dob.age < 21: {
@@ -37,11 +41,7 @@ export const useColorfulUsers = (users: RandomUserData[]): ColorfulUser[] => {
         }
       }
     }) as ColorfulUser[];
-  };
-
-  watchEffect((): void => {
-    handleUserColors();
-  });
+  }
 
   return state.colorfulUsers;
-};
+}

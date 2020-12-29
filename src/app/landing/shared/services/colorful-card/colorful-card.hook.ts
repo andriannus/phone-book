@@ -5,12 +5,16 @@ import { ColorfulCardState } from "./colorful-card.model";
 
 import { UserColor } from "@/app/shared/enums/user.enum";
 
-export const useColorfulCard = (userColor: UserColor): CardClass => {
+export function useColorfulCard(userColor: UserColor): CardClass {
   const state = reactive<ColorfulCardState>({
     colorfulCard: CardClass.Default,
   });
 
-  const handleCardColor = (): void => {
+  watchEffect((): void => {
+    handleCardColor();
+  });
+
+  function handleCardColor(): void {
     switch (userColor) {
       case UserColor.Red: {
         state.colorfulCard = CardClass.Red;
@@ -28,11 +32,7 @@ export const useColorfulCard = (userColor: UserColor): CardClass => {
         return;
       }
     }
-  };
-
-  watchEffect((): void => {
-    handleCardColor();
-  });
+  }
 
   return state.colorfulCard;
-};
+}

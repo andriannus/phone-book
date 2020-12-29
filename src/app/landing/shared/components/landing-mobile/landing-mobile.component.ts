@@ -67,18 +67,11 @@ export default defineComponent({
       window.removeEventListener("scroll", onVerticalScroll);
     });
 
-    const scrollToLastPosition = (): void => {
+    function scrollToLastPosition(): void {
       state.container!.scrollTo({
         top: ls.get<number>(QOA_POSITION_Y),
       });
-    };
-
-    const isStillScrollable = (): boolean => {
-      const bottomOfPage =
-        state.container!.scrollHeight - window.screen.height - 100;
-
-      return state.scrollTop >= bottomOfPage;
-    };
+    }
 
     const onVerticalScroll = debounce((): void => {
       const { body, documentElement } = document;
@@ -91,20 +84,27 @@ export default defineComponent({
       emit(UPDATED, props.paginatedUsers.meta.nextPage);
     }, 250);
 
-    const fullName = (name: Name): string => {
+    function isStillScrollable(): boolean {
+      const bottomOfPage =
+        state.container!.scrollHeight - window.screen.height - 100;
+
+      return state.scrollTop >= bottomOfPage;
+    }
+
+    function fullName(name: Name): string {
       return transformFullName(name);
-    };
+    }
 
-    const address = (location: Location): string => {
+    function address(location: Location): string {
       return transformAddress(location);
-    };
+    }
 
-    const cardClassName = (userColor: UserColor): string => {
+    function cardClassName(userColor: UserColor): string {
       const className = "LandingMobile-card";
       const colorfulCard = useColorfulCard(userColor);
 
       return `${className} ${colorfulCard}`;
-    };
+    }
 
     return { address, cardClassName, fullName };
   },

@@ -28,15 +28,15 @@ export default defineComponent({
       window.removeEventListener("scroll", toggleToTopButton);
     });
 
-    const toggleToTopButton = (): void => {
+    function toggleToTopButton(): void {
       const { body, documentElement } = document;
       const isValidBody = body.scrollTop > 300;
       const isValidDocumentElement = documentElement.scrollTop > 300;
 
       state.isShowButton = isValidBody || isValidDocumentElement;
-    };
+    }
 
-    const onClickButton = (): void => {
+    function onClickButton(): void {
       const scrollStep = -window.scrollY / SCROLL_STEP_DIVIDER;
       const scrollInterval = setInterval((): void => {
         if (window.scrollY === 0) {
@@ -45,7 +45,7 @@ export default defineComponent({
 
         window.scrollBy(0, scrollStep);
       }, SCROLL_INTERVAL);
-    };
+    }
 
     return { onClickButton, state };
   },

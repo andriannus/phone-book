@@ -66,7 +66,7 @@ export default defineComponent({
       state.container!.removeEventListener("wheel", onMouseWheel);
     });
 
-    const onMouseWheel = (e: Event): void => {
+    function onMouseWheel(e: Event): void {
       const isGoRight = (e as WheelEvent).deltaY > 0;
 
       if (isGoRight) {
@@ -75,20 +75,13 @@ export default defineComponent({
       }
 
       state.container!.scrollLeft -= 100;
-    };
+    }
 
-    const scrollToLastPosition = (): void => {
+    function scrollToLastPosition(): void {
       state.container!.scrollTo({
         left: ls.get<number>(QOA_POSITION_X),
       });
-    };
-
-    const isStillScrollable = (): boolean => {
-      const rightOfPage =
-        state.container!.scrollWidth - state.container!.clientWidth - 100;
-
-      return state.container!.scrollLeft >= rightOfPage;
-    };
+    }
 
     const onHorizontalScroll = debounce((): void => {
       ls.set(QOA_POSITION_X, state.container!.scrollLeft);
@@ -98,20 +91,27 @@ export default defineComponent({
       emit(UPDATED, props.paginatedUsers.meta.nextPage);
     }, 250);
 
-    const fullName = (name: Name): string => {
+    function isStillScrollable(): boolean {
+      const rightOfPage =
+        state.container!.scrollWidth - state.container!.clientWidth - 100;
+
+      return state.container!.scrollLeft >= rightOfPage;
+    }
+
+    function fullName(name: Name): string {
       return transformFullName(name);
-    };
+    }
 
-    const address = (location: Location): string => {
+    function address(location: Location): string {
       return transformAddress(location);
-    };
+    }
 
-    const cardClassName = (userColor: UserColor): string => {
+    function cardClassName(userColor: UserColor): string {
       const className = "LandingDesktop-card";
       const colorfulCard = useColorfulCard(userColor);
 
       return `${className} ${colorfulCard}`;
-    };
+    }
 
     return { address, cardClassName, fullName, onHorizontalScroll };
   },

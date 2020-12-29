@@ -37,12 +37,12 @@ export default defineComponent({
       state.container?.removeEventListener("scroll", toggleToLeftButton);
     });
 
-    const toggleToLeftButton = (): void => {
+    function toggleToLeftButton(): void {
       if (!state.container) return;
       state.isShowButton = state.container.scrollLeft >= 900;
-    };
+    }
 
-    const onClickButton = (): void => {
+    function onClickButton(): void {
       if (!state.container) return;
 
       const scrollStep = state.container.scrollLeft / SCROLL_STEP_DIVIDER;
@@ -53,7 +53,7 @@ export default defineComponent({
 
         state.container!.scrollLeft -= scrollStep;
       }, SCROLL_INTERVAL);
-    };
+    }
 
     return { onClickButton, state };
   },

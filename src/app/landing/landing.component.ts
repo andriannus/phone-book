@@ -60,15 +60,26 @@ export default defineComponent({
       window.removeEventListener("resize", onResize);
     });
 
-    const onResize = (): void => {
+    watchEffect((): void => {
+      const { page = "" } = queryRef.value;
+      const validPage = page || "1";
+
+      if (!page) {
+        return handlePageWithoutQuery(validPage as string);
+      }
+
+      paginateUsers(validPage as string);
+    });
+
+    function onResize(): void {
       state.clientWidth = document.body.clientWidth;
-    };
+    }
 
-    const reloadCurrentPage = (): void => {
+    function reloadCurrentPage(): void {
       location.reload();
-    };
+    }
 
-    const paginateUsers = (page: string = "1"): void => {
+    function paginateUsers(page: string = "1"): void {
       navigate({ page });
 
       if (ls.isExist(QOA_USERS)) {
@@ -76,24 +87,24 @@ export default defineComponent({
       }
 
       fetchPaginatedUsers();
-    };
+    }
 
-    const handleSort = (sortBy: UserSort): void => {
+    function handleSort(sortBy: UserSort): void {
       navigate({ sortBy });
-    };
+    }
 
-    const navigate = (query: LandingUrlQuery): void => {
+    function navigate(query: LandingUrlQuery): void {
       router.push({
         query: {
           ...route.query,
           ...query,
         },
       });
-    };
+    }
 
-    const transformRandomUsers = (
+    function transformRandomUsers(
       users: RandomUserData[],
-    ): PaginatedData<RandomUserData> => {
+    ): PaginatedData<RandomUserData> {
       const { page = "1", sortBy = "" } = queryRef.value;
 
       const colorfulUsers = useColorfulUsers(users);
@@ -101,9 +112,9 @@ export default defineComponent({
       const paginatedUsers = usePaginateUsers(sortedUsers, page as string);
 
       return paginatedUsers;
-    };
+    }
 
-    const fetchPaginatedUsers = async (): Promise<void> => {
+    async function fetchPaginatedUsers(): Promise<void> {
       try {
         const { data: Data } = await apiInvoker.get<RandomUserResponse>(
           QUERY_PARAMS,
@@ -116,31 +127,20 @@ export default defineComponent({
       } finally {
         state.isDataReady = true;
       }
-    };
+    }
 
-    const getPaginatedUsers = (): void => {
+    function getPaginatedUsers(): void {
       const results = ls.get<RandomUserData[]>(QOA_USERS);
 
       state.paginatedUsers = transformRandomUsers(results);
       state.isDataReady = true;
-    };
+    }
 
-    const handlePageWithoutQuery = (page: string): void => {
+    function handlePageWithoutQuery(page: string): void {
       router.replace({
         query: { page },
       });
-    };
-
-    watchEffect((): void => {
-      const { page = "" } = queryRef.value;
-      const validPage = page || "1";
-
-      if (!page) {
-        return handlePageWithoutQuery(validPage as string);
-      }
-
-      paginateUsers(validPage as string);
-    });
+    }
 
     return {
       handleSort,
