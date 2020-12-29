@@ -118,6 +118,10 @@ VueWrapper {
   },
   "__setProps": [Function],
   "componentVM": Object {
+    "UserSort": Object {
+      "City": "city",
+      "Color": "color",
+    },
     "__emitted": Object {},
     "sortUser": [Function],
   },
