@@ -1,8 +1,12 @@
-import { AxiosRequestConfig, CancelTokenSource } from "axios";
+import { AxiosInstance, AxiosRequestConfig, CancelTokenSource } from "axios";
 
-export interface ApiInvoker {
+export interface ApiInvokerConfig {
   baseUrl?: string;
   headers?: AxiosRequestConfig;
+}
+
+export interface ApiInvokerService {
+  apiInvoker: AxiosInstance;
 }
 
 export interface ApiInvokerState {
