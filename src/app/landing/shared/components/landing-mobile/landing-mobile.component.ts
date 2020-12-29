@@ -38,7 +38,7 @@ export default defineComponent({
   props: {
     paginatedUsers: {
       type: Object as PropType<PaginatedData<RandomUserData>>,
-      default: () => {
+      default: (): object => {
         return {};
       },
     },
@@ -68,7 +68,7 @@ export default defineComponent({
     });
 
     const scrollToLastPosition = (): void => {
-      state.container?.scrollTo({
+      state.container!.scrollTo({
         top: ls.get<number>(QOA_POSITION_Y),
       });
     };

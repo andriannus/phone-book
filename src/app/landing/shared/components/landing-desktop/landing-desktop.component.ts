@@ -38,7 +38,7 @@ export default defineComponent({
   props: {
     paginatedUsers: {
       type: Object as PropType<PaginatedData<RandomUserData>>,
-      default: () => {
+      default: (): object => {
         return {};
       },
     },
@@ -55,7 +55,7 @@ export default defineComponent({
 
     onMounted((): void => {
       state.container = document.querySelector(".LandingDesktop");
-      state.container?.addEventListener("wheel", onMouseWheel);
+      state.container!.addEventListener("wheel", onMouseWheel);
 
       if (ls.isExist(QOA_POSITION_X)) {
         scrollToLastPosition();
@@ -63,7 +63,7 @@ export default defineComponent({
     });
 
     onUnmounted((): void => {
-      state.container?.removeEventListener("wheel", onMouseWheel);
+      state.container!.removeEventListener("wheel", onMouseWheel);
     });
 
     const onMouseWheel = (e: Event): void => {
@@ -78,7 +78,7 @@ export default defineComponent({
     };
 
     const scrollToLastPosition = (): void => {
-      state.container?.scrollTo({
+      state.container!.scrollTo({
         left: ls.get<number>(QOA_POSITION_X),
       });
     };
@@ -91,7 +91,7 @@ export default defineComponent({
     };
 
     const onHorizontalScroll = debounce((): void => {
-      ls.set(QOA_POSITION_X, state.container?.scrollLeft);
+      ls.set(QOA_POSITION_X, state.container!.scrollLeft);
 
       if (!props.paginatedUsers.meta.nextPage || !isStillScrollable()) return;
 
