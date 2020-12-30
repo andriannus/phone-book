@@ -2,6 +2,7 @@ import { shallowMount, VueWrapper } from "@vue/test-utils";
 
 import QoaTopBar from "@/app/shared/components/top-bar/top-bar.component.vue";
 import { SORTED } from "@/app/shared/constants/emit.constant";
+import { UserSort } from "@/app/shared/enums/user.enum";
 
 describe("top-bar.component.vue", () => {
   let wrapper: VueWrapper<any>;
@@ -27,7 +28,7 @@ describe("top-bar.component.vue", () => {
 
     sortByColorButton.trigger("click");
 
-    expect(wrapper.emitted(SORTED)[0]).toEqual(["color"]);
+    expect(wrapper.emitted(SORTED)[0]).toEqual([UserSort.Color]);
   });
 
   it("should emit when city button clicked", () => {
@@ -43,6 +44,6 @@ describe("top-bar.component.vue", () => {
 
     sortByCityButton.trigger("click");
 
-    expect(wrapper.emitted(SORTED)[0]).toEqual(["city"]);
+    expect(wrapper.emitted(SORTED)[0]).toEqual([UserSort.City]);
   });
 });
