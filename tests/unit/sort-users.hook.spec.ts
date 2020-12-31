@@ -4,10 +4,10 @@ import { useSortUsers } from "@/app/landing/shared/services/sort-users";
 import { UserColor, UserSort } from "@/app/shared/enums/user.enum";
 
 describe("sort-users.hook.ts", () => {
-  let userStub: ColorfulUser[];
+  let usersStub: ColorfulUser[];
 
   beforeEach(() => {
-    userStub = [
+    usersStub = [
       {
         location: {
           city: "Jakarta",
@@ -30,7 +30,7 @@ describe("sort-users.hook.ts", () => {
   });
 
   afterEach(() => {
-    userStub = [] as ColorfulUser[];
+    usersStub = [] as ColorfulUser[];
   });
 
   it("should sort by city when second parameter is city", () => {
@@ -54,7 +54,7 @@ describe("sort-users.hook.ts", () => {
         color: UserColor.Blue,
       },
     ];
-    const mockUser = useSortUsers(userStub, UserSort.City);
+    const mockUser = useSortUsers(usersStub, UserSort.City);
 
     expect(mockUser).toEqual(expectedResult);
   });
@@ -80,7 +80,7 @@ describe("sort-users.hook.ts", () => {
         color: UserColor.Red,
       },
     ];
-    const mockUser = useSortUsers(userStub, UserSort.Color);
+    const mockUser = useSortUsers(usersStub, UserSort.Color);
 
     expect(mockUser).toEqual(expectedResult);
   });
