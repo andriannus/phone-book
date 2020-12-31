@@ -1,5 +1,7 @@
 import faker from "faker";
 
+import { MOCK_USER_LOCATION, MOCK_USER_NAME } from "../shared/mocks/user.mock";
+
 import { Location, Name } from "@/app/shared/models/random-user.model";
 import {
   transformAddress,
@@ -8,11 +10,7 @@ import {
 
 describe("transform.util.js", () => {
   it("should return full name", () => {
-    const userStub = {
-      first: faker.name.firstName(),
-      last: faker.name.lastName(),
-      title: faker.name.title(),
-    } as Name;
+    const userStub: Name = MOCK_USER_NAME;
     const expectedResult = `${userStub.title} ${userStub.first} ${userStub.last}`;
 
     expect(transformFullName(userStub)).toBe(expectedResult);
@@ -28,11 +26,7 @@ describe("transform.util.js", () => {
   });
 
   it("should return address", () => {
-    const locationStub = {
-      city: faker.address.city(),
-      postcode: parseInt(faker.address.zipCodeByState(faker.address.state())),
-      state: faker.address.state(),
-    } as Location;
+    const locationStub: Location = MOCK_USER_LOCATION;
     const expectedResult = `${locationStub.city}, ${locationStub.state}, ${locationStub.postcode}`;
 
     expect(transformAddress(locationStub)).toBe(expectedResult);
