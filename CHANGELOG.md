@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/andriannus/phone-book/compare/v2.0.2...v2.1.0) (2021-01-01)
+
+
+### Features
+
+* setup e2e test using cypress ([b6d9bf6](https://github.com/andriannus/phone-book/commit/b6d9bf6f16faa3f082dca22856cdc818522e5911))
+
+
+### Tests
+
+* add unit test for coloful-card hook ([a5a1ab7](https://github.com/andriannus/phone-book/commit/a5a1ab7ded6044c2ebaac61faa8628c650872d1e))
+* add unit test for colorful-users hook ([1215748](https://github.com/andriannus/phone-book/commit/1215748ab33162464c8c3110b188680e1bf1c1a1))
+* create e2e test for landing page ([468426c](https://github.com/andriannus/phone-book/commit/468426cb6ce578545d3ad6e3a860f81476e2ca51))
+* create e2e test for not-found page ([5f26a37](https://github.com/andriannus/phone-book/commit/5f26a37850a7004632141bf6e603d0c49163513e))
+* create unit test for sort-users hook ([79c8f44](https://github.com/andriannus/phone-book/commit/79c8f447bd8884eb0fb4403e1eec616f90d84223))
+
+
+### Code Refactoring
+
+* add id attribute ([8d6a3d0](https://github.com/andriannus/phone-book/commit/8d6a3d065a3c9fd12a123d784b57df5457dd26fc))
+* create const for mock user ([e682c55](https://github.com/andriannus/phone-book/commit/e682c551c6d807cb5b3ca4e4fdd1db71ebc10d51))
+* fix wording ([d6f87a3](https://github.com/andriannus/phone-book/commit/d6f87a310ec1273dcc482d2aa72ddd8bfa4a84d6))
+* update snapshot ([a35831b](https://github.com/andriannus/phone-book/commit/a35831bb55f5631f70e41fb0cb7e16fc4ee4ecc3))
+* use enum for sort ([9513c35](https://github.com/andriannus/phone-book/commit/9513c35582d20e65be83fd3a7d828b657e1b9fd9))
+
+
+### Others
+
+* create mock random-user response for e2e test ([a2b8d92](https://github.com/andriannus/phone-book/commit/a2b8d929ae6f91225fef28534d8627da9780de3a))
+* move mock file to unit directory ([abed18d](https://github.com/andriannus/phone-book/commit/abed18d6f4cee5b1cf8ea3f867a6ff3e68c35555))
+* remove unused file ([be7c925](https://github.com/andriannus/phone-book/commit/be7c9255094df02e6835d4542f8dae130e926633))
+* set baseUrl for cypress ([ed48f4a](https://github.com/andriannus/phone-book/commit/ed48f4a8b193f75d3fdfc8a1848d573df8013249))
+* tidy up config files ([622cded](https://github.com/andriannus/phone-book/commit/622cded13319016816ca5f954b13c235ecf4d4a3))
+* update readme ([ea3e714](https://github.com/andriannus/phone-book/commit/ea3e71459007d7d5f7fe8320d86011e95fd96328))
+* use the latest cypress ([83612db](https://github.com/andriannus/phone-book/commit/83612dbb6b0bd8f9a475521f90e28db08d7030fb))
+
 ### [2.0.2](https://github.com/andriannus/phone-book/compare/v2.0.1...v2.0.2) (2020-12-29)
 
 
