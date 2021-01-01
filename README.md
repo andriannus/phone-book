@@ -31,3 +31,9 @@ npm run lint
 ```bash
 npm run test:unit
 ```
+
+### e2e test
+
+```bash
+npm run test:e2e
+```
