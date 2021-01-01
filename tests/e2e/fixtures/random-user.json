@@ -1,0 +1,452 @@
+{
+  "results": [
+    {
+      "name": { "title": "Miss", "first": "Avery", "last": "Margaret" },
+      "location": {
+        "street": { "number": 7307, "name": "Balmoral St" },
+        "city": "Hampton",
+        "state": "Manitoba",
+        "country": "Canada",
+        "postcode": "M0I 2U8",
+        "coordinates": { "latitude": "-63.2857", "longitude": "18.9972" },
+        "timezone": {
+          "offset": "+1:00",
+          "description": "Brussels, Copenhagen, Madrid, Paris"
+        }
+      },
+      "email": "avery.margaret@example.com",
+      "dob": { "date": "1951-01-10T11:53:30.415Z", "age": 70 },
+      "registered": { "date": "2018-08-14T23:06:32.307Z", "age": 3 },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/76.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/76.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/76.jpg"
+      }
+    },
+    {
+      "name": { "title": "Mr", "first": "Bruce", "last": "Smith" },
+      "location": {
+        "street": { "number": 644, "name": "Daisy Dr" },
+        "city": "Grand Rapids",
+        "state": "California",
+        "country": "United States",
+        "postcode": 39904,
+        "coordinates": { "latitude": "-64.6076", "longitude": "51.1933" },
+        "timezone": {
+          "offset": "+10:00",
+          "description": "Eastern Australia, Guam, Vladivostok"
+        }
+      },
+      "email": "bruce.smith@example.com",
+      "dob": { "date": "1954-11-19T22:52:49.032Z", "age": 67 },
+      "registered": { "date": "2010-11-30T00:34:11.630Z", "age": 11 },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/60.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/60.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/60.jpg"
+      }
+    },
+    {
+      "name": { "title": "Ms", "first": "Lola", "last": "Byrd" },
+      "location": {
+        "street": { "number": 742, "name": "Woodlawn Avenue" },
+        "city": "Kilcoole",
+        "state": "Dublin City",
+        "country": "Ireland",
+        "postcode": 88235,
+        "coordinates": { "latitude": "-25.3913", "longitude": "175.0589" },
+        "timezone": { "offset": "-9:00", "description": "Alaska" }
+      },
+      "email": "lola.byrd@example.com",
+      "dob": { "date": "1951-02-07T18:41:53.279Z", "age": 70 },
+      "registered": { "date": "2008-02-15T09:21:20.533Z", "age": 13 },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/95.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/95.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/95.jpg"
+      }
+    },
+    {
+      "name": { "title": "Mrs", "first": "Lucia", "last": "Alonso" },
+      "location": {
+        "street": { "number": 3996, "name": "Calle de Toledo" },
+        "city": "Valencia",
+        "state": "Cantabria",
+        "country": "Spain",
+        "postcode": 48997,
+        "coordinates": { "latitude": "-43.7042", "longitude": "90.6148" },
+        "timezone": {
+          "offset": "-6:00",
+          "description": "Central Time (US & Canada), Mexico City"
+        }
+      },
+      "email": "lucia.alonso@example.com",
+      "dob": { "date": "1961-05-10T14:22:12.400Z", "age": 60 },
+      "registered": { "date": "2008-11-23T18:50:46.669Z", "age": 13 },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/57.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/57.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/57.jpg"
+      }
+    },
+    {
+      "name": { "title": "Mrs", "first": "Asta", "last": "Christiansen" },
+      "location": {
+        "street": { "number": 3040, "name": "Åsumvej" },
+        "city": "Fredeikssund",
+        "state": "Sjælland",
+        "country": "Denmark",
+        "postcode": 85832,
+        "coordinates": { "latitude": "10.0355", "longitude": "6.7936" },
+        "timezone": {
+          "offset": "0:00",
+          "description": "Western Europe Time, London, Lisbon, Casablanca"
+        }
+      },
+      "email": "asta.christiansen@example.com",
+      "dob": { "date": "1996-03-26T15:18:41.315Z", "age": 25 },
+      "registered": { "date": "2017-12-29T20:29:33.625Z", "age": 4 },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/28.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/28.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/28.jpg"
+      }
+    },
+    {
+      "name": { "title": "Mrs", "first": "Elizabeth", "last": "Mckinney" },
+      "location": {
+        "street": { "number": 7310, "name": "Richmond Road" },
+        "city": "Gloucester",
+        "state": "Cumbria",
+        "country": "United Kingdom",
+        "postcode": "BX9O 7ST",
+        "coordinates": { "latitude": "4.8795", "longitude": "-93.3009" },
+        "timezone": {
+          "offset": "+11:00",
+          "description": "Magadan, Solomon Islands, New Caledonia"
+        }
+      },
+      "email": "elizabeth.mckinney@example.com",
+      "dob": { "date": "1958-02-10T06:31:58.693Z", "age": 63 },
+      "registered": { "date": "2006-04-18T04:17:39.067Z", "age": 15 },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/45.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/45.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/45.jpg"
+      }
+    },
+    {
+      "name": { "title": "Ms", "first": "Lucy", "last": "Taylor" },
+      "location": {
+        "street": { "number": 9062, "name": "Cobham Drive" },
+        "city": "Christchurch",
+        "state": "West Coast",
+        "country": "New Zealand",
+        "postcode": 92554,
+        "coordinates": { "latitude": "60.2470", "longitude": "-27.5251" },
+        "timezone": { "offset": "-10:00", "description": "Hawaii" }
+      },
+      "email": "lucy.taylor@example.com",
+      "dob": { "date": "1955-09-30T10:14:30.907Z", "age": 66 },
+      "registered": { "date": "2016-12-22T02:57:13.163Z", "age": 5 },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/47.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/47.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/47.jpg"
+      }
+    },
+    {
+      "name": { "title": "Miss", "first": "Juana", "last": "Mendez" },
+      "location": {
+        "street": { "number": 1577, "name": "Calle de Ferraz" },
+        "city": "Gandía",
+        "state": "Melilla",
+        "country": "Spain",
+        "postcode": 67083,
+        "coordinates": { "latitude": "41.6888", "longitude": "47.4115" },
+        "timezone": { "offset": "+5:45", "description": "Kathmandu" }
+      },
+      "email": "juana.mendez@example.com",
+      "dob": { "date": "1949-04-16T14:23:37.632Z", "age": 72 },
+      "registered": { "date": "2002-08-06T23:51:53.820Z", "age": 19 },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/17.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/17.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/17.jpg"
+      }
+    },
+    {
+      "name": { "title": "Miss", "first": "Dolores", "last": "Carrasco" },
+      "location": {
+        "street": { "number": 2514, "name": "Calle del Barquillo" },
+        "city": "Torrente",
+        "state": "La Rioja",
+        "country": "Spain",
+        "postcode": 46256,
+        "coordinates": { "latitude": "49.9012", "longitude": "-158.6516" },
+        "timezone": {
+          "offset": "-7:00",
+          "description": "Mountain Time (US & Canada)"
+        }
+      },
+      "email": "dolores.carrasco@example.com",
+      "dob": { "date": "1994-11-19T13:21:23.023Z", "age": 27 },
+      "registered": { "date": "2008-05-25T23:46:04.495Z", "age": 13 },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/21.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/21.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/21.jpg"
+      }
+    },
+    {
+      "name": { "title": "Mr", "first": "Jimmie", "last": "Little" },
+      "location": {
+        "street": { "number": 1376, "name": "Springfield Road" },
+        "city": "Carrickmacross",
+        "state": "South Dublin",
+        "country": "Ireland",
+        "postcode": 20387,
+        "coordinates": { "latitude": "11.7807", "longitude": "-163.9302" },
+        "timezone": {
+          "offset": "+6:00",
+          "description": "Almaty, Dhaka, Colombo"
+        }
+      },
+      "email": "jimmie.little@example.com",
+      "dob": { "date": "1978-09-04T11:01:14.511Z", "age": 43 },
+      "registered": { "date": "2016-08-10T17:03:39.717Z", "age": 5 },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/4.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/4.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/4.jpg"
+      }
+    },
+    {
+      "name": { "title": "Miss", "first": "Frida", "last": "Madsen" },
+      "location": {
+        "street": { "number": 2869, "name": "Rolighedsvej" },
+        "city": "Viby J.",
+        "state": "Danmark",
+        "country": "Denmark",
+        "postcode": 89364,
+        "coordinates": { "latitude": "-63.4970", "longitude": "-140.9742" },
+        "timezone": {
+          "offset": "-7:00",
+          "description": "Mountain Time (US & Canada)"
+        }
+      },
+      "email": "frida.madsen@example.com",
+      "dob": { "date": "1974-05-04T08:35:24.986Z", "age": 47 },
+      "registered": { "date": "2008-08-15T13:24:57.218Z", "age": 13 },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/80.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/80.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/80.jpg"
+      }
+    },
+    {
+      "name": { "title": "Mr", "first": "Vedat", "last": "Özbey" },
+      "location": {
+        "street": { "number": 8777, "name": "Talak Göktepe Cd" },
+        "city": "Tunceli",
+        "state": "Ardahan",
+        "country": "Turkey",
+        "postcode": 89893,
+        "coordinates": { "latitude": "-34.5441", "longitude": "98.5313" },
+        "timezone": { "offset": "+9:30", "description": "Adelaide, Darwin" }
+      },
+      "email": "vedat.ozbey@example.com",
+      "dob": { "date": "1969-07-24T11:05:27.992Z", "age": 52 },
+      "registered": { "date": "2012-01-02T21:27:30.150Z", "age": 9 },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/14.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/14.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/14.jpg"
+      }
+    },
+    {
+      "name": { "title": "Ms", "first": "Alice", "last": "Jean-Baptiste" },
+      "location": {
+        "street": { "number": 8939, "name": "Peel St" },
+        "city": "Lafontaine",
+        "state": "New Brunswick",
+        "country": "Canada",
+        "postcode": "S9K 9N6",
+        "coordinates": { "latitude": "20.1569", "longitude": "-46.6166" },
+        "timezone": {
+          "offset": "0:00",
+          "description": "Western Europe Time, London, Lisbon, Casablanca"
+        }
+      },
+      "email": "alice.jean-baptiste@example.com",
+      "dob": { "date": "1990-08-31T03:08:02.068Z", "age": 31 },
+      "registered": { "date": "2014-07-13T08:10:38.322Z", "age": 7 },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/19.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/19.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/19.jpg"
+      }
+    },
+    {
+      "name": { "title": "Miss", "first": "Esli", "last": "Van de Mortel" },
+      "location": {
+        "street": { "number": 5286, "name": "Buurt" },
+        "city": "Groenlo",
+        "state": "Overijssel",
+        "country": "Netherlands",
+        "postcode": 36302,
+        "coordinates": { "latitude": "51.4875", "longitude": "-34.9744" },
+        "timezone": {
+          "offset": "+3:00",
+          "description": "Baghdad, Riyadh, Moscow, St. Petersburg"
+        }
+      },
+      "email": "esli.vandemortel@example.com",
+      "dob": { "date": "1982-02-16T22:27:25.642Z", "age": 39 },
+      "registered": { "date": "2019-09-23T16:57:49.434Z", "age": 2 },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/89.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/89.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/89.jpg"
+      }
+    },
+    {
+      "name": { "title": "Mr", "first": "Coşkun", "last": "Özgörkey" },
+      "location": {
+        "street": { "number": 399, "name": "Atatürk Sk" },
+        "city": "Bilecik",
+        "state": "Kütahya",
+        "country": "Turkey",
+        "postcode": 70741,
+        "coordinates": { "latitude": "13.0456", "longitude": "-174.4248" },
+        "timezone": { "offset": "-2:00", "description": "Mid-Atlantic" }
+      },
+      "email": "coskun.ozgorkey@example.com",
+      "dob": { "date": "1993-01-21T01:14:24.433Z", "age": 28 },
+      "registered": { "date": "2011-07-21T17:04:22.260Z", "age": 10 },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/92.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/92.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/92.jpg"
+      }
+    },
+    {
+      "name": { "title": "Mrs", "first": "Anne-Jet", "last": "Krom" },
+      "location": {
+        "street": { "number": 5727, "name": "Kokhaan" },
+        "city": "Born",
+        "state": "Drenthe",
+        "country": "Netherlands",
+        "postcode": 99687,
+        "coordinates": { "latitude": "-82.3678", "longitude": "110.9105" },
+        "timezone": {
+          "offset": "-6:00",
+          "description": "Central Time (US & Canada), Mexico City"
+        }
+      },
+      "email": "anne-jet.krom@example.com",
+      "dob": { "date": "1989-03-25T11:15:58.754Z", "age": 32 },
+      "registered": { "date": "2013-12-07T22:39:26.856Z", "age": 8 },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/88.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/88.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/88.jpg"
+      }
+    },
+    {
+      "name": { "title": "Madame", "first": "Dina", "last": "Morel" },
+      "location": {
+        "street": { "number": 743, "name": "Avenue Tony-Garnier" },
+        "city": "Killwangen",
+        "state": "Graubünden",
+        "country": "Switzerland",
+        "postcode": 9059,
+        "coordinates": { "latitude": "68.7287", "longitude": "-119.6351" },
+        "timezone": { "offset": "-9:00", "description": "Alaska" }
+      },
+      "email": "dina.morel@example.com",
+      "dob": { "date": "1986-11-05T04:42:55.442Z", "age": 35 },
+      "registered": { "date": "2005-02-25T23:39:17.332Z", "age": 16 },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/34.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/34.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/34.jpg"
+      }
+    },
+    {
+      "name": { "title": "Mr", "first": "Philip", "last": "Gomez" },
+      "location": {
+        "street": { "number": 4845, "name": "Locust Rd" },
+        "city": "Tweed",
+        "state": "Australian Capital Territory",
+        "country": "Australia",
+        "postcode": 6647,
+        "coordinates": { "latitude": "0.2701", "longitude": "82.1098" },
+        "timezone": {
+          "offset": "0:00",
+          "description": "Western Europe Time, London, Lisbon, Casablanca"
+        }
+      },
+      "email": "philip.gomez@example.com",
+      "dob": { "date": "1989-10-13T10:32:42.918Z", "age": 32 },
+      "registered": { "date": "2016-02-07T02:55:19.596Z", "age": 5 },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/34.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/34.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/34.jpg"
+      }
+    },
+    {
+      "name": { "title": "Mrs", "first": "محیا", "last": "حسینی" },
+      "location": {
+        "street": { "number": 5374, "name": "آیت الله طالقانی" },
+        "city": "ارومیه",
+        "state": "گیلان",
+        "country": "Iran",
+        "postcode": 69517,
+        "coordinates": { "latitude": "1.4268", "longitude": "58.2768" },
+        "timezone": {
+          "offset": "-3:00",
+          "description": "Brazil, Buenos Aires, Georgetown"
+        }
+      },
+      "email": "mhy.hsyny@example.com",
+      "dob": { "date": "1988-06-08T02:46:47.422Z", "age": 33 },
+      "registered": { "date": "2012-10-25T10:07:26.423Z", "age": 9 },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/75.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/75.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/75.jpg"
+      }
+    },
+    {
+      "name": { "title": "Mr", "first": "Greg", "last": "Holmes" },
+      "location": {
+        "street": { "number": 6137, "name": "E Center St" },
+        "city": "Perth",
+        "state": "Queensland",
+        "country": "Australia",
+        "postcode": 3165,
+        "coordinates": { "latitude": "-72.1806", "longitude": "128.6633" },
+        "timezone": {
+          "offset": "+2:00",
+          "description": "Kaliningrad, South Africa"
+        }
+      },
+      "email": "greg.holmes@example.com",
+      "dob": { "date": "1947-07-27T18:42:36.698Z", "age": 74 },
+      "registered": { "date": "2005-06-28T08:11:24.022Z", "age": 16 },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/50.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/50.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/50.jpg"
+      }
+    }
+  ],
+  "info": {
+    "seed": "c693ac715183c5d6",
+    "results": 20,
+    "page": 1,
+    "version": "1.3"
+  }
+}
