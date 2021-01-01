@@ -2,7 +2,11 @@
   <div class="NotFound">
     <p class="FontSize-2xlarge MarginBottom">Page Not Found</p>
 
-    <router-link class="Button Button--primary" to="/landing">
+    <router-link
+      id="BtnBackToLanding"
+      class="Button Button--primary"
+      to="/landing"
+    >
       Take me away
     </router-link>
   </div>
