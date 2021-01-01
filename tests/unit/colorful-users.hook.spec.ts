@@ -1,4 +1,4 @@
-import { MOCK_USER_DATA } from "../shared/mocks/user.mock";
+import { MOCK_USER_DATA } from "./mocks/user.mock";
 
 import {
   ColorfulUser,

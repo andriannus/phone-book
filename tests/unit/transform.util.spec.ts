@@ -1,6 +1,6 @@
 import faker from "faker";
 
-import { MOCK_USER_LOCATION, MOCK_USER_NAME } from "../shared/mocks/user.mock";
+import { MOCK_USER_LOCATION, MOCK_USER_NAME } from "./mocks/user.mock";
 
 import { Location, Name } from "@/app/shared/models/random-user.model";
 import {
