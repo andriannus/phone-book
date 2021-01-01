@@ -25,6 +25,7 @@ VueWrapper {
         </p>
         <router-link
           class="Button Button--primary"
+          id="BtnBackToLanding"
           to="/landing"
         >
            Take me away 
