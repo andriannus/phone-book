@@ -1,4 +1,6 @@
-const landingRoutes = [
+import { RouteRecordRaw } from "vue-router";
+
+const landingRoutes: RouteRecordRaw[] = [
   {
     path: "/",
     redirect: "/landing",

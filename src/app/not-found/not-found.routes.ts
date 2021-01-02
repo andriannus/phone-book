@@ -1,4 +1,6 @@
-const notFoundRoutes = [
+import { RouteRecordRaw } from "vue-router";
+
+const notFoundRoutes: RouteRecordRaw[] = [
   {
     path: "/:pathMatch(.*)*",
     name: "NotFound",
