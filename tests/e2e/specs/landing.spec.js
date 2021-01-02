@@ -4,6 +4,16 @@ describe("Landing Page", () => {
       cy.viewport("macbook-13");
     });
 
+    it("should show loading content when fetch users are in progress", () => {
+      cy.intercept("api/*", {
+        fixture: "random-user",
+      }).as("fetchUsers");
+
+      cy.visit("/");
+
+      cy.contains("span", "Loading data, please wait...");
+    });
+
     it("should show contact when fetch is success", () => {
       cy.intercept("api/*", {
         fixture: "random-user",
@@ -55,6 +65,16 @@ describe("Landing Page", () => {
   describe("Mobile", () => {
     beforeEach(() => {
       cy.viewport("iphone-6");
+    });
+
+    it("should show loading content when fetch users are in progress", () => {
+      cy.intercept("api/*", {
+        fixture: "random-user",
+      }).as("fetchUsers");
+
+      cy.visit("/");
+
+      cy.contains("span", "Loading data, please wait...");
     });
 
     it("should show contact when fetch is success", () => {
