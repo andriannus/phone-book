@@ -23,6 +23,12 @@ export function useApiInvoker({
     ...headers,
   });
 
+  apiInvoker.interceptors.request.use(interceptRequest);
+  apiInvoker.interceptors.response.use(
+    interceptSuccessResponse,
+    interceptErrorResponse,
+  );
+
   function createCancelToken(config: AxiosRequestConfig): void {
     const { CancelToken } = axios;
     const source = CancelToken.source();
@@ -51,12 +57,6 @@ export function useApiInvoker({
   function interceptErrorResponse(err: any): Promise<never> {
     return Promise.reject(err);
   }
-
-  apiInvoker.interceptors.request.use(interceptRequest);
-  apiInvoker.interceptors.response.use(
-    interceptSuccessResponse,
-    interceptErrorResponse,
-  );
 
   return { apiInvoker };
 }
