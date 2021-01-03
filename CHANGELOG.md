@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.1](https://github.com/andriannus/phone-book/compare/v2.1.0...v2.1.1) (2021-01-03)
+
+
+### Tests
+
+* update e2e testing - landing ([9ada380](https://github.com/andriannus/phone-book/commit/9ada380bd4045b496692ad602efee9177c51f9d8))
+
+
+### Others
+
+* update license ([d4e1e12](https://github.com/andriannus/phone-book/commit/d4e1e12f527ada210b0f813e09a86c0807f62d1a))
+
+
+### Code Refactoring
+
+* add missing types ([eb5f1a6](https://github.com/andriannus/phone-book/commit/eb5f1a6d18d61234bf54bcefbd9be79574075582))
+* move interceptor to the top ([2713bf5](https://github.com/andriannus/phone-book/commit/2713bf594ba2cb8f4a2858ed4a5586a2a2a9d2a3))
+
 ## [2.1.0](https://github.com/andriannus/phone-book/compare/v2.0.2...v2.1.0) (2021-01-01)
 
 
