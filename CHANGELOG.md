@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.2](https://github.com/andriannus/phone-book/compare/v2.1.1...v2.1.2) (2021-01-08)
+
+
+### Code Refactoring
+
+* set content to center on mobile ([8c5b0d1](https://github.com/andriannus/phone-book/commit/8c5b0d19c8be0dd82e11b58ab9617a0361296c42))
+
+
+### Others
+
+* update snapshot ([254183f](https://github.com/andriannus/phone-book/commit/254183fcad10e7d57917181ac4b56b5725baaf5d))
+
 ### [2.1.1](https://github.com/andriannus/phone-book/compare/v2.1.0...v2.1.1) (2021-01-03)
 
 
