@@ -27,7 +27,11 @@
             <em>years old</em>
           </p>
 
-          <p>{{ user.email }}</p>
+          <p>
+            <small>
+              <code>{{ user.email }}</code>
+            </small>
+          </p>
         </div>
       </div>
 

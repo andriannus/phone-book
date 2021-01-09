@@ -27,7 +27,9 @@
         </p>
 
         <p>{{ address(user.location) }}</p>
-        <p>{{ user.email }}</p>
+        <p>
+          <code>{{ user.email }}</code>
+        </p>
       </qoa-card>
     </div>
   </div>
