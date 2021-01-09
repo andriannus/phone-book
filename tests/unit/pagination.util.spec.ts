@@ -4,7 +4,7 @@ import { ColorfulUser } from "@/app/landing/shared/services/colorful-users";
 import { UserColor } from "@/app/shared/enums/user.enum";
 import { paginate, PaginationOptions } from "@/app/shared/utils/pagination";
 
-describe("pagination.util.js", () => {
+describe("pagination.util.ts", () => {
   let userStub: ColorfulUser;
   let optionsStub: PaginationOptions;
 

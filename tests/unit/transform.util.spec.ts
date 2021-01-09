@@ -8,7 +8,7 @@ import {
   transformFullName,
 } from "@/app/shared/utils/transform";
 
-describe("transform.util.js", () => {
+describe("transform.util.ts", () => {
   it("should return full name", () => {
     const userStub: Name = MOCK_USER_NAME;
     const expectedResult = `${userStub.title} ${userStub.first} ${userStub.last}`;
