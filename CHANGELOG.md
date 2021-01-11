@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.3](https://github.com/andriannus/phone-book/compare/v2.1.2...v2.1.3) (2021-01-11)
+
+
+### Code Refactoring
+
+* remove unused import ([a76a7cc](https://github.com/andriannus/phone-book/commit/a76a7cc43c316ccf9595be25147c8cadfc71da58))
+* rename description test ([54d96bc](https://github.com/andriannus/phone-book/commit/54d96bc0a3e1a29960b740e4ddb8d0bf72203405))
+* use code tag for email user ([44c2c93](https://github.com/andriannus/phone-book/commit/44c2c939f56433f1f67a88a993cd9e90e46936c7))
+
+
+### Others
+
+* update commitlint rules ([cbe22a2](https://github.com/andriannus/phone-book/commit/cbe22a2688ee4a5d0f431df6a59b8683e5767dcd))
+
+
+### Tests
+
+* tidy up unit test ([47a5042](https://github.com/andriannus/phone-book/commit/47a50429cc24c2a256a9c270473d60b0d4bb2107))
+
 ### [2.1.2](https://github.com/andriannus/phone-book/compare/v2.1.1...v2.1.2) (2021-01-08)
 
 
