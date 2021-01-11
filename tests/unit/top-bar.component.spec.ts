@@ -15,35 +15,39 @@ describe("top-bar.component.vue", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it("should emit when color button clicked", () => {
-    const sortByColorButton = wrapper.find("#BtnSortByColor");
+  describe("Sort by Color Button", () => {
+    it("should emit when color button clicked", () => {
+      const sortByColorButton = wrapper.find("#BtnSortByColor");
 
-    sortByColorButton.trigger("click");
+      sortByColorButton.trigger("click");
 
-    expect(wrapper.emitted(SORTED)).toBeTruthy();
+      expect(wrapper.emitted(SORTED)).toBeTruthy();
+    });
+
+    it("should emit with `color` argument when color button clicked", () => {
+      const sortByColorButton = wrapper.find("#BtnSortByColor");
+
+      sortByColorButton.trigger("click");
+
+      expect(wrapper.emitted(SORTED)[0]).toEqual([UserSort.Color]);
+    });
   });
 
-  it("should emit with `color` argument when color button clicked", () => {
-    const sortByColorButton = wrapper.find("#BtnSortByColor");
+  describe("Sort by City Button", () => {
+    it("should emit when city button clicked", () => {
+      const sortByCityButton = wrapper.find("#BtnSortByCity");
 
-    sortByColorButton.trigger("click");
+      sortByCityButton.trigger("click");
 
-    expect(wrapper.emitted(SORTED)[0]).toEqual([UserSort.Color]);
-  });
+      expect(wrapper.emitted(SORTED)).toBeTruthy();
+    });
 
-  it("should emit when city button clicked", () => {
-    const sortByCityButton = wrapper.find("#BtnSortByCity");
+    it("should emit with `city` argument when color button clicked", () => {
+      const sortByCityButton = wrapper.find("#BtnSortByCity");
 
-    sortByCityButton.trigger("click");
+      sortByCityButton.trigger("click");
 
-    expect(wrapper.emitted(SORTED)).toBeTruthy();
-  });
-
-  it("should emit with `city` argument when color button clicked", () => {
-    const sortByCityButton = wrapper.find("#BtnSortByCity");
-
-    sortByCityButton.trigger("click");
-
-    expect(wrapper.emitted(SORTED)[0]).toEqual([UserSort.City]);
+      expect(wrapper.emitted(SORTED)[0]).toEqual([UserSort.City]);
+    });
   });
 });
