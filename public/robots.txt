@@ -1,3 +1,2 @@
 User-agent: *
-Disallow: 
-Sitemap: https://phone-book.andriannus.id/sitemap.xml
+Disallow:
