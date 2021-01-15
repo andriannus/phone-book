@@ -21,7 +21,7 @@ module.exports = {
           name: "Open sort by Color",
           short_name: "Sort by Color",
           description: "View a phone book that has been sorted by color",
-          url: "/landing?sortBy='color'",
+          url: "/landing?sortBy=color",
           icons: [
             {
               src: "/img/icons/android-chrome-192x192.png",
@@ -33,7 +33,7 @@ module.exports = {
           name: "Open sort by City",
           short_name: "Sort by City",
           description: "View a phone book that has been sorted by city",
-          url: "/landing?sortBy='city'",
+          url: "/landing?sortBy=city",
           icons: [
             {
               src: "/img/icons/android-chrome-192x192.png",
@@ -42,7 +42,6 @@ module.exports = {
           ],
         },
       ],
-      start_url: "https://phone-book.andriannus.id",
     },
     appleMobileWebAppCapable: "yes",
     appleMobileWebAppStatusBarStyle: "black",
