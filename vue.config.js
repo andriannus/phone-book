@@ -18,7 +18,7 @@ module.exports = {
       short_name: "Phone Book",
       shortcuts: [
         {
-          name: "Open sort by Color",
+          name: "Open Sort by Color",
           short_name: "Sort by Color",
           description: "View a phone book that has been sorted by color",
           url: "/landing?page=1&sortBy=color",
@@ -30,7 +30,7 @@ module.exports = {
           ],
         },
         {
-          name: "Open sort by City",
+          name: "Open Sort by City",
           short_name: "Sort by City",
           description: "View a phone book that has been sorted by city",
           url: "/landing?page=1&sortBy=city",
