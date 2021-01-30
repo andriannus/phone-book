@@ -5,7 +5,7 @@
       :key="index"
       class="LandingDesktop-column"
     >
-      <qoa-card :className="cardClassName(user.color)">
+      <qoa-card :class-name="cardClassName(user.color)">
         <div class="LandingDesktop-image TextAlign-center">
           <img
             alt="Picture"
