@@ -1,4 +1,4 @@
-import { computed, defineComponent } from "vue";
+import { defineComponent, h, VNode } from "vue";
 
 export default defineComponent({
   name: "Card",
@@ -6,17 +6,31 @@ export default defineComponent({
   props: {
     className: {
       type: String,
-      default: "",
+      default: null,
     },
   },
 
-  setup(props) {
-    const cardClassName = computed((): { [x: string]: boolean } => {
-      return {
-        [props.className]: !!props.className,
-      };
-    });
-
-    return { cardClassName };
+  setup(props, { slots }) {
+    return (): VNode =>
+      h(
+        "div",
+        {
+          class: [
+            "Card Card--borderless Card--elevated",
+            {
+              [props.className]: !!props.className,
+            },
+          ],
+        },
+        [
+          h(
+            "div",
+            {
+              class: "Card-body",
+            },
+            slots.default!(),
+          ),
+        ],
+      );
   },
 });
