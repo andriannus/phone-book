@@ -10,7 +10,7 @@ import { LandingMobileState } from "./landing-mobile.model";
 import { useColorfulCard } from "../../services/colorful-card";
 
 import QoaButtonToTop from "@/app/shared/components/button-to-top/button-to-top.component.vue";
-import QoaCard from "@/app/shared/components/card/card.component.vue";
+import { QoaCard } from "@/app/shared/components/card";
 import { UPDATED } from "@/app/shared/constants/emit.constant";
 import { QOA_POSITION_Y } from "@/app/shared/constants/storage.constant";
 import { UserColor } from "@/app/shared/enums/user.enum";

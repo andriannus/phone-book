@@ -10,7 +10,7 @@ import { LandingDesktopState } from "./landing-desktop.model";
 import { useColorfulCard } from "../../services/colorful-card";
 
 import QoaButtonToLeft from "@/app/shared/components/button-to-left/button-to-left.component.vue";
-import QoaCard from "@/app/shared/components/card/card.component.vue";
+import { QoaCard } from "@/app/shared/components/card";
 import { UPDATED } from "@/app/shared/constants/emit.constant";
 import { QOA_POSITION_X } from "@/app/shared/constants/storage.constant";
 import { UserColor } from "@/app/shared/enums/user.enum";
