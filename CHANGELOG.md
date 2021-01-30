@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/andriannus/phone-book/compare/v2.1.3...v2.2.0) (2021-01-30)
+
+
+### Features
+
+* setup pwa ([9dba1d1](https://github.com/andriannus/phone-book/commit/9dba1d1ce16057f80aae4f2659eb348be360edf9))
+
+
+### Bug Fixes
+
+* url for shortcuts on pwa config ([9a470dc](https://github.com/andriannus/phone-book/commit/9a470dc650a4c506c631a49d7d7aa9b5af50a87b))
+
+
+### Others
+
+* adjust pwa config ([90ed410](https://github.com/andriannus/phone-book/commit/90ed4102047852e83004433ff49cf5f3b3a8ef7f))
+* update lintstagedrc ([c103697](https://github.com/andriannus/phone-book/commit/c1036979996e27eff550d7b429c010c7599668a0))
+* update pwa config ([8de4285](https://github.com/andriannus/phone-book/commit/8de4285aa846dc0edeb550f3b6a3855d33b448c3))
+
+
+### Code Refactoring
+
+* add missing component name ([5c768a8](https://github.com/andriannus/phone-book/commit/5c768a869cda5df704ee6db12c803ae43a0ee565))
+* adjust text transform ([016fbc5](https://github.com/andriannus/phone-book/commit/016fbc5d84a0c30a62f07b794c8d7fda93b41d3f))
+* migrate app component to typescript ([0caf85b](https://github.com/andriannus/phone-book/commit/0caf85b09478ada1d6d11f2e37faf7a8f447708f))
+* tidy up code ([d78d37b](https://github.com/andriannus/phone-book/commit/d78d37b46ecf5b7695806de7be5ec19ad1b712fb))
+* tidy up style ([3597401](https://github.com/andriannus/phone-book/commit/3597401572cdbccfdfc9548ed41ca65fdeadc344))
+
 ### [2.1.3](https://github.com/andriannus/phone-book/compare/v2.1.2...v2.1.3) (2021-01-11)
 
 
