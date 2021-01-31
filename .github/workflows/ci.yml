@@ -44,3 +44,8 @@ jobs:
 
       - name: Run unit test 🧪
         run: npm run test:unit -- -u
+
+      - name: Run e2e test 🧪
+        uses: cypress-io/github-action@v2
+        with:
+          browser: chrome
