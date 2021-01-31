@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.0](https://github.com/andriannus/phone-book/compare/v2.2.0...v2.3.0) (2021-01-31)
+
+
+### Features
+
+* integrate with Cypress dashboard ([9e334e8](https://github.com/andriannus/phone-book/commit/9e334e845e327d8982f4b1bc9b2090f7dddb3419))
+
+
+### Code Refactoring
+
+* implement new card component ([432593c](https://github.com/andriannus/phone-book/commit/432593c8cc2c5ac4116827cb1fa2aa1382472db9))
+* try to implement render function ([6a301b1](https://github.com/andriannus/phone-book/commit/6a301b18c3b55367a2594a215a9e1c9cad6f60ce))
+
+
+### Others
+
+* run CI when PR ([f50e6af](https://github.com/andriannus/phone-book/commit/f50e6af300432c5c2b06dea40a5c290ff00424b9))
+* try to fix e2e test with Cypress in Github Actions ([ea45dd0](https://github.com/andriannus/phone-book/commit/ea45dd086824a3aaf71b1103a944a456d3450bdf))
+* try to fix error Github Actions ([5649126](https://github.com/andriannus/phone-book/commit/56491263ddc6ce4f50a766a5bff95b360f0f918b))
+* try to fix error Github Actions ([59b938e](https://github.com/andriannus/phone-book/commit/59b938e186ef2e928ffe8edc38e903adab0955c7))
+* try to fix npm syntax when unit test ([2dc8074](https://github.com/andriannus/phone-book/commit/2dc8074ff11934d156c9fab02109063fbd0f7e00))
+* try to run unit test with Github actions ([8bfc95a](https://github.com/andriannus/phone-book/commit/8bfc95a48eae8b75fda1694515d7d0e4dbe97a62))
+* try to use Cypress for e2e test ([5e75cc1](https://github.com/andriannus/phone-book/commit/5e75cc12cbb6525997d3e0108d077ef9e94f47f5))
+
 ## [2.2.0](https://github.com/andriannus/phone-book/compare/v2.1.3...v2.2.0) (2021-01-30)
 
 
