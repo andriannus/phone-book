@@ -48,4 +48,7 @@ jobs:
       - name: Run e2e test 🧪
         uses: cypress-io/github-action@v2
         with:
+          start: npm run serve
+          wait-on: 'http://localhost:8080',
+          config: 'baseUrl=http://localhost:8080'
           browser: chrome
