@@ -23,13 +23,11 @@ VueWrapper {
         >
           Page Not Found
         </p>
-        <router-link
+        <routerlink
           class="Button Button--primary"
           id="BtnBackToLanding"
           to="/landing"
-        >
-           Take me away 
-        </router-link>
+        />
       </div>
     </div>,
     "_context": Object {
