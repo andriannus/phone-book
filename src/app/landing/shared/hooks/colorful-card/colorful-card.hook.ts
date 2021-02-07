@@ -1,38 +1,30 @@
-import { reactive, watchEffect } from "vue";
-
 import { CardClass } from "./colorful-card.enum";
-import { ColorfulCardState } from "./colorful-card.model";
 
 import { UserColor } from "@/app/shared/enums/user.enum";
 
 export function useColorfulCard(userColor: UserColor): CardClass {
-  const state = reactive<ColorfulCardState>({
-    colorfulCard: CardClass.Default,
-  });
+  let colorfulCard: CardClass;
 
-  watchEffect((): void => {
-    handleCardColor();
-  });
-
-  function handleCardColor(): void {
+  (function handleCardColor(): void {
     switch (userColor) {
       case UserColor.Red: {
-        state.colorfulCard = CardClass.Red;
-        return;
+        colorfulCard = CardClass.Red;
+        break;
       }
       case UserColor.Green: {
-        state.colorfulCard = CardClass.Green;
-        return;
+        colorfulCard = CardClass.Green;
+        break;
       }
       case UserColor.Blue: {
-        state.colorfulCard = CardClass.Blue;
-        return;
+        colorfulCard = CardClass.Blue;
+        break;
       }
       default: {
-        return;
+        colorfulCard = CardClass.Default;
+        break;
       }
     }
-  }
+  })();
 
-  return state.colorfulCard;
+  return colorfulCard;
 }

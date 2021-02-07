@@ -1,4 +1,4 @@
-import { reactive, watchEffect } from "vue";
+import { reactive } from "vue";
 
 import { ColorfulUser, ColorfulUsersState } from "./colorful-users.model";
 
@@ -11,37 +11,43 @@ export function useColorfulUsers(users: RandomUserData[]): ColorfulUser[] {
     colorfulUsers: [],
   });
 
-  watchEffect((): void => {
-    handleUserColors();
-  });
-
-  function handleUserColors(): void {
+  (function handleUserColors(): void {
     state.colorfulUsers = state.users.map((user: RandomUserData) => {
+      let colorfulUser = {} as ColorfulUser;
+
       switch (true) {
         case user.dob.age < 21: {
-          return {
+          colorfulUser = {
             ...user,
             color: UserColor.Red,
           };
+
+          break;
         }
         case user.dob.age >= 21 && user.dob.age <= 56: {
-          return {
+          colorfulUser = {
             ...user,
             color: UserColor.Green,
           };
+
+          break;
         }
         case user.dob.age > 56: {
-          return {
+          colorfulUser = {
             ...user,
             color: UserColor.Blue,
           };
+
+          break;
         }
         default: {
-          return;
+          break;
         }
       }
+
+      return colorfulUser;
     }) as ColorfulUser[];
-  }
+  })();
 
   return state.colorfulUsers;
 }

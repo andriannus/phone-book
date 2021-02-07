@@ -1,4 +1,4 @@
-import { reactive, watchEffect } from "vue";
+import { reactive } from "vue";
 
 import { SortUsersState } from "./sort-users.model";
 import { ColorfulUser } from "../colorful-users";
@@ -14,23 +14,21 @@ export function useSortUsers(
     sort,
   });
 
-  watchEffect((): void => {
-    handleUserSort();
-  });
-
-  function handleUserSort(): void {
+  (function handleUserSort(): void {
     switch (state.sort) {
       case UserSort.City: {
-        return sortByCity();
+        sortByCity();
+        break;
       }
       case UserSort.Color: {
-        return sortByColor();
+        sortByColor();
+        break;
       }
       default: {
-        return;
+        break;
       }
     }
-  }
+  })();
 
   function sortByCity(): void {
     state.users.sort((a: ColorfulUser, b: ColorfulUser): 1 | -1 | 0 => {
