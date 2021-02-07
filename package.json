@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@amar-ui-web/core": "^1.2.2",
+    "@vueuse/core": "^4.1.0",
     "axios": "^0.21.0",
     "core-js": "^3.6.5",
     "register-service-worker": "^1.7.1",
