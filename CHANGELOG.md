@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.0](https://github.com/andriannus/phone-book/compare/v2.3.0...v2.4.0) (2021-02-07)
+
+
+### Features
+
+* integrate dependabot.yml ([73fe526](https://github.com/andriannus/phone-book/commit/73fe5268897cd22f0b2dd480c66a7b7fbdad2a10))
+* update title with [@vueuse](https://github.com/vueuse) ([e16eb9b](https://github.com/andriannus/phone-book/commit/e16eb9bab63b8359d62e58e634bbec09db3c5979))
+
+
+### Bug Fixes
+
+* error ci ([75e055a](https://github.com/andriannus/phone-book/commit/75e055ab27734681a9a86efb121dcfecfb518ef1))
+
+
+### Others
+
+* install [@vueuse](https://github.com/vueuse) ([5e34aea](https://github.com/andriannus/phone-book/commit/5e34aea757ef92e61050519b6a68a762460563b1))
+* rename services folder to hooks ([558954c](https://github.com/andriannus/phone-book/commit/558954c21efb6d88923d115535f9f3137043d98d))
+
+
+### Code Refactoring
+
+* make it simple ([96f1402](https://github.com/andriannus/phone-book/commit/96f140214623f13d9934e5134512b06201840395))
+* remove unused watch in hook files ([fc1cc46](https://github.com/andriannus/phone-book/commit/fc1cc465ab6ff0aa93ad9f8b50180479b981bd7b))
+* tidy up app component ([765cf6e](https://github.com/andriannus/phone-book/commit/765cf6e275c4a12d9a2186be0f57d3c5d7c0513e))
+* tidy up code ([a66cfc1](https://github.com/andriannus/phone-book/commit/a66cfc133dfc76e4dfae58ba9566a38441900abb))
+
 ## [2.3.0](https://github.com/andriannus/phone-book/compare/v2.2.0...v2.3.0) (2021-01-31)
 
 
