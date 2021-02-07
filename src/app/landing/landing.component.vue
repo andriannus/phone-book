@@ -22,13 +22,13 @@
 
     <landing-mobile
       v-if="isMobile"
-      :paginatedUsers="state.paginatedUsers"
+      :paginated-users="state.paginatedUsers"
       @updated="paginateUsers"
     ></landing-mobile>
 
     <landing-desktop
       v-else
-      :paginatedUsers="state.paginatedUsers"
+      :paginated-users="state.paginatedUsers"
       @updated="paginateUsers"
     ></landing-desktop>
   </template>
