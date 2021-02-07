@@ -13,4 +13,3 @@
 </template>
 
 <script lang="ts" src="./button-to-top.component.ts"></script>
-<style lang="scss" scoped src="./button-to-top.component.scss"></style>

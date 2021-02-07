@@ -13,4 +13,3 @@
 </template>
 
 <script lang="ts" src="./button-to-left.component.ts"></script>
-<style lang="scss" scoped src="./button-to-left.component.scss"></style>

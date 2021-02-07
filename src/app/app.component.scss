@@ -7,3 +7,128 @@ $aligns: center, justify, left, right;
     text-align: $align;
   }
 }
+
+.NotFound,
+.Landing-loading,
+.Landing-error {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.LandingDesktop {
+  display: flex;
+  flex-direction: row;
+  margin: 1rem auto 0;
+  min-height: calc(100vh - 56px - 1rem);
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  word-break: break-all;
+
+  &-image {
+    img {
+      border-radius: 50%;
+    }
+  }
+
+  &-column {
+    background-color: $amb-neutral-10;
+    border-radius: 0.5rem;
+    padding: 1rem;
+
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+
+  &-card {
+    height: auto;
+    min-width: 350px;
+
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+
+    *:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  background-color: $amb-neutral-20;
+
+  &-thumb {
+    background-color: $amb-neutral-90;
+  }
+
+  &-track {
+    background-color: $amb-neutral-10;
+    box-shadow: inset 0 0 6px $amb-neutral-60;
+  }
+}
+
+.LandingMobile {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem auto;
+  word-break: break-all;
+
+  &-card {
+    p {
+      line-height: 1rem;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &-image {
+    img {
+      border-radius: 50%;
+    }
+  }
+}
+
+%button-to {
+  left: 0;
+  margin: auto;
+  position: fixed;
+  right: 0;
+}
+
+.ButtonToLeft {
+  @extend %button-to;
+
+  bottom: 3rem;
+  width: 15rem;
+}
+
+.ButtonToTop {
+  @extend %button-to;
+
+  bottom: 1rem;
+  width: 11rem;
+}
+
+.SlideUp {
+  &-enter-active,
+  &-leave-active {
+    transition: all 0.3s ease-in-out;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+}
+
+.TopBar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}

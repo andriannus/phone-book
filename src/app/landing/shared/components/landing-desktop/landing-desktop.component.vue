@@ -38,4 +38,3 @@
 </template>
 
 <script lang="ts" src="./landing-desktop.component.ts"></script>
-<style lang="scss" scoped src="./landing-desktop.component.scss"></style>

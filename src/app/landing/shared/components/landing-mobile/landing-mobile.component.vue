@@ -43,4 +43,3 @@
 </template>
 
 <script lang="ts" src="./landing-mobile.component.ts"></script>
-<style lang="scss" scoped src="./landing-mobile.component.scss"></style>
