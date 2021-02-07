@@ -1,5 +1,5 @@
-import { ColorfulUser } from "@/app/landing/shared/services/colorful-users";
-import { useSortUsers } from "@/app/landing/shared/services/sort-users";
+import { ColorfulUser } from "@/app/landing/shared/hooks/colorful-users";
+import { useSortUsers } from "@/app/landing/shared/hooks/sort-users";
 
 import { UserColor, UserSort } from "@/app/shared/enums/user.enum";
 

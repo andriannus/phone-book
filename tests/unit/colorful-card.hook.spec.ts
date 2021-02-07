@@ -1,7 +1,7 @@
 import {
   CardClass,
   useColorfulCard,
-} from "@/app/landing/shared/services/colorful-card";
+} from "@/app/landing/shared/hooks/colorful-card";
 
 import { UserColor } from "@/app/shared/enums/user.enum";
 

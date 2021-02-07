@@ -7,7 +7,7 @@ import {
 } from "vue";
 
 import { LandingMobileState } from "./landing-mobile.model";
-import { useColorfulCard } from "../../services/colorful-card";
+import { useColorfulCard } from "../../hooks/colorful-card";
 
 import QoaButtonToTop from "@/app/shared/components/button-to-top/button-to-top.component.vue";
 import { QoaCard } from "@/app/shared/components/card";

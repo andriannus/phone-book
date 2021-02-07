@@ -1,6 +1,6 @@
 import { MOCK_USER_DATA } from "./mocks/user.mock";
 
-import { ColorfulUser } from "@/app/landing/shared/services/colorful-users";
+import { ColorfulUser } from "@/app/landing/shared/hooks/colorful-users";
 import { UserColor } from "@/app/shared/enums/user.enum";
 import { paginate, PaginationOptions } from "@/app/shared/utils/pagination";
 

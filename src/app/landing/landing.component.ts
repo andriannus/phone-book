@@ -12,9 +12,9 @@ import { LandingState, LandingUrlQuery } from "./landing.model";
 import LandingDesktop from "./shared/components/landing-desktop/landing-desktop.component.vue";
 import LandingMobile from "./shared/components/landing-mobile/landing-mobile.component.vue";
 import { QUERY_PARAMS } from "./shared/constants/landing.constant";
-import { useColorfulUsers } from "./shared/services/colorful-users";
-import { usePaginateUsers } from "./shared/services/paginate-users";
-import { useSortUsers } from "./shared/services/sort-users";
+import { useColorfulUsers } from "./shared/hooks/colorful-users";
+import { usePaginateUsers } from "./shared/hooks/paginate-users";
+import { useSortUsers } from "./shared/hooks/sort-users";
 
 import QoaTopBar from "@/app/shared/components/top-bar/top-bar.component.vue";
 import { QOA_USERS } from "@/app/shared/constants/storage.constant";

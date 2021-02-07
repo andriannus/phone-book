@@ -7,7 +7,7 @@ import {
 } from "vue";
 
 import { LandingDesktopState } from "./landing-desktop.model";
-import { useColorfulCard } from "../../services/colorful-card";
+import { useColorfulCard } from "../../hooks/colorful-card";
 
 import QoaButtonToLeft from "@/app/shared/components/button-to-left/button-to-left.component.vue";
 import { QoaCard } from "@/app/shared/components/card";

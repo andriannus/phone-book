@@ -3,7 +3,7 @@ import { MOCK_USER_DATA } from "./mocks/user.mock";
 import {
   ColorfulUser,
   useColorfulUsers,
-} from "@/app/landing/shared/services/colorful-users";
+} from "@/app/landing/shared/hooks/colorful-users";
 import { UserColor } from "@/app/shared/enums/user.enum";
 import { RandomUserData } from "@/app/shared/models/random-user.model";
 
