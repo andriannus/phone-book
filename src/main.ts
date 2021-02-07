@@ -1,7 +1,6 @@
 import { createApp } from "vue";
 
-import App from "@/app/app.component.vue";
-import router from "@/app/app.routes";
+import { App, router } from "@/app";
 
 import "./register-service-worker";
 
