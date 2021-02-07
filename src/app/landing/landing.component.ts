@@ -7,6 +7,7 @@ import {
   watchEffect,
 } from "vue";
 import { useRoute, useRouter } from "vue-router";
+import { useTitle } from "@vueuse/core";
 
 import { LandingState, LandingUrlQuery } from "./landing.model";
 import LandingDesktop from "./shared/components/landing-desktop/landing-desktop.component.vue";
@@ -70,6 +71,8 @@ export default defineComponent({
 
       paginateUsers(validPage as string);
     });
+
+    useTitle("Home | Phone Book");
 
     function onResize(): void {
       state.clientWidth = document.body.clientWidth;
