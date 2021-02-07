@@ -1,19 +1,9 @@
 @import "@amar-ui-web/core";
 
-.TextAlign {
-  &-center {
-    text-align: center;
-  }
+$aligns: center, justify, left, right;
 
-  &-left {
-    text-align: left;
-  }
-
-  &-justify {
-    text-align: justify;
-  }
-
-  &-right {
-    text-align: right;
+@each $align in $aligns {
+  .TextAlign-#{$align} {
+    text-align: $align;
   }
 }
