@@ -1,12 +1,11 @@
-import { defineComponent, h, resolveComponent, VNode } from "vue";
+import { defineComponent, h, VNode } from "vue";
+import { RouterLink } from "vue-router";
 import { useTitle } from "@vueuse/core";
 
 export default defineComponent({
   name: "NotFound",
 
   setup() {
-    const RouterLink = resolveComponent("RouterLink");
-
     useTitle("Page Not Found | Phone Book");
 
     return (): VNode =>
