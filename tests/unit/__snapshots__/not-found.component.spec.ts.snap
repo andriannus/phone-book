@@ -23,10 +23,9 @@ VueWrapper {
         >
           Page Not Found
         </p>
-        <routerlink
+        <router-link-stub
           class="Button Button--primary"
           id="BtnBackToLanding"
-          to="/landing"
         />
       </div>
     </div>,
