@@ -9,7 +9,7 @@ import {
 } from "@/app/shared/utils/transform";
 
 describe("transform.util.ts", () => {
-  describe("transformAddress", () => {
+  describe("when execute transformAddress()", () => {
     it("should return address", () => {
       const locationStub: Location = MOCK_USER_LOCATION;
       const expectedResult = `${locationStub.city}, ${locationStub.state}, ${locationStub.postcode}`;
@@ -27,7 +27,7 @@ describe("transform.util.ts", () => {
     });
   });
 
-  describe("transformFullName", () => {
+  describe("when execute transformFullName()", () => {
     it("should return full name", () => {
       const userStub: Name = MOCK_USER_NAME;
       const expectedResult = `${userStub.title} ${userStub.first} ${userStub.last}`;

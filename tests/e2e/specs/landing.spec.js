@@ -1,5 +1,5 @@
 describe("Landing Page", () => {
-  describe("Desktop", () => {
+  describe("when desktop view", () => {
     beforeEach(() => {
       cy.viewport("macbook-13");
     });
@@ -62,7 +62,7 @@ describe("Landing Page", () => {
     });
   });
 
-  describe("Mobile", () => {
+  describe("when mobile view", () => {
     beforeEach(() => {
       cy.viewport("iphone-6");
     });
