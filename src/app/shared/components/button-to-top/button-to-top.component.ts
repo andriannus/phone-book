@@ -2,7 +2,7 @@ import { defineComponent, onMounted, onUnmounted, reactive } from "vue";
 
 import { ButtonToTopState } from "./button-to-top.model";
 
-import QoaSlideUpTransition from "@/app/shared/components/slide-up-transition/slide-up-transition.component.vue";
+import { QoaSlideUpTransition } from "@/app/shared/components/slide-up-transition";
 import {
   SCROLL_INTERVAL,
   SCROLL_STEP_DIVIDER,
