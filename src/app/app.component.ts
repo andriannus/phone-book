@@ -1,4 +1,5 @@
-import { defineComponent, h, resolveComponent, VNode } from "vue";
+import { defineComponent, h, VNode } from "vue";
+import { RouterView } from "vue-router";
 
 import "./app.component.scss";
 
@@ -6,7 +7,6 @@ export default defineComponent({
   name: "App",
 
   setup() {
-    const RouterView = resolveComponent("RouterView");
     return (): VNode => h(RouterView);
   },
 });
