@@ -3,24 +3,12 @@ import { defineComponent, h, VNode } from "vue";
 export default defineComponent({
   name: "Card",
 
-  props: {
-    className: {
-      type: String,
-      default: null,
-    },
-  },
-
-  setup(props, { slots }) {
+  setup(_, { slots }) {
     return (): VNode =>
       h(
         "div",
         {
-          class: [
-            "Card Card--borderless Card--elevated",
-            {
-              [props.className]: !!props.className,
-            },
-          ],
+          class: "Card Card--borderless Card--elevated",
         },
         [
           h(

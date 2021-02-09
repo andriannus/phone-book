@@ -3,7 +3,7 @@
     <qoa-card
       v-for="(user, index) in paginatedUsers.data"
       :key="index"
-      :class-name="cardClassName(user.color)"
+      :class="cardClassName(user.color)"
     >
       <div class="Flex MarginBottom">
         <div class="LandingMobile-image MarginRight">
