@@ -4,7 +4,7 @@ import {
   onMounted,
   onUnmounted,
   reactive,
-  watchEffect,
+  watch,
 } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useTitle } from "@vueuse/core";
@@ -53,7 +53,10 @@ export default defineComponent({
     const queryRef = computed(() => route.query);
     const isMobile = computed(() => state.clientWidth < 768);
 
+    useTitle("Home | Phone Book");
+
     onMounted((): void => {
+      initializePage();
       window.addEventListener("resize", onResize);
     });
 
@@ -61,7 +64,11 @@ export default defineComponent({
       window.removeEventListener("resize", onResize);
     });
 
-    watchEffect((): void => {
+    watch(queryRef, ({ page }): void => {
+      paginateUsers(page as string);
+    });
+
+    function initializePage(): void {
       const { page = "" } = queryRef.value;
       const validPage = page || "1";
 
@@ -70,9 +77,7 @@ export default defineComponent({
       }
 
       paginateUsers(validPage as string);
-    });
-
-    useTitle("Home | Phone Book");
+    }
 
     function onResize(): void {
       state.clientWidth = document.body.clientWidth;
