@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.4.1](https://github.com/andriannus/phone-book/compare/v2.4.0...v2.4.1) (2021-02-19)
+
+
+### Code Refactoring
+
+* implement new slide-up-transition component ([fe48c5e](https://github.com/andriannus/phone-book/commit/fe48c5ea723704e7f8e5d4279346877a41311736))
+* move all styles to app ([a912f7c](https://github.com/andriannus/phone-book/commit/a912f7cfa566be6479ce9df2fc470503508ea64a))
+* tidy up unit test ([2a9dec7](https://github.com/andriannus/phone-book/commit/2a9dec70523b6c1b97f830335d642119f24c76d9))
+* update not-found page using render ([52c193f](https://github.com/andriannus/phone-book/commit/52c193fe2fda14d4ab356ad91c1a9cc96ef96198))
+* update not-found page with render ([ae8e86b](https://github.com/andriannus/phone-book/commit/ae8e86b69f1cfd32836db94c5754cbd82481b35b))
+* use built-in RouterLink ([da33748](https://github.com/andriannus/phone-book/commit/da337487f62fdcbfd7594b897297b075ffcf9a1e))
+* use render function instead of vue file ([c13757a](https://github.com/andriannus/phone-book/commit/c13757a2f01262136e14cf14d2eb780fce8f5f26))
+* use watch instead of watchEffect ([7df56e3](https://github.com/andriannus/phone-book/commit/7df56e324bfc84312f2ac148b9759a0880f842df))
+* using built-in class attribute ([8bd4041](https://github.com/andriannus/phone-book/commit/8bd40411cf00bff87bf4cb85e7cbb02d551f1edb))
+* using built-in RouterView ([844544b](https://github.com/andriannus/phone-book/commit/844544b3ed463d297a615113ae91d77453cacd05))
+
+
+### Others
+
+* install missing package ([d4ec6ba](https://github.com/andriannus/phone-book/commit/d4ec6ba0e1664f498b808564e9a488cc1ec8c83c))
+* update lint-staged config ([a7b1cff](https://github.com/andriannus/phone-book/commit/a7b1cff9fa66af82923036389d05e980903c6ebe))
+* update not-found snap ([cb67e87](https://github.com/andriannus/phone-book/commit/cb67e87d2ada7dfb5d0d10e33d6e7db3e8216502))
+
 ## [2.4.0](https://github.com/andriannus/phone-book/compare/v2.3.0...v2.4.0) (2021-02-07)
 
 
