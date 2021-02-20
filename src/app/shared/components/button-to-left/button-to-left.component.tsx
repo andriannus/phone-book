@@ -1,4 +1,10 @@
-import { defineComponent, onMounted, onUnmounted, reactive } from "vue";
+import {
+  defineComponent,
+  onMounted,
+  onUnmounted,
+  reactive,
+  Teleport,
+} from "vue";
 
 import { ButtonToLeftState } from "./button-to-left.model";
 
@@ -9,11 +15,7 @@ import {
 } from "@/app/shared/constants/scroll.constant";
 
 export default defineComponent({
-  name: "ButtonToLeft",
-
-  components: {
-    QoaSlideUpTransition,
-  },
+  name: "ButtonToLeftComponent",
 
   props: {
     selector: {
@@ -55,6 +57,19 @@ export default defineComponent({
       }, SCROLL_INTERVAL);
     }
 
-    return { onClickButton, state };
+    return (): JSX.Element => (
+      <Teleport to="body">
+        <QoaSlideUpTransition>
+          {state.isShowButton && (
+            <button
+              class="ButtonToLeft Button Button--dark Button--rounded Button--elevated"
+              onClick={onClickButton}
+            >
+              Give me back to the left
+            </button>
+          )}
+        </QoaSlideUpTransition>
+      </Teleport>
+    );
   },
 });
