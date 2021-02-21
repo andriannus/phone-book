@@ -40,7 +40,7 @@ VueWrapper {
               id="BtnSortByColor"
               type="button"
             >
-               Color 
+              Color
             </button>
           </div>
           <div
@@ -51,7 +51,7 @@ VueWrapper {
               id="BtnSortByCity"
               type="button"
             >
-               City 
+              City
             </button>
           </div>
         </div>
@@ -118,12 +118,7 @@ VueWrapper {
   },
   "__setProps": [Function],
   "componentVM": Object {
-    "UserSort": Object {
-      "City": "city",
-      "Color": "color",
-    },
     "__emitted": Object {},
-    "sortUser": [Function],
   },
   "rootVM": Object {
     "__emitted": Object {},

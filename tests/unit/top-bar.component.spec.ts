@@ -1,6 +1,6 @@
 import { shallowMount, VueWrapper } from "@vue/test-utils";
 
-import QoaTopBar from "@/app/shared/components/top-bar/top-bar.component.vue";
+import { QoaTopBar } from "@/app/shared/components/top-bar";
 import { SORTED } from "@/app/shared/constants/emit.constant";
 import { UserSort } from "@/app/shared/enums/user.enum";
 

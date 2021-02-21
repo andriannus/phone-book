@@ -17,7 +17,7 @@ import { useColorfulUsers } from "./shared/hooks/colorful-users";
 import { usePaginateUsers } from "./shared/hooks/paginate-users";
 import { useSortUsers } from "./shared/hooks/sort-users";
 
-import QoaTopBar from "@/app/shared/components/top-bar/top-bar.component.vue";
+import { QoaTopBar } from "@/app/shared/components/top-bar";
 import { QOA_USERS } from "@/app/shared/constants/storage.constant";
 import { UserSort } from "@/app/shared/enums/user.enum";
 import {
