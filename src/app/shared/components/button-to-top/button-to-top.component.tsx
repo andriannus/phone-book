@@ -1,4 +1,10 @@
-import { defineComponent, onMounted, onUnmounted, reactive } from "vue";
+import {
+  defineComponent,
+  onMounted,
+  onUnmounted,
+  reactive,
+  Teleport,
+} from "vue";
 
 import { ButtonToTopState } from "./button-to-top.model";
 
@@ -47,6 +53,19 @@ export default defineComponent({
       }, SCROLL_INTERVAL);
     }
 
-    return { onClickButton, state };
+    return (): JSX.Element => (
+      <Teleport to="body">
+        <QoaSlideUpTransition>
+          {state.isShowButton && (
+            <button
+              class="ButtonToTop Button Button--dark Button--rounded Button--elevated"
+              onClick={onClickButton}
+            >
+              Take me to fly up
+            </button>
+          )}
+        </QoaSlideUpTransition>
+      </Teleport>
+    );
   },
 });
