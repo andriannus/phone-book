@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.4.2](https://github.com/andriannus/phone-book/compare/v2.4.1...v2.4.2) (2021-03-03)
+
+
+### Others
+
+* install JSX plugin ([b2e93bd](https://github.com/andriannus/phone-book/commit/b2e93bd54a3909c285e8b25f7c5418c342caeab3))
+
+
+### Code Refactoring
+
+* add missing types ([69edd71](https://github.com/andriannus/phone-book/commit/69edd719a0d8c1b6ce8c75cbbf6b2f72913fceb4))
+* implement JSX at app page ([b19444c](https://github.com/andriannus/phone-book/commit/b19444c1533ecf37336771a76ffac18ebc5d2a13))
+* implement JSX at button-to-left component ([0d2333b](https://github.com/andriannus/phone-book/commit/0d2333b8680df6e72da9c05f3754c0199a7e42e3))
+* implement new button-to-top component ([ad23f23](https://github.com/andriannus/phone-book/commit/ad23f23719301b26fb6f7801fd28d7696a87bf02))
+* implement new top-bar component ([2bb12cd](https://github.com/andriannus/phone-book/commit/2bb12cd5c71a20cc84c2054d21959e481899b57d))
+* set title on mounted lifecycle ([3ff196e](https://github.com/andriannus/phone-book/commit/3ff196efed807b9e21bc412d9c83c8b702b84ebf))
+* use JSX for button-to-top component ([ee747d5](https://github.com/andriannus/phone-book/commit/ee747d5a6b12a393b31e6e849c9642c44ccde559))
+* use JSX for card component ([57498a2](https://github.com/andriannus/phone-book/commit/57498a2b9e27291b339d19214476a77ab252cc8b))
+* use JSX for slide-up component ([26e9b23](https://github.com/andriannus/phone-book/commit/26e9b233ede19eb925d5f55ee393231c788ddc91))
+* use JSX for top-bar component ([e3cc677](https://github.com/andriannus/phone-book/commit/e3cc67728af3f1d8f146474a37e7d02d0b54fdc6))
+
 ### [2.4.1](https://github.com/andriannus/phone-book/compare/v2.4.0...v2.4.1) (2021-02-19)
 
 
