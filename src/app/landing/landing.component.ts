@@ -53,10 +53,10 @@ export default defineComponent({
     const queryRef = computed(() => route.query);
     const isMobile = computed(() => state.clientWidth < 768);
 
-    useTitle("Home | Phone Book");
-
     onMounted((): void => {
+      useTitle("Home | Phone Book");
       initializePage();
+
       window.addEventListener("resize", onResize);
     });
 

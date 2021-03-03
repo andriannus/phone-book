@@ -1,4 +1,4 @@
-import { defineComponent, h, VNode } from "vue";
+import { defineComponent, h, onMounted, VNode } from "vue";
 import { RouterLink } from "vue-router";
 import { useTitle } from "@vueuse/core";
 
@@ -6,7 +6,9 @@ export default defineComponent({
   name: "NotFound",
 
   setup() {
-    useTitle("Page Not Found | Phone Book");
+    onMounted(() => {
+      useTitle("Page Not Found | Phone Book");
+    });
 
     return (): VNode =>
       h(
