@@ -46,6 +46,7 @@ $aligns: center, justify, left, right;
   &-card {
     height: auto;
     min-width: 350px;
+    user-select: none;
 
     &:not(:last-child) {
       margin-right: 1rem;
