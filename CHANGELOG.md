@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.4.3](https://github.com/andriannus/phone-book/compare/v2.4.2...v2.4.3) (2021-06-02)
+
+
+### Code Refactoring
+
+* disable user-select on card ([97d7af8](https://github.com/andriannus/phone-book/commit/97d7af83440a1307f1e9f31b5a7a7be6c795196c))
+
 ### [2.4.2](https://github.com/andriannus/phone-book/compare/v2.4.1...v2.4.2) (2021-03-03)
 
 
