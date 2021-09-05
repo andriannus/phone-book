@@ -11,7 +11,9 @@ describe("Landing Page", () => {
 
       cy.visit("/");
 
-      cy.contains("span", "Loading data, please wait...");
+      cy.get(".Landing-loading")
+        .find("span")
+        .should("contain.text", "Loading data, please wait...");
     });
 
     it("should show contact when fetch is success", () => {
@@ -22,10 +24,12 @@ describe("Landing Page", () => {
       cy.visit("/");
       cy.wait("@fetchUsers");
 
-      cy.get(".LandingDesktop-card");
+      cy.get(".LandingDesktop")
+        .find(".LandingDesktop-card")
+        .should("exist");
     });
 
-    it("should show 10 user if the page query is `1`", () => {
+    it("should show 10 users if the page query is `1`", () => {
       cy.intercept("api/*", {
         fixture: "random-user",
       }).as("fetchUsers");
@@ -38,7 +42,7 @@ describe("Landing Page", () => {
         .should("have.length", 10);
     });
 
-    it("should show 20 user if the page query is `2`", () => {
+    it("should show 20 users if the page query is `2`", () => {
       cy.intercept("api/*", {
         fixture: "random-user",
       }).as("fetchUsers");
@@ -58,7 +62,9 @@ describe("Landing Page", () => {
 
       cy.visit("/");
 
-      cy.contains("p", "Something wrong.");
+      cy.get(".Landing-error")
+        .find("p")
+        .should("contain.text", "Something wrong.");
     });
   });
 
@@ -74,7 +80,9 @@ describe("Landing Page", () => {
 
       cy.visit("/");
 
-      cy.contains("span", "Loading data, please wait...");
+      cy.get(".Landing-loading")
+        .find("span")
+        .should("contain.text", "Loading data, please wait...");
     });
 
     it("should show contact when fetch is success", () => {
@@ -85,10 +93,12 @@ describe("Landing Page", () => {
       cy.visit("/");
       cy.wait("@fetchUsers");
 
-      cy.get(".LandingMobile-card");
+      cy.get(".LandingMobile")
+        .find(".LandingMobile-card")
+        .should("exist");
     });
 
-    it("should show 10 user if the page query is `1`", () => {
+    it("should show 10 users if the page query is `1`", () => {
       cy.intercept("api/*", {
         fixture: "random-user",
       }).as("fetchUsers");
@@ -101,7 +111,7 @@ describe("Landing Page", () => {
         .should("have.length", 10);
     });
 
-    it("should show 20 user if the page query is `2`", () => {
+    it("should show 20 users if the page query is `2`", () => {
       cy.intercept("api/*", {
         fixture: "random-user",
       }).as("fetchUsers");
@@ -121,7 +131,9 @@ describe("Landing Page", () => {
 
       cy.visit("/");
 
-      cy.contains("p", "Something wrong.");
+      cy.get(".Landing-error")
+        .find("p")
+        .should("contain.text", "Something wrong.");
     });
   });
 });
