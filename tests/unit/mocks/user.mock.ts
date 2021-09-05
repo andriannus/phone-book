@@ -14,7 +14,7 @@ export const MOCK_USER_NAME: Name = {
 
 export const MOCK_USER_LOCATION: Location = {
   street: {
-    number: faker.random.number(),
+    number: faker.datatype.number(),
     name: faker.address.streetName(),
   },
   city: faker.address.city(),
@@ -37,11 +37,11 @@ export const MOCK_USER_DATA: RandomUserData = {
   email: faker.internet.email(),
   dob: {
     date: faker.date.past(),
-    age: faker.random.number(),
+    age: faker.datatype.number(),
   },
   registered: {
     date: faker.date.past(),
-    age: faker.random.number(),
+    age: faker.datatype.number(),
   },
   picture: {
     large: faker.image.imageUrl(),
